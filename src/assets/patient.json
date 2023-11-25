@@ -1,0 +1,123 @@
+[
+    {
+      "PATIENT_ID": 1,
+      "PP_NAME": "Nguyễn Văn A",
+      "PP_ORAL_HEALTH": "Good",
+      "PP_ALLERGY": "None",
+      "PP_TOTAL_COST": 1200,
+      "PP_TOTAL_PAID": 800,
+      "PP_PHONENUMBER": "123-456-7890",
+      "PP_EMAIL": "nguyenvana@example.com",
+      "PP_ADDRESS": "123 Main St, Cityville",
+      "PP_DATE_OF_BIRTH": "1990-03-15"
+    },
+    {
+      "PATIENT_ID": 2,
+      "PP_NAME": "Trần Thị B",
+      "PP_ORAL_HEALTH": "Excellent",
+      "PP_ALLERGY": "Pollen",
+      "PP_TOTAL_COST": 1500,
+      "PP_TOTAL_PAID": 900,
+      "PP_PHONENUMBER": "987-654-3210",
+      "PP_EMAIL": "tranthib@example.com",
+      "PP_ADDRESS": "456 Oak St, Townsville",
+      "PP_DATE_OF_BIRTH": "1985-08-22"
+    },
+    {
+      "PATIENT_ID": 3,
+      "PP_NAME": "Lê Văn C",
+      "PP_ORAL_HEALTH": "Fair",
+      "PP_ALLERGY": "Dust",
+      "PP_TOTAL_COST": 800,
+      "PP_TOTAL_PAID": 400,
+      "PP_PHONENUMBER": "555-123-4567",
+      "PP_EMAIL": "levanc@example.com",
+      "PP_ADDRESS": "789 Pine St, Villagetown",
+      "PP_DATE_OF_BIRTH": "1995-12-10"
+    },
+    {
+        "PATIENT_ID": 4,
+        "PP_NAME": "Lê Văn E",
+        "PP_ORAL_HEALTH": "Fair",
+        "PP_ALLERGY": "Dust",
+        "PP_TOTAL_COST": 1000,
+        "PP_TOTAL_PAID": 400,
+        "PP_PHONENUMBER": "555-123-4567",
+        "PP_EMAIL": "levanc@example.com",
+        "PP_ADDRESS": "789 Pine St, Villagetown",
+        "PP_DATE_OF_BIRTH": "1995-12-10"
+      },
+      {
+        "PATIENT_ID": 5,
+        "PP_NAME": "Lê Văn N",
+        "PP_ORAL_HEALTH": "Fair",
+        "PP_ALLERGY": "Dust",
+        "PP_TOTAL_COST": 800,
+        "PP_TOTAL_PAID": 400,
+        "PP_PHONENUMBER": "555-123-4567",
+        "PP_EMAIL": "levanc@example.com",
+        "PP_ADDRESS": "789 Pine St, Villagetown",
+        "PP_DATE_OF_BIRTH": "1995-12-10"
+      },
+      {
+        "PATIENT_ID": 6,
+        "PP_NAME": "Lê Văn M",
+        "PP_ORAL_HEALTH": "Fair",
+        "PP_ALLERGY": "Dust",
+        "PP_TOTAL_COST": 800,
+        "PP_TOTAL_PAID": 400,
+        "PP_PHONENUMBER": "555-123-4567",
+        "PP_EMAIL": "levanc@example.com",
+        "PP_ADDRESS": "789 Pine St, Villagetown",
+        "PP_DATE_OF_BIRTH": "1995-12-10"
+      },
+      {
+        "PATIENT_ID": 7,
+        "PP_NAME": "Lê Văn L",
+        "PP_ORAL_HEALTH": "Fair",
+        "PP_ALLERGY": "Dust",
+        "PP_TOTAL_COST": 800,
+        "PP_TOTAL_PAID": 400,
+        "PP_PHONENUMBER": "555-123-4567",
+        "PP_EMAIL": "levanc@example.com",
+        "PP_ADDRESS": "789 Pine St, Villagetown",
+        "PP_DATE_OF_BIRTH": "1995-12-10"
+      },
+      {
+        "PATIENT_ID": 8,
+        "PP_NAME": "Lê Văn K",
+        "PP_ORAL_HEALTH": "Fair",
+        "PP_ALLERGY": "Dust",
+        "PP_TOTAL_COST": 800,
+        "PP_TOTAL_PAID": 400,
+        "PP_PHONENUMBER": "555-123-4567",
+        "PP_EMAIL": "levanc@example.com",
+        "PP_ADDRESS": "789 Pine St, Villagetown",
+        "PP_DATE_OF_BIRTH": "1995-12-10"
+      },
+      {
+        "PATIENT_ID": 9,
+        "PP_NAME": "Lê Văn G",
+        "PP_ORAL_HEALTH": "Fair",
+        "PP_ALLERGY": "Dust",
+        "PP_TOTAL_COST": 800,
+        "PP_TOTAL_PAID": 400,
+        "PP_PHONENUMBER": "555-123-4567",
+        "PP_EMAIL": "levanc@example.com",
+        "PP_ADDRESS": "789 Pine St, Villagetown",
+        "PP_DATE_OF_BIRTH": "1995-12-10"
+      },
+      {
+        "PATIENT_ID": 10,
+        "PP_NAME": "Lê Văn F",
+        "PP_ORAL_HEALTH": "Fair",
+        "PP_ALLERGY": "Dust",
+        "PP_TOTAL_COST": 800,
+        "PP_TOTAL_PAID": 400,
+        "PP_PHONENUMBER": "555-123-4567",
+        "PP_EMAIL": "levanc@example.com",
+        "PP_ADDRESS": "789 Pine St, Villagetown",
+        "PP_DATE_OF_BIRTH": "1995-12-10"
+      }
+  ]
+  

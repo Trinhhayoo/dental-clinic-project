@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from "react-redux";
+import {
+  useLocation,
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
 
-function App() {
+import {
+ 
+  Sidebar,
+  Userbar
+
+} from "./components";
+import {
+Overview,
+SignIn,
+SignUp
+
+} from "./pages";
+
+
+const App = () => {
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex h-screen">
+    <Sidebar />
+
+     
+    <div className="flex-1 flex flex-col">
+       <Userbar />
+     
+          <div className="px-4 bg-gray-100 flex-1 h-fit">
+            <Routes>
+              <Route path="/" element={<Overview />} />
+              <Route path="/home" element={<Overview />} />
+              <Route path="/signin" element={<SignIn/>} />
+              <Route path="/signup" element={<SignUp />} />
+
+
+           
+            </Routes>
+          </div>
+        
+        </div>
+    
+
+     
     </div>
   );
-}
+};
 
 export default App;

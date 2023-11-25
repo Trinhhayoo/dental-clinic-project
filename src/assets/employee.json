@@ -1,0 +1,83 @@
+[
+    {
+      "EMPLOYEE_ID": 1,
+      "NAME": "Nguyễn Thị A",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1980-05-20",
+      "ADDRESS": "123 Main St, Cityville",
+      "ROLE_TYPE": "DENTIST"
+    },
+    {
+      "EMPLOYEE_ID": 2,
+      "NAME": "Trần Văn B",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "1985-10-15",
+      "ADDRESS": "456 Oak St, Townsville",
+      "ROLE_TYPE": "ADMIN"
+    },
+    {
+      "EMPLOYEE_ID": 3,
+      "NAME": "Lê Thị C",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1990-02-28",
+      "ADDRESS": "789 Pine St, Villagetown",
+      "ROLE_TYPE": "STAFF"
+    },
+    {
+      "EMPLOYEE_ID": 4,
+      "NAME": "Phạm Văn D",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "1982-08-10",
+      "ADDRESS": "111 Elm St, Hamletsville",
+      "ROLE_TYPE": "DENTIST"
+    },
+    {
+      "EMPLOYEE_ID": 5,
+      "NAME": "Ngô Thị E",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1995-04-05",
+      "ADDRESS": "789 Birch St, Villagetown",
+      "ROLE_TYPE": "ADMIN"
+    },
+    {
+      "EMPLOYEE_ID": 6,
+      "NAME": "Trần Văn F",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "1988-12-22",
+      "ADDRESS": "222 Maple St, Suburbia",
+      "ROLE_TYPE": "STAFF"
+    },
+    {
+      "EMPLOYEE_ID": 7,
+      "NAME": "Vũ Thị G",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1983-06-18",
+      "ADDRESS": "333 Cedar St, Villagetown",
+      "ROLE_TYPE": "DENTIST"
+    },
+    {
+      "EMPLOYEE_ID": 8,
+      "NAME": "Đỗ Văn H",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "1992-03-25",
+      "ADDRESS": "444 Pine St, Cityville",
+      "ROLE_TYPE": "ADMIN"
+    },
+    {
+      "EMPLOYEE_ID": 9,
+      "NAME": "Lê Thị I",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1987-11-08",
+      "ADDRESS": "555 Oak St, Suburbia",
+      "ROLE_TYPE": "STAFF"
+    },
+    {
+      "EMPLOYEE_ID": 10,
+      "NAME": "Hoàng Văn J",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "1994-09-12",
+      "ADDRESS": "666 Elm St, Townsville",
+      "ROLE_TYPE": "DENTIST"
+    }
+  ]
+  
