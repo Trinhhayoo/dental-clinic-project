@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { HiOutlineMenu } from "react-icons/hi";
 import { RiCloseLine } from "react-icons/ri";
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,24 +8,30 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { links } from "../assets/constant";
 
-const NavLinks = ({ handleClick }) => {
+const NavLinks = () => {
 
     const { role } = useSelector((state) => state.user);
-
+    const location = useLocation();
+    console.log(location);
+debugger
 
 
     return (
 
         <div id="sideBarItem" className="mt-10">
             {links.map((item) => {
-
+                
+                const isActive =
+                    location.pathname == item.to ||
+                    (location.pathname.includes(item.to));
+                    console.log(isActive)
                 if (role === "Admin" && (item.name === 'Schedule')) {
                     return (
                         <NavLink
                             key={item.name}
                             to={item.to}
-                            className="flex flex-row justify-start items-center my-8 text-xs font-medium text-gray-500 hover:text-gray-400"
-                            onClick={() => handleClick && handleClick()}
+                            className={`flex flex-row justify-start items-center my-8 text-xs font-medium hover:text-gray-400  ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                                }`}
                         >
                             <item.icon className="w-4 h-6 mr-2" />
                             {item.name}
@@ -39,8 +45,9 @@ const NavLinks = ({ handleClick }) => {
                         <NavLink
                             key={item.name}
                             to={item.to}
-                            className="flex flex-row justify-start items-center my-8 text-xs font-medium text-gray-500 hover:text-gray-400"
-                            onClick={() => handleClick && handleClick()}
+                            className={`flex flex-row justify-start items-center my-8 text-xs font-medium hover:text-gray-400  ${isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                        }`}
+
                         >
                             <item.icon className="w-4 h-6 mr-2" />
                             {item.name}
@@ -56,7 +63,7 @@ const NavLinks = ({ handleClick }) => {
         </div>
     );
 }
-
+debugger
 const Sidebar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

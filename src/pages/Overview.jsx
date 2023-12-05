@@ -68,7 +68,7 @@ const AppointmentRequest = ({ request }) => {
 
     <div className=" flex flex-col">
       <div className="flex items-center flex-row pb-2 ">
-        <p className="flex flex-grow font-bold">Appointment Request</p>
+        <p className="flex flex-grow font-bold">Request</p>
         <div className="flex flex-row items-center">
           <p className=" flex flex-grow-0 text-sm items-center justify-center">View all </p>
           <MdKeyboardDoubleArrowRight />
@@ -119,7 +119,7 @@ const TodayAppointment = ({ todayappointment }) => {
 
     <div className=" flex flex-col">
       <div className="flex items-center flex-row pb-2 ">
-        <p className="flex flex-grow font-bold">Appointment Request</p>
+        <p className="flex flex-grow font-bold">Today Appointment</p>
         <div className="flex flex-row items-center">
           <p className=" flex flex-grow-0 text-sm items-center justify-center">View all </p>
           <MdKeyboardDoubleArrowRight />

@@ -15,7 +15,8 @@ import {
 import {
 Overview,
 SignIn,
-SignUp
+SignUp,
+Patient
 
 } from "./pages";
 
@@ -34,6 +35,8 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Overview />} />
               <Route path="/home" element={<Overview />} />
+              <Route path="/Patient" element={<Patient />} />
+
               <Route path="/signin" element={<SignIn/>} />
               <Route path="/signup" element={<SignUp />} />
 
