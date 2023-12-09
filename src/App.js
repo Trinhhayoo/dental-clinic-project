@@ -16,7 +16,8 @@ import {
 Overview,
 SignIn,
 SignUp,
-Patient
+Patient,
+Employee
 
 } from "./pages";
 
@@ -36,7 +37,7 @@ const App = () => {
               <Route path="/" element={<Overview />} />
               <Route path="/home" element={<Overview />} />
               <Route path="/Patient" element={<Patient />} />
-
+              <Route path="/Employee" element={<Employee />} />
               <Route path="/signin" element={<SignIn/>} />
               <Route path="/signup" element={<SignUp />} />
 
