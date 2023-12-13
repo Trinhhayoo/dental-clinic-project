@@ -12,9 +12,7 @@ import { FaPlus } from "react-icons/fa6";
 import React, { useEffect, useState } from 'react';
 import { Button } from "@material-tailwind/react";
 
-
-
-const RecentPatient = ({ recentpatient }) => {
+const RecentPatient = ({ recentPatient }) => {
 
     const itemsPerPage = 6;
 
@@ -23,7 +21,7 @@ const RecentPatient = ({ recentpatient }) => {
 
     // Calculate the starting index based on the current page and itemsPerPage
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const visiblePatients = recentpatient.slice(startIndex, startIndex + itemsPerPage);
+    const visiblePatients = recentPatient.slice(startIndex, startIndex + itemsPerPage);
 
     // Function to handle next page click
     const handleNextPage = () => {
@@ -35,7 +33,6 @@ const RecentPatient = ({ recentpatient }) => {
 
     return (
         <div>
-
 
             <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr] rounded-mds  font-bold py-4'>
 
@@ -56,8 +53,6 @@ const RecentPatient = ({ recentpatient }) => {
 
                         <div className='flex flex-row  items-center  gap-6 '>
 
-
-
                             <p className='text-black-100 '>
                                 {patient?.PP_ORAL_HEALTH}
 
@@ -76,7 +71,6 @@ const RecentPatient = ({ recentpatient }) => {
                                 {patient.PP_EMAIL}
                             </p>
 
-
                         </div>
                         <p>{patient.PATIENT_ID}</p>
 
@@ -84,7 +78,7 @@ const RecentPatient = ({ recentpatient }) => {
                 ))}
             </div>
             <div className="flex flex-row">
-            {recentpatient.length < itemsPerPage * currentPage && (
+            {recentPatient.length < itemsPerPage * currentPage && (
                 <div className="flex justify-end mt-4">
                     <button
                         className="text-blue-700 hover:underline focus:outline-none"
@@ -94,7 +88,7 @@ const RecentPatient = ({ recentpatient }) => {
                     </button>
                 </div>
             )}
-            {recentpatient.length > itemsPerPage * currentPage && (
+            {recentPatient.length > itemsPerPage * currentPage && (
                 <div className="flex justify-end mt-4 flex-grow">
                     <button
                         className="text-blue-700 hover:underline focus:outline-none"
@@ -108,8 +102,6 @@ const RecentPatient = ({ recentpatient }) => {
             
         </div>
     )
-
-
 };
 const Patient = () => {
     const { username } = useSelector((state) => state.user);
@@ -141,12 +133,11 @@ const Patient = () => {
 
 
 
-            <RecentPatient recentpatient={patient} />
+            <RecentPatient recentPatient={patient} />
          
 
         </div>
     )
-
 
 };
 export default Patient;
