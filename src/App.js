@@ -17,9 +17,17 @@ Overview,
 SignIn,
 SignUp,
 Patient,
+
+Appointment,
+AddAppointmentForm,
+EditAppointmentForm, 
+Request
+
 Employee
 
+
 } from "./pages";
+// import AddAppointmentForm from "./pages/AddAppointmentForm";
 
 
 const App = () => {
@@ -37,12 +45,17 @@ const App = () => {
               <Route path="/" element={<Overview />} />
               <Route path="/home" element={<Overview />} />
               <Route path="/Patient" element={<Patient />} />
+
+              <Route path="/Appointment" element={<Appointment />} />
+              <Route path="/AddAppointmentForm" element={<AddAppointmentForm/>} />
+              <Route path="/EditAppointmentForm/:appointmentId" element={<EditAppointmentForm />} />
+              <Route path="/Request" element={<Request />} />
+
               <Route path="/Employee" element={<Employee />} />
+
               <Route path="/signin" element={<SignIn/>} />
               <Route path="/signup" element={<SignUp />} />
 
-
-           
             </Routes>
           </div>
         
