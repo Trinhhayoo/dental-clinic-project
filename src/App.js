@@ -19,7 +19,8 @@ SignUp,
 Patient,
 Appointment,
 AddAppointmentForm,
-EditAppointmentForm
+EditAppointmentForm, 
+Request
 
 } from "./pages";
 // import AddAppointmentForm from "./pages/AddAppointmentForm";
@@ -43,6 +44,7 @@ const App = () => {
               <Route path="/Appointment" element={<Appointment />} />
               <Route path="/AddAppointmentForm" element={<AddAppointmentForm/>} />
               <Route path="/EditAppointmentForm/:appointmentId" element={<EditAppointmentForm />} />
+              <Route path="/Request" element={<Request />} />
               <Route path="/signin" element={<SignIn/>} />
               <Route path="/signup" element={<SignUp />} />
 

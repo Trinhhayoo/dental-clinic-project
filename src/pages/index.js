@@ -5,6 +5,7 @@ import Patient from "./Patient";
 import Appointment from "./Appointment";
 import AddAppointmentForm from "./AddAppointmentForm"
 import EditAppointmentForm from "./EditAppointmentForm";
+import Request from "./Request";
 
 export {
     Overview,
@@ -13,5 +14,6 @@ export {
     Patient, 
     Appointment,
     AddAppointmentForm,
-    EditAppointmentForm
+    EditAppointmentForm, 
+    Request
 };

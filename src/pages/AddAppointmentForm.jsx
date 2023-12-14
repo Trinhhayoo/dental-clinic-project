@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Button } from '@material-tailwind/react';
+import { Link } from 'react-router-dom';
 
 const AddAppointmentForm = () => {
   // State to manage form data
@@ -116,13 +118,21 @@ const AddAppointmentForm = () => {
 
         {/* Add more fields as needed */}
 
-        <div>
-          <button
-            type="submit"
-            className="bg-purple-500 text-white px-4 py-2 rounded-md hover:bg-purple-600 focus:outline-none"
-          >
-            Submit
-          </button>
+        <div className="mt-4 flex gap-4 justify-between">
+                    <Link to="/Appointment">
+                        <Button
+                            className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[100%]"
+                        >
+                            <p className="flex">Back</p>
+                        </Button>
+                    </Link>
+
+                    <Button
+                        type="submit"
+                        className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[25%]"
+                    >
+                        <p className="flex">Save</p>
+                    </Button>
         </div>
       </form>
     </div>
