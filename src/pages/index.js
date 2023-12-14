@@ -1,5 +1,5 @@
 import Overview from "./Overview";
-import SignIn from "./SingIn";
+import SignIn from "./SignIn/SingIn";
 import SignUp from "./SignUp";
 import Patient from "./Patient";
 
@@ -20,9 +20,9 @@ export {
     Appointment,
     AddAppointmentForm,
     EditAppointmentForm, 
-    Request
+    Request,
 
-    Patient,
+  
     Employee
 
 };

@@ -21,7 +21,7 @@ Patient,
 Appointment,
 AddAppointmentForm,
 EditAppointmentForm, 
-Request
+Request,
 
 Employee
 

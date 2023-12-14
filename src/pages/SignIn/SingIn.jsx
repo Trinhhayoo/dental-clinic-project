@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {useNavigate} from "react-router-dom"
-import iconPassWord from "../assets/password.png"
-import iconPerson from "../assets/person.png"
+import { IoMdPerson } from "react-icons/io";
+import { RiLockPasswordFill } from "react-icons/ri";
+
 import "./SignIn.css"
 
 const SignIn = () => {
@@ -61,14 +62,14 @@ const SignIn = () => {
                 <div className="underline"> </div>
             </div>
 
-            <div className="inputs">
-                <div className="input">
-                    <img src={iconPerson} alt="" />
+            <div className="inputs  ">
+                <div className="input gap-2 px-2">
+                    <IoMdPerson className="text-gray-500" size={30} />
                     <input type="email" placeholder="Email" name="email" value={formData.email} onChange={handleInputChange}/>
                 </div>
 
-                <div className="input">
-                    <img src={iconPassWord} alt="" />
+                <div className="input gap-2 px-2">
+                   <RiLockPasswordFill className="text-gray-500" size={30}/>
                     <input type="password" placeholder="Password" name="password" value={formData.password} onChange={handleInputChange}/>
                 </div>
             </div>
