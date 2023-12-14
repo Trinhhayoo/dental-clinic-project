@@ -5,12 +5,13 @@ import { IoMdPerson } from "react-icons/io";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { MdOutlinePayments } from "react-icons/md";
 import { IoCalendarOutline } from "react-icons/io5";
+import { FaHospitalUser } from "react-icons/fa";
 
 
 export const links = [
   { name: 'Overview', to: '/home', icon: HiOutlineHome },
   { name: 'Patient', to: '/Patient', icon: IoMdPerson },
-
+  {name: 'Employee', to: '/Employee', icon:FaHospitalUser },
   { name: 'Appointment', to: '/Appointment', icon: CiCalendar },
   { name: 'Request', to: '/Request', icon: VscGitPullRequestGoToChanges },
   { name: 'Payment', to: '/Payment', icon: MdOutlinePayments },
