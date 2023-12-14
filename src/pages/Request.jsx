@@ -59,23 +59,23 @@ const Recentrequest = ({ recentrequest }) => {
                             </p>
                         </div>
                         <p>{request.RQ_NOTE}</p>
-                        <div>
+                        <div className = 'flex items-center justify-center'>
                         {request.RQ_STATUS === "Confirmed" && (
-                            <button className="border flex border-none rounded-md w-full my-[4px] px-[5px] items-center justify-center bg-blue-100 text-blue-500 text-[15px] ">
+                            <button className="border flex border-none rounded-md w-full my-[2px] px-[4px] items-center justify-center bg-blue-100 text-blue-500 text-[15px] ">
                                 Confirmed
                             </button>
                         )}
                         {request.RQ_STATUS === "Declined" && (
-                            <button className="border flex border-none rounded-md w-full my-[4px] px-[5px] items-center justify-center bg-red-100 text-red-500 text-[15px] ">
+                            <button className="border flex border-none rounded-md w-full my-[2px] px-[5px] items-center justify-center bg-red-100 text-red-500 text-[15px] ">
                                 Decline
                             </button>
                         )}
                         {request.RQ_STATUS === "Pending" && (
                             <div className="flex gap-2">
-                                <button className="bg-green-500 text-white py-1 px-2 rounded-full border border-green-600">
+                                <button className="bg-white-500 text-blue py-1 px-2 rounded-md border border-green-600">
                                     <MdOutlineCheck size={20} />
                                 </button>
-                                <button className="bg-red-500 text-white py-1 px-2 rounded-full border border-red-600">
+                                <button className="bg-white-500 text-red py-1 px-2 rounded-md border border-red-600">
                                     <MdOutlineClose size={20} />
                                 </button>
                             </div>
