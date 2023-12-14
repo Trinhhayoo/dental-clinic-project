@@ -4,6 +4,7 @@ import SignUp from "./SignUp";
 import Patient from "./Patient";
 import Appointment from "./Appointment";
 import AddAppointmentForm from "./AddAppointmentForm"
+import EditAppointmentForm from "./EditAppointmentForm";
 
 export {
     Overview,
@@ -11,5 +12,6 @@ export {
     SignUp,
     Patient, 
     Appointment,
-    AddAppointmentForm
+    AddAppointmentForm,
+    EditAppointmentForm
 };

@@ -16,6 +16,10 @@ import { Button } from "@material-tailwind/react";
 
 
 const Recentappointment = ({ recentappointment }) => {
+    const navigate = useNavigate();
+    const handleEditButtonClick = (appointmentId) => {
+        navigate(`/EditAppointmentForm/${appointmentId}`);
+    };
 
     const itemsPerPage = 6;
 
@@ -87,6 +91,7 @@ const Recentappointment = ({ recentappointment }) => {
                         
                         <Button
                             id="editappointment"
+                            onClick={() => handleEditButtonClick(appointment.A_ORDER_NUMBER)}
                             //onClick={handleSignIn}
                             className="border-none  bg-purple-500 py-4 px-4 flex flex-row items-center gap-2">
 
@@ -134,6 +139,8 @@ const Appointment = () => {
     const handleAddButtonClick = () => {
         navigate('/AddAppointmentForm');
       };
+
+   
 
     return (
         <div className="flex flex-col my-5">
