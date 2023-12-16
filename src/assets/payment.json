@@ -58,5 +58,65 @@
         "TYPE_PAY": "Credit Card",
         "PAYMENT_STATUS": "Completed",
         "PAYMENT_NOTE": "Payment for Fluoride Treatment"
+    },
+    {
+        "PAYMENT_ID": 6,
+        "PM_TREATMENT_PLAN_ID": 6,
+        "PAYMENT_DATE": "2023-06-05",
+        "PAYER": "Hoang Thi F",
+        "PAYER_PHONENUMBER": "4445556666",
+        "PAID_MONEY": 90.00,
+        "EXCESS_MONEY": 10.00,
+        "TYPE_PAY": "Insurance",
+        "PAYMENT_STATUS": "Pending",
+        "PAYMENT_NOTE": "Partial payment for Dental Crown"
+    },
+    {
+        "PAYMENT_ID": 7,
+        "PM_TREATMENT_PLAN_ID": 7,
+        "PAYMENT_DATE": "2023-07-10",
+        "PAYER": "Mai Van G",
+        "PAYER_PHONENUMBER": "7778889999",
+        "PAID_MONEY": 200.00,
+        "EXCESS_MONEY": 0.00,
+        "TYPE_PAY": "Cash",
+        "PAYMENT_STATUS": "Completed",
+        "PAYMENT_NOTE": "Payment for Teeth Whitening"
+    },
+    {
+        "PAYMENT_ID": 8,
+        "PM_TREATMENT_PLAN_ID": 8,
+        "PAYMENT_DATE": "2023-08-15",
+        "PAYER": "Doan Thi H",
+        "PAYER_PHONENUMBER": "2223334444",
+        "PAID_MONEY": 180.00,
+        "EXCESS_MONEY": 20.00,
+        "TYPE_PAY": "Credit Card",
+        "PAYMENT_STATUS": "Partial",
+        "PAYMENT_NOTE": "Partial payment for Dental Implant"
+    },
+    {
+        "PAYMENT_ID": 9,
+        "PM_TREATMENT_PLAN_ID": 9,
+        "PAYMENT_DATE": "2023-09-20",
+        "PAYER": "Vo Van I",
+        "PAYER_PHONENUMBER": "6667778888",
+        "PAID_MONEY": 120.00,
+        "EXCESS_MONEY": 30.00,
+        "TYPE_PAY": "Insurance",
+        "PAYMENT_STATUS": "Pending",
+        "PAYMENT_NOTE": "Partial payment for Braces Adjustment"
+    },
+    {
+        "PAYMENT_ID": 10,
+        "PM_TREATMENT_PLAN_ID": 10,
+        "PAYMENT_DATE": "2023-10-25",
+        "PAYER": "Luong Thi J",
+        "PAYER_PHONENUMBER": "3334445555",
+        "PAID_MONEY": 70.00,
+        "EXCESS_MONEY": 0.00,
+        "TYPE_PAY": "Cash",
+        "PAYMENT_STATUS": "Completed",
+        "PAYMENT_NOTE": "Payment for Dental Filling"
     }
 ]
