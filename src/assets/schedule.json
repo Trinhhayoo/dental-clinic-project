@@ -1,0 +1,82 @@
+[
+    {
+        "SCHEDULE_ID": 1,
+        "DENTIST_ID": 1,
+        "SCHEDULE_DATE": "Monday",
+        "TIME_WORK": "08:00",
+        "IS_OFF": false,
+        "IS_APPOINTMENT": false
+    },
+    {
+        "SCHEDULE_ID": 2,
+        "DENTIST_ID": 1,
+        "SCHEDULE_DATE": "Monday",
+        "TIME_WORK": "01:00 PM",
+        "IS_OFF": false,
+        "IS_APPOINTMENT": false
+    },
+    {
+        "SCHEDULE_ID": 1,
+        "DENTIST_ID": 2,
+        "SCHEDULE_DATE": "Tuesday",
+        "TIME_WORK": "09:00 AM",
+        "IS_OFF": false,
+        "IS_APPOINTMENT": false
+    },
+    {
+        "SCHEDULE_ID": 2,
+        "DENTIST_ID": 2,
+        "SCHEDULE_DATE": "Tuesday",
+        "TIME_WORK": "02:00 PM",
+        "IS_OFF": false,
+        "IS_APPOINTMENT": false
+    },
+    {
+        "SCHEDULE_ID": 1,
+        "DENTIST_ID": 3,
+        "SCHEDULE_DATE": "Wednesday",
+        "TIME_WORK": "08:00 AM",
+        "IS_OFF": false,
+        "IS_APPOINTMENT": false
+    },
+    {
+        "SCHEDULE_ID": 2,
+        "DENTIST_ID": 3,
+        "SCHEDULE_DATE": "Wednesday",
+        "TIME_WORK": "01:00 PM",
+        "IS_OFF": false,
+        "IS_APPOINTMENT": false
+    },
+    {
+        "SCHEDULE_ID": 1,
+        "DENTIST_ID": 4,
+        "SCHEDULE_DATE": "Thursday",
+        "TIME_WORK": "10:00 AM",
+        "IS_OFF": false,
+        "IS_APPOINTMENT": false
+    },
+    {
+        "SCHEDULE_ID": 2,
+        "DENTIST_ID": 4,
+        "SCHEDULE_DATE": "Thursday",
+        "TIME_WORK": "03:00 PM",
+        "IS_OFF": false,
+        "IS_APPOINTMENT": false
+    },
+    {
+        "SCHEDULE_ID": 1,
+        "DENTIST_ID": 5,
+        "SCHEDULE_DATE": "Friday",
+        "TIME_WORK": "08:00 AM",
+        "IS_OFF": false,
+        "IS_APPOINTMENT": false
+    },
+    {
+        "SCHEDULE_ID": 2,
+        "DENTIST_ID": 5,
+        "SCHEDULE_DATE": "Friday",
+        "TIME_WORK": "01:00 PM",
+        "IS_OFF": false,
+        "IS_APPOINTMENT": false
+    }
+]

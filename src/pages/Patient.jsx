@@ -11,6 +11,7 @@ import { FaPlus } from "react-icons/fa6";
 
 import React, { useEffect, useState } from 'react';
 import { Button } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom"; 
 
 
 
@@ -113,7 +114,11 @@ const RecentPatient = ({ recentpatient }) => {
 };
 const Patient = () => {
     const { username } = useSelector((state) => state.user);
+    const navigate = useNavigate();
 
+    const handleAddButtonClick = () => {
+        navigate('/AddPatientForm');
+      };
     return (
         <div className="flex flex-col my-5">
             <div className="flex flex-row mb-4 items-center ">
@@ -121,6 +126,7 @@ const Patient = () => {
                 <h2 className=" flex-grow text-black font-bold">Patient List</h2>
                 <Button
                     id="addPatient"
+                    onClick={handleAddButtonClick}
                     //onClick={handleSignIn}
                     className="border-none  bg-purple-500 py-4 px-4 flex flex-row items-center gap-2">
 
@@ -150,5 +156,3 @@ const Patient = () => {
 
 };
 export default Patient;
-
-

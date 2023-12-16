@@ -1,0 +1,102 @@
+[
+    {
+        "TREATMENT_PLAN_ID": 1,
+        "TD_PATIENT_ID": 1,
+        "TD_DENTIST_ID": 1,
+        "TD_PRESCRIPTION": "Painkillers",
+        "TD_ASSISTANT_ID": 2,
+        "TD_NOTE": "Follow up in two weeks",
+        "TD_STATUS": "Pending",
+        "TD_TREATMENT_ID": 101
+    },
+    {
+        "TREATMENT_PLAN_ID": 2,
+        "TD_PATIENT_ID": 2,
+        "TD_DENTIST_ID": 2,
+        "TD_PRESCRIPTION": "Antibiotics",
+        "TD_ASSISTANT_ID": 3,
+        "TD_NOTE": "Monitor for any side effects",
+        "TD_STATUS": "Completed",
+        "TD_TREATMENT_ID": 102
+    },
+    {
+        "TREATMENT_PLAN_ID": 3,
+        "TD_PATIENT_ID": 3,
+        "TD_DENTIST_ID": 3,
+        "TD_PRESCRIPTION": "Mouthwash",
+        "TD_ASSISTANT_ID": 1,
+        "TD_NOTE": "Schedule a follow-up cleaning",
+        "TD_STATUS": "In Progress",
+        "TD_TREATMENT_ID": 103
+    },
+    {
+        "TREATMENT_PLAN_ID": 4,
+        "TD_PATIENT_ID": 4,
+        "TD_DENTIST_ID": 4,
+        "TD_PRESCRIPTION": "Orthodontic braces",
+        "TD_ASSISTANT_ID": 2,
+        "TD_NOTE": "Provide information on care and maintenance",
+        "TD_STATUS": "Pending",
+        "TD_TREATMENT_ID": 104
+    },
+    {
+        "TREATMENT_PLAN_ID": 5,
+        "TD_PATIENT_ID": 5,
+        "TD_DENTIST_ID": 5,
+        "TD_PRESCRIPTION": "Fluoride treatment",
+        "TD_ASSISTANT_ID": 3,
+        "TD_NOTE": "Educate on oral hygiene practices",
+        "TD_STATUS": "Completed",
+        "TD_TREATMENT_ID": 105
+    },
+    {
+        "TREATMENT_PLAN_ID": 6,
+        "TD_PATIENT_ID": 6,
+        "TD_DENTIST_ID": 1,
+        "TD_PRESCRIPTION": "Tooth extraction",
+        "TD_ASSISTANT_ID": 1,
+        "TD_NOTE": "Provide post-extraction care instructions",
+        "TD_STATUS": "In Progress",
+        "TD_TREATMENT_ID": 106
+    },
+    {
+        "TREATMENT_PLAN_ID": 7,
+        "TD_PATIENT_ID": 7,
+        "TD_DENTIST_ID": 2,
+        "TD_PRESCRIPTION": "Dental filling",
+        "TD_ASSISTANT_ID": 2,
+        "TD_NOTE": "Recommend regular check-ups",
+        "TD_STATUS": "Completed",
+        "TD_TREATMENT_ID": 107
+    },
+    {
+        "TREATMENT_PLAN_ID": 8,
+        "TD_PATIENT_ID": 8,
+        "TD_DENTIST_ID": 3,
+        "TD_PRESCRIPTION": "Root canal therapy",
+        "TD_ASSISTANT_ID": 3,
+        "TD_NOTE": "Discuss long-term care options",
+        "TD_STATUS": "Pending",
+        "TD_TREATMENT_ID": 108
+    },
+    {
+        "TREATMENT_PLAN_ID": 9,
+        "TD_PATIENT_ID": 9,
+        "TD_DENTIST_ID": 4,
+        "TD_PRESCRIPTION": "Teeth whitening",
+        "TD_ASSISTANT_ID": 1,
+        "TD_NOTE": "Avoid staining foods and beverages",
+        "TD_STATUS": "In Progress",
+        "TD_TREATMENT_ID": 109
+    },
+    {
+        "TREATMENT_PLAN_ID": 10,
+        "TD_PATIENT_ID": 10,
+        "TD_DENTIST_ID": 5,
+        "TD_PRESCRIPTION": "Dental crown placement",
+        "TD_ASSISTANT_ID": 2,
+        "TD_NOTE": "Provide information on aftercare",
+        "TD_STATUS": "Completed",
+        "TD_TREATMENT_ID": 110
+    }
+]

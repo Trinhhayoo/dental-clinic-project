@@ -1,0 +1,72 @@
+[
+    {
+        "PRESCRIPTION_ID": 1,
+        "P_TREATMENT_PLAN_ID": 1,
+        "P_DESCRIPTION": "Prescription for pain relief",
+        "P_QUANTITY": 30,
+        "P_MEDICINE_ID": 101
+    },
+    {
+        "PRESCRIPTION_ID": 2,
+        "P_TREATMENT_PLAN_ID": 2,
+        "P_DESCRIPTION": "Antibiotic prescription",
+        "P_QUANTITY": 20,
+        "P_MEDICINE_ID": 102
+    },
+    {
+        "PRESCRIPTION_ID": 3,
+        "P_TREATMENT_PLAN_ID": 3,
+        "P_DESCRIPTION": "Mouthwash prescription",
+        "P_QUANTITY": 1,
+        "P_MEDICINE_ID": 103
+    },
+    {
+        "PRESCRIPTION_ID": 4,
+        "P_TREATMENT_PLAN_ID": 4,
+        "P_DESCRIPTION": "Orthodontic braces care instructions",
+        "P_QUANTITY": 1,
+        "P_MEDICINE_ID": 104
+    },
+    {
+        "PRESCRIPTION_ID": 5,
+        "P_TREATMENT_PLAN_ID": 5,
+        "P_DESCRIPTION": "Fluoride treatment prescription",
+        "P_QUANTITY": 1,
+        "P_MEDICINE_ID": 105
+    },
+    {
+        "PRESCRIPTION_ID": 6,
+        "P_TREATMENT_PLAN_ID": 6,
+        "P_DESCRIPTION": "Pain Relief Cream",
+        "P_QUANTITY": 15,
+        "P_MEDICINE_ID": 106
+    },
+    {
+        "PRESCRIPTION_ID": 7,
+        "P_TREATMENT_PLAN_ID": 7,
+        "P_DESCRIPTION": "Toothache Drops",
+        "P_QUANTITY": 10,
+        "P_MEDICINE_ID": 107
+    },
+    {
+        "PRESCRIPTION_ID": 8,
+        "P_TREATMENT_PLAN_ID": 8,
+        "P_DESCRIPTION": "Sensitive Teeth Toothpaste",
+        "P_QUANTITY": 5,
+        "P_MEDICINE_ID": 108
+    },
+    {
+        "PRESCRIPTION_ID": 9,
+        "P_TREATMENT_PLAN_ID": 9,
+        "P_DESCRIPTION": "Teeth Whitening Kit",
+        "P_QUANTITY": 2,
+        "P_MEDICINE_ID": 109
+    },
+    {
+        "PRESCRIPTION_ID": 10,
+        "P_TREATMENT_PLAN_ID": 10,
+        "P_DESCRIPTION": "Oral Antiseptic Rinse",
+        "P_QUANTITY": 3,
+        "P_MEDICINE_ID": 110
+    }
+]

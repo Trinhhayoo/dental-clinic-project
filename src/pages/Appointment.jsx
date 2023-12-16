@@ -148,7 +148,7 @@ const Appointment = () => {
 
                 <h2 className=" flex-grow text-black font-bold">Appointment List</h2>
                 <Button
-                    id="addappointment"
+                    id="addAppointment"
                     onClick={handleAddButtonClick}
                     //onClick={handleSignIn}
                     className="border-none  bg-purple-500 py-4 px-4 flex flex-row items-center gap-2">

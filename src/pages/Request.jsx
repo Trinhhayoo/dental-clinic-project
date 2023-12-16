@@ -8,6 +8,8 @@ import { FaPlus } from "react-icons/fa6";
 import React, { useState } from 'react';
 import { Button } from "@material-tailwind/react";
 import request from "../assets/request.json"
+import { useNavigate } from "react-router-dom"; 
+
 
 const Recentrequest = ({ recentrequest }) => {
     const itemsPerPage = 6;
@@ -112,13 +114,19 @@ const Recentrequest = ({ recentrequest }) => {
 
 const Request = () => {
     const { username } = useSelector((state) => state.user);
+    const navigate = useNavigate();
+
+    const handleAddButtonClick = () => {
+        navigate('/AddRequestForm');
+      };
 
     return (
         <div className="flex flex-col my-5">
             <div className="flex flex-row mb-4 items-center ">
                 <h2 className=" flex-grow text-black font-bold">Request List</h2>
                 <Button
-                    id="addrequest"
+                    id="addRequest"
+                    onClick={handleAddButtonClick}
                     className="border-none bg-purple-500 py-4 px-4 flex flex-row items-center gap-2"
                 >
                     <FaPlus className="flex" size={15} />

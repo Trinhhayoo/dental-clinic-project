@@ -17,13 +17,19 @@ Overview,
 SignIn,
 SignUp,
 Patient,
+AddPatientForm,
 
 Appointment,
 AddAppointmentForm,
 EditAppointmentForm, 
-Request,
 
-Employee
+Request,
+AddRequestForm,
+
+Employee,
+AddEmployeeForm,
+
+Payment
 
 
 } from "./pages";
@@ -45,13 +51,20 @@ const App = () => {
               <Route path="/" element={<Overview />} />
               <Route path="/home" element={<Overview />} />
               <Route path="/Patient" element={<Patient />} />
+              <Route path="/AddPatientForm" element={<AddPatientForm/>} />
+
 
               <Route path="/Appointment" element={<Appointment />} />
               <Route path="/AddAppointmentForm" element={<AddAppointmentForm/>} />
               <Route path="/EditAppointmentForm/:appointmentId" element={<EditAppointmentForm />} />
               <Route path="/Request" element={<Request />} />
+              <Route path="/AddRequestForm" element={<AddRequestForm/>} />
 
               <Route path="/Employee" element={<Employee />} />
+              <Route path="/AddEmployeeForm" element={<AddEmployeeForm/>} />
+
+              <Route path="/Payment" element={<Payment/>} />
+
 
               <Route path="/signin" element={<SignIn/>} />
               <Route path="/signup" element={<SignUp />} />

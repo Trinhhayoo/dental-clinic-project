@@ -1,0 +1,62 @@
+[
+    {
+        "PAYMENT_ID": 1,
+        "PM_TREATMENT_PLAN_ID": 1,
+        "PAYMENT_DATE": "2023-01-10",
+        "PAYER": "Nguyen Van A",
+        "PAYER_PHONENUMBER": "1234567890",
+        "PAID_MONEY": 80.00,
+        "EXCESS_MONEY": 0.00,
+        "TYPE_PAY": "Cash",
+        "PAYMENT_STATUS": "Completed",
+        "PAYMENT_NOTE": "Payment for Dental Cleaning"
+    },
+    {
+        "PAYMENT_ID": 2,
+        "PM_TREATMENT_PLAN_ID": 2,
+        "PAYMENT_DATE": "2023-02-15",
+        "PAYER": "Tran Thi B",
+        "PAYER_PHONENUMBER": "9876543210",
+        "PAID_MONEY": 150.00,
+        "EXCESS_MONEY": 0.00,
+        "TYPE_PAY": "Credit Card",
+        "PAYMENT_STATUS": "Completed",
+        "PAYMENT_NOTE": "Payment for Tooth Extraction"
+    },
+    {
+        "PAYMENT_ID": 3,
+        "PM_TREATMENT_PLAN_ID": 3,
+        "PAYMENT_DATE": "2023-03-20",
+        "PAYER": "Le Van C",
+        "PAYER_PHONENUMBER": "5556667777",
+        "PAID_MONEY": 250.00,
+        "EXCESS_MONEY": 50.00,
+        "TYPE_PAY": "Insurance",
+        "PAYMENT_STATUS": "Pending",
+        "PAYMENT_NOTE": "Partial payment for Root Canal Therapy"
+    },
+    {
+        "PAYMENT_ID": 4,
+        "PM_TREATMENT_PLAN_ID": 4,
+        "PAYMENT_DATE": "2023-04-25",
+        "PAYER": "Pham Thi D",
+        "PAYER_PHONENUMBER": "9998887777",
+        "PAID_MONEY": 120.00,
+        "EXCESS_MONEY": 80.00,
+        "TYPE_PAY": "Cash",
+        "PAYMENT_STATUS": "Partial",
+        "PAYMENT_NOTE": "Partial payment for Orthodontic Braces"
+    },
+    {
+        "PAYMENT_ID": 5,
+        "PM_TREATMENT_PLAN_ID": 5,
+        "PAYMENT_DATE": "2023-05-30",
+        "PAYER": "Ngo Van E",
+        "PAYER_PHONENUMBER": "1112223333",
+        "PAID_MONEY": 50.00,
+        "EXCESS_MONEY": 0.00,
+        "TYPE_PAY": "Credit Card",
+        "PAYMENT_STATUS": "Completed",
+        "PAYMENT_NOTE": "Payment for Fluoride Treatment"
+    }
+]

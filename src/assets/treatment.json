@@ -1,0 +1,52 @@
+[
+    {
+        "TREATMENT_ID": 101,
+        "TM_CATEGORY": "Dental Cleaning",
+        "TM_COST": 80.00
+    },
+    {
+        "TREATMENT_ID": 102,
+        "TM_CATEGORY": "Tooth Extraction",
+        "TM_COST": 150.00
+    },
+    {
+        "TREATMENT_ID": 103,
+        "TM_CATEGORY": "Root Canal Therapy",
+        "TM_COST": 500.00
+    },
+    {
+        "TREATMENT_ID": 104,
+        "TM_CATEGORY": "Orthodontic Braces",
+        "TM_COST": 2000.00
+    },
+    {
+        "TREATMENT_ID": 105,
+        "TM_CATEGORY": "Fluoride Treatment",
+        "TM_COST": 50.00
+    },
+    {
+        "TREATMENT_ID": 106,
+        "TM_CATEGORY": "Tooth Whitening",
+        "TM_COST": 120.00
+    },
+    {
+        "TREATMENT_ID": 107,
+        "TM_CATEGORY": "Dental Filling",
+        "TM_COST": 100.00
+    },
+    {
+        "TREATMENT_ID": 108,
+        "TM_CATEGORY": "Dental Crown",
+        "TM_COST": 800.00
+    },
+    {
+        "TREATMENT_ID": 109,
+        "TM_CATEGORY": "Dental Implant",
+        "TM_COST": 1500.00
+    },
+    {
+        "TREATMENT_ID": 110,
+        "TM_CATEGORY": "Dental Bridge",
+        "TM_COST": 1200.00
+    }
+]

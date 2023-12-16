@@ -1,0 +1,42 @@
+[
+    {
+        "TEETH_ID": 1,
+        "TEETH_NAME": "Upper Right First Molar"
+    },
+    {
+        "TEETH_ID": 2,
+        "TEETH_NAME": "Upper Left First Molar"
+    },
+    {
+        "TEETH_ID": 3,
+        "TEETH_NAME": "Lower Right Second Molar"
+    },
+    {
+        "TEETH_ID": 4,
+        "TEETH_NAME": "Lower Left Second Molar"
+    },
+    {
+        "TEETH_ID": 5,
+        "TEETH_NAME": "Upper Right Central Incisor"
+    },
+    {
+        "TEETH_ID": 6,
+        "TEETH_NAME": "Upper Left Central Incisor"
+    },
+    {
+        "TEETH_ID": 7,
+        "TEETH_NAME": "Lower Right Central Incisor"
+    },
+    {
+        "TEETH_ID": 8,
+        "TEETH_NAME": "Lower Left Central Incisor"
+    },
+    {
+        "TEETH_ID": 9,
+        "TEETH_NAME": "Upper Right Canine"
+    },
+    {
+        "TEETH_ID": 10,
+        "TEETH_NAME": "Upper Left Canine"
+    }
+]

@@ -6,7 +6,7 @@ import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { MdOutlinePayments } from "react-icons/md";
 import { IoCalendarOutline } from "react-icons/io5";
 import { FaHospitalUser } from "react-icons/fa";
-
+import { CiStethoscope } from "react-icons/ci";
 
 export const links = [
   { name: 'Overview', to: '/home', icon: HiOutlineHome },
@@ -14,6 +14,7 @@ export const links = [
   {name: 'Employee', to: '/Employee', icon:FaHospitalUser },
   { name: 'Appointment', to: '/Appointment', icon: CiCalendar },
   { name: 'Request', to: '/Request', icon: VscGitPullRequestGoToChanges },
+  { name: 'TreatmentPlan', to: '/TreatmentPlan', icon: CiStethoscope },
   { name: 'Payment', to: '/Payment', icon: MdOutlinePayments },
   { name: 'Schedule', to: '/Schedule', icon: IoCalendarOutline }
 ];

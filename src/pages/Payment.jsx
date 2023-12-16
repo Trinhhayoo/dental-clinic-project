@@ -5,21 +5,17 @@ import { FaFemale } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
-import { MdEdit } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
 
-import { useNavigate } from "react-router-dom"; 
-
-
-import  EmployeeList from "../assets/employee.json"
+import payment from "../assets/payment.json"
 import { FaPlus } from "react-icons/fa6";
 
 import React, { useEffect, useState } from 'react';
 import { Button } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom"; 
 
 
 
-const EmpComponent = ({ employees }) => {
+const Recentpayment = ({ recentpayment }) => {
 
     const itemsPerPage = 6;
 
@@ -28,7 +24,7 @@ const EmpComponent = ({ employees }) => {
 
     // Calculate the starting index based on the current page and itemsPerPage
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const visibleDentists = employees.slice(startIndex, startIndex + itemsPerPage);
+    const visiblepayments = recentpayment.slice(startIndex, startIndex + itemsPerPage);
 
     // Function to handle next page click
     const handleNextPage = () => {
@@ -42,59 +38,59 @@ const EmpComponent = ({ employees }) => {
         <div>
 
 
-            <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr,0.5fr] rounded-mds  font-bold py-4'>
+            <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr,2fr] rounded-mds  font-bold py-4'>
 
-                <p>Employee's Name</p>
-                <p>Gender</p>
-                <p className='hidden md:flex '>Contact</p>
-                <p>Role</p>
-                <p>Patient ID</p>
+                <p>Number</p>
+                <p>Date</p>
+                <p>Payer</p>
+                <p>Paid Money</p>
+                <p>Type Pay</p>
+                <p>Note</p>
 
             </div>
             <div className="mt-4 flex flex-col gap-1 ">
-                {visibleDentists?.map((emp, index) => (
+                {visiblepayments.map((payment, index) => (
 
-                    <div key={index} className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr,0.5fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
+                    <div key={index} className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr,2fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
                         <h3 className='font-bold text-base text-100 '>
-                            {emp?.NAME}
+                            {payment.PAYMENT_ID}
                         </h3>
-                        
+
                         <div className='flex flex-row  items-center  gap-6 '>
 
 
 
                             <p className='text-black-100 '>
-                                {emp?.GENDER}
+                                {payment?.PAYMENT_DATE}
 
                             </p>
 
                         </div >
                         <div>
-                            Female
+                        <p className='text-black-100 '>
+                                {payment?.PAYER}
+
+                            </p>
                         </div>
                         <div className="hidden md:flex flex-col">
-                            <p className='text-gray-400   text-xs mt-1'>
-                                {emp?.DATE_OF_BIRTH}
+                            <p className='text-black-400   text-xs mt-1'>
+                                {payment.PAID_MONEY}
                             </p>
-                            <p className='text-gray-400  text-xs mt-1'>
+                            <p className='text-black-400  text-xs mt-1'>
                                 {/* {song?.subtitle} */}
-                                {emp?.ADDRESS}
+                                {payment.PAYMENT_STATUS}
                             </p>
 
 
                         </div>
-                        <p>{emp?.EMPLOYEE_ID}</p>
-                        <div className="flex flex-row gap-2"> 
-                            <MdEdit  />
-                            <MdDelete className="text-red-500" />
-                        </div>
-                        
-                        
+                        <p>{payment.TYPE_PAY}</p>
+                        <p>{payment.PAYMENT_NOTE}</p>
+
                     </div>
                 ))}
             </div>
             <div className="flex flex-row">
-            {employees.length < itemsPerPage * currentPage && (
+            {recentpayment.length < itemsPerPage * currentPage && (
                 <div className="flex justify-end mt-4">
                     <button
                         className="text-blue-700 hover:underline focus:outline-none"
@@ -104,7 +100,7 @@ const EmpComponent = ({ employees }) => {
                     </button>
                 </div>
             )}
-            {employees.length > itemsPerPage * currentPage && (
+            {recentpayment.length > itemsPerPage * currentPage && (
                 <div className="flex justify-end mt-4 flex-grow">
                     <button
                         className="text-blue-700 hover:underline focus:outline-none"
@@ -121,28 +117,26 @@ const EmpComponent = ({ employees }) => {
 
 
 };
-const Employee = () => {
+const Payment = () => {
     const { username } = useSelector((state) => state.user);
     const navigate = useNavigate();
 
     const handleAddButtonClick = () => {
-        navigate('/AddEmployeeForm');
+        navigate('/AddpaymentForm');
       };
-
-
     return (
         <div className="flex flex-col my-5">
             <div className="flex flex-row mb-4 items-center ">
 
-                <h2 className=" flex-grow text-black font-bold">Employee List</h2>
+                <h2 className=" flex-grow text-black font-bold">payment List</h2>
                 <Button
-                    id="addEmployee"
+                    id="addpayment"
                     onClick={handleAddButtonClick}
                     //onClick={handleSignIn}
                     className="border-none  bg-purple-500 py-4 px-4 flex flex-row items-center gap-2">
 
                     <FaPlus className="flex" size={15} />
-                    <p className="flex">Add Employee</p>
+                    <p className="flex">Add payment</p>
                 </Button>
             </div>
             <div className="flex">
@@ -150,7 +144,7 @@ const Employee = () => {
                     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                     <div class=" relative w-full items-center ">
 
-                        <input type="search" id="default-search" class="   w-2/5   p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Employee name, employee id..." required />
+                        <input type="search" id="default-search" class="   w-2/5   p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="payment name, payment id..." required />
                         <CiSearch type="submit" size = {20} class=" absolute start-2.5 top-2.5 text-black cursor-pointer" />
                     </div>
                 </form>
@@ -158,7 +152,7 @@ const Employee = () => {
 
 
 
-            <EmpComponent  employees={EmployeeList} />
+            <Recentpayment recentpayment={payment} />
          
 
         </div>
@@ -166,6 +160,4 @@ const Employee = () => {
 
 
 };
-export default Employee;
-
-
+export default Payment;

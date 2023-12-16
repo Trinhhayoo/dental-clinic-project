@@ -1,0 +1,52 @@
+[
+    {
+        "MEDICINE_ID": 101,
+        "M_NAME": "Painkillers",
+        "M_QUANTITY": 50
+    },
+    {
+        "MEDICINE_ID": 102,
+        "M_NAME": "Antibiotics",
+        "M_QUANTITY": 30
+    },
+    {
+        "MEDICINE_ID": 103,
+        "M_NAME": "Mouthwash",
+        "M_QUANTITY": 10
+    },
+    {
+        "MEDICINE_ID": 104,
+        "M_NAME": "Orthodontic Braces Care Kit",
+        "M_QUANTITY": 5
+    },
+    {
+        "MEDICINE_ID": 105,
+        "M_NAME": "Fluoride Treatment Solution",
+        "M_QUANTITY": 15
+    },
+    {
+        "MEDICINE_ID": 106,
+        "M_NAME": "Pain Relief Gel",
+        "M_QUANTITY": 25
+    },
+    {
+        "MEDICINE_ID": 107,
+        "M_NAME": "Dental Floss",
+        "M_QUANTITY": 40
+    },
+    {
+        "MEDICINE_ID": 108,
+        "M_NAME": "Toothpaste",
+        "M_QUANTITY": 60
+    },
+    {
+        "MEDICINE_ID": 109,
+        "M_NAME": "Teeth Whitening Strips",
+        "M_QUANTITY": 20
+    },
+    {
+        "MEDICINE_ID": 110,
+        "M_NAME": "Cotton Swabs",
+        "M_QUANTITY": 50
+    }
+]

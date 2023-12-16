@@ -1,0 +1,32 @@
+[
+    {
+        "RETREATMENT_ID": 1,
+        "RT_TREATMENT_PLAN_ID": 1,
+        "RT_NOTE": "Patient reported sensitivity",
+        "RT_DATE": "2023-01-15"
+    },
+    {
+        "RETREATMENT_ID": 2,
+        "RT_TREATMENT_PLAN_ID": 3,
+        "RT_NOTE": "Persistent pain in the treated tooth",
+        "RT_DATE": "2023-03-25"
+    },
+    {
+        "RETREATMENT_ID": 3,
+        "RT_TREATMENT_PLAN_ID": 5,
+        "RT_NOTE": "Discoloration of the treated tooth",
+        "RT_DATE": "2023-05-10"
+    },
+    {
+        "RETREATMENT_ID": 4,
+        "RT_TREATMENT_PLAN_ID": 7,
+        "RT_NOTE": "Patient dissatisfaction with the filling",
+        "RT_DATE": "2023-07-18"
+    },
+    {
+        "RETREATMENT_ID": 5,
+        "RT_TREATMENT_PLAN_ID": 9,
+        "RT_NOTE": "Desire for a brighter smile",
+        "RT_DATE": "2023-09-30"
+    }
+]
