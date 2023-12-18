@@ -13,7 +13,7 @@ const NavLinks = () => {
     const { role } = useSelector((state) => state.user);
     const location = useLocation();
     console.log(location);
-debugger
+
 
 
     return (
@@ -63,7 +63,7 @@ debugger
         </div>
     );
 }
-debugger
+
 const Sidebar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
