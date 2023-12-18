@@ -18,6 +18,7 @@ SignIn,
 SignUp,
 Patient,
 AddPatientForm,
+EditPatientForm,
 
 Appointment,
 AddAppointmentForm,
@@ -52,6 +53,7 @@ const App = () => {
               <Route path="/home" element={<Overview />} />
               <Route path="/Patient" element={<Patient />} />
               <Route path="/AddPatientForm" element={<AddPatientForm/>} />
+              <Route path="/EditPatientForm/:patientId" element={<EditPatientForm/>} />
 
 
               <Route path="/Appointment" element={<Appointment />} />

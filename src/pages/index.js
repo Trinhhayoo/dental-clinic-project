@@ -3,6 +3,7 @@ import SignIn from "./SignIn/SingIn";
 import SignUp from "./SignUp";
 import Patient from "./Patient";
 import AddPatientForm from "./AddPatientForm";
+import EditPatientForm from "./EditPatientForm";
 
 import Appointment from "./Appointment";
 import AddAppointmentForm from "./AddAppointmentForm"
@@ -23,6 +24,7 @@ export {
 
     Patient, 
     AddPatientForm,
+    EditPatientForm,
 
     Appointment,
     AddAppointmentForm,
