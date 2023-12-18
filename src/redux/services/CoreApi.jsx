@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+import axios from 'axios';
 
 
 
@@ -11,7 +12,7 @@ export const CoreApi = createApi({
   // hàm để call api từ BE
 
   baseQuery: fetchBaseQuery({
-    baseUrl: "", // Adjust the base URL for your local API
+    baseUrl: "http://localhost:8082/", // Adjust the base URL for your local API
     prepareHeaders: (headers) => {
       // No need for the X-RapidAPI-Key header for local development
 
@@ -26,13 +27,22 @@ export const CoreApi = createApi({
   }),
   endpoints: (builder) => ({
     // Define your API endpoints here
-    getUser: builder.query({
-      query: (id) => `user/${id}`,
+    getEmployeeList: builder.query({
+      query: () => `employees`,
+    }),
+    // ... other endpoints
+  }),
+  endpoints: (builder) => ({
+    // Define your API endpoints hereß
+    getEmployeeListFilterGender: builder.query({
+      query: (gender) => `employees/filterGender/${gender}`,
     }),
     // ... other endpoints
   }),
  
 });
 export const {
+  useGetEmployeeListQuery,
+  useGetEmployeeListFilterGenderQuery
   
 } = CoreApi;
