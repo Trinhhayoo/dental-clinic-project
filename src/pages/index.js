@@ -15,8 +15,8 @@ import AddRequestForm from "./AddRequestForm";
 import Employee from "./Employee";
 import AddEmployeeForm from "./AddEmployeeForm";
 import Payment from "./Payment";
-
-
+import StaffAdmin from "./StaffAdmin";
+import DeleteSuccessfull from "./DeleteSucess";
 export {
     Overview,
     SignIn,
@@ -37,6 +37,8 @@ export {
     Employee,
     AddEmployeeForm,
 
-    Payment
+    Payment,
+    StaffAdmin,
+    DeleteSuccessfull
 
 };

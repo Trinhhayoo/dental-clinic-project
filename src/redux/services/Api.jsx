@@ -21,8 +21,55 @@ const filterEmpGenderRole = async (gender,role) => {
         return error;
       }
 }
+
+const getEmpID = async (EmpID) => {
+    try {
+        const response = await axios.get(
+            `http://localhost:8082/employees/getEmployeeById/${EmpID}`,
+        );
+       
+        return response;
+      } catch (error) {
+        return error;
+      }
+}
+const deleteEmpID = async (UserID, EmpID) => {
+    debugger
+    try {
+        const response = await axios.post(
+            `http://localhost:8082/employees/deleteEmployeeById/${UserID}`, EmpID, {
+                headers: {
+                  // Overwrite Axios's automatically set Content-Type
+                  'Content-Type': 'application/json'
+                }}
+        );
+       
+        return response;
+      } catch (error) {
+        return error;
+      }
+}
+const searchEmp = async (searchTerm) => {
+  debugger
+  try {
+      const response = await axios.get(
+          `http://localhost:8082/employees/searchEmp/${searchTerm}`, {
+              headers: {
+                // Overwrite Axios's automatically set Content-Type
+                'Content-Type': 'application/json'
+              }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
 export {
    getEmpList,
-   filterEmpGenderRole
+   filterEmpGenderRole,
+   getEmpID,
+   deleteEmpID,
+   searchEmp
   };
   

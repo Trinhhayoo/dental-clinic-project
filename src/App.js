@@ -30,7 +30,9 @@ AddRequestForm,
 Employee,
 AddEmployeeForm,
 
-Payment
+Payment,
+StaffAdmin,
+DeleteSuccessfull
 
 
 } from "./pages";
@@ -38,6 +40,7 @@ Payment
 
 
 const App = () => {
+
  
   return (
     <div className="flex h-screen">
@@ -63,6 +66,9 @@ const App = () => {
               <Route path="/AddRequestForm" element={<AddRequestForm/>} />
 
               <Route path="/Employee" element={<Employee />} />
+              <Route path="/Employee/:employeeId" element={<StaffAdmin />} />
+              <Route path="/deleteSuccess" element={<DeleteSuccessfull/>} />
+             
               <Route path="/AddEmployeeForm" element={<AddEmployeeForm/>} />
 
               <Route path="/Payment" element={<Payment/>} />
