@@ -16,7 +16,9 @@ import Employee from "./Employee";
 import AddEmployeeForm from "./AddEmployeeForm";
 import Payment from "./Payment";
 
-
+import TreatmentPlan from "./TreatmentPlan";
+import AddTreatmentPlan from "./AddTreatmentPlan";
+import SearchPatient from "./SearchPatient";
 export {
     Overview,
     SignIn,
@@ -25,6 +27,7 @@ export {
     Patient, 
     AddPatientForm,
     EditPatientForm,
+    SearchPatient,
 
     Appointment,
     AddAppointmentForm,
@@ -37,6 +40,9 @@ export {
     Employee,
     AddEmployeeForm,
 
-    Payment
+    Payment,
+
+    TreatmentPlan,
+    AddTreatmentPlan
 
 };

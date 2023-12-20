@@ -19,6 +19,7 @@ SignUp,
 Patient,
 AddPatientForm,
 EditPatientForm,
+SearchPatient,
 
 Appointment,
 AddAppointmentForm,
@@ -30,7 +31,10 @@ AddRequestForm,
 Employee,
 AddEmployeeForm,
 
-Payment
+Payment,
+
+TreatmentPlan,
+AddTreatmentPlan
 
 
 } from "./pages";
@@ -52,11 +56,15 @@ const App = () => {
               <Route path="/" element={<Overview />} />
               <Route path="/home" element={<Overview />} />
               <Route path="/Patient" element={<Patient />} />
+              <Route path="/SearchPatient" element={<SearchPatient />} />
+
               <Route path="/AddPatientForm" element={<AddPatientForm/>} />
               <Route path="/EditPatientForm/:patientId" element={<EditPatientForm/>} />
 
 
               <Route path="/Appointment" element={<Appointment />} />
+              <Route path="/TreatmentPlan" element={<TreatmentPlan/>} />
+              <Route path="/AddTreatmentPlan" element={<AddTreatmentPlan/>} />
               <Route path="/AddAppointmentForm" element={<AddAppointmentForm/>} />
               <Route path="/EditAppointmentForm/:appointmentId" element={<EditAppointmentForm />} />
               <Route path="/Request" element={<Request />} />
@@ -66,7 +74,6 @@ const App = () => {
               <Route path="/AddEmployeeForm" element={<AddEmployeeForm/>} />
 
               <Route path="/Payment" element={<Payment/>} />
-
 
               <Route path="/signin" element={<SignIn/>} />
               <Route path="/signup" element={<SignUp />} />
