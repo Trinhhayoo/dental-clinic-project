@@ -65,11 +65,63 @@ const searchEmp = async (searchTerm) => {
       return error;
     }
 }
+const viewPlanList = async (dentistId) => {
+ 
+  try {
+      const response = await axios.get(
+          `http://localhost:8082/employees/getPlanDentist/${dentistId}`, {
+              headers: {
+                // Overwrite Axios's automatically set Content-Type
+                'Content-Type': 'application/json'
+              }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const addEmployee = async (EmpInfo) => {
+ 
+  try {
+      const response = await axios.post(
+          `http://localhost:8082/employees/addEmployee`,EmpInfo, {
+              headers: {
+                // Overwrite Axios's automatically set Content-Type
+                'Content-Type': 'application/json'
+              }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const editEmployee = async (EmpInfo) => {
+  debugger
+  try {
+      const response = await axios.post(
+        
+          `http://localhost:8082/employees/changeEmp/${EmpInfo.employeeId}`,EmpInfo, {
+              headers: {
+                // Overwrite Axios's automatically set Content-Type
+                'Content-Type': 'application/json'
+              }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
 export {
    getEmpList,
    filterEmpGenderRole,
    getEmpID,
    deleteEmpID,
-   searchEmp
+   searchEmp,
+   viewPlanList,
+   addEmployee,
+   editEmployee
   };
   

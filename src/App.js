@@ -32,7 +32,9 @@ AddEmployeeForm,
 
 Payment,
 StaffAdmin,
-DeleteSuccessfull
+DeleteSuccessfull,
+Dentist,
+EditEmployee
 
 
 } from "./pages";
@@ -67,10 +69,11 @@ const App = () => {
 
               <Route path="/Employee" element={<Employee />} />
               <Route path="/Employee/:employeeId" element={<StaffAdmin />} />
+              <Route path="/Dentist/:dentistId/:employeeId" element={<Dentist />} />
               <Route path="/deleteSuccess" element={<DeleteSuccessfull/>} />
              
-              <Route path="/AddEmployeeForm" element={<AddEmployeeForm/>} />
-
+              <Route path="/AddEmployee" element={<AddEmployeeForm/>} />
+              <Route path="/EditEmployee/:employeeID" element={<EditEmployee/>} />
               <Route path="/Payment" element={<Payment/>} />
 
 
