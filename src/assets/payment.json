@@ -1,0 +1,110 @@
+[
+    {
+      "PM_TREATMENT_PLAN_ID": 1,
+      "PAYMENT_DATE": "2023-12-19",
+      "PAYER": "Alice Jones",
+      "PAYER_PHONENUMBER": "555-123-4567",
+      "PAID_MONEY": 750,
+      "EXCESS_MONEY": 50,
+      "TYPE_PAY": "Banking",
+      "PAYMENT_STATUS": "Paid",
+      "PAYMENT_NOTE": "Partial payment for dental implants."
+    },
+    {
+      "PM_TREATMENT_PLAN_ID": 2,
+      "PAYMENT_DATE": "2023-12-15",
+      "PAYER": "Michael Brown",
+      "PAYER_PHONENUMBER": "987-654-3210",
+      "PAID_MONEY": 200,
+      "EXCESS_MONEY": 0,
+      "TYPE_PAY": "Cash",
+      "PAYMENT_STATUS": "Paid",
+      "PAYMENT_NOTE": "Initial consultation fee."
+    },
+    {
+      "PM_TREATMENT_PLAN_ID": 3,
+      "PAYMENT_DATE": "2023-12-18",
+      "PAYER": "Emily Garcia",
+      "PAYER_PHONENUMBER": "333-222-1111",
+      "PAID_MONEY": 300,
+      "EXCESS_MONEY": 25,
+      "TYPE_PAY": "Check",
+      "PAYMENT_STATUS": "Paid",
+      "PAYMENT_NOTE": "Payment for teeth whitening treatment."
+    },
+    {
+      "PM_TREATMENT_PLAN_ID": 4,
+      "PAYMENT_DATE": "2023-12-12",
+      "PAYER": "David Miller",
+      "PAYER_PHONENUMBER": "819-777-5555",
+      "PAID_MONEY": 1000,
+      "EXCESS_MONEY": 100,
+      "TYPE_PAY": "Banking",
+      "PAYMENT_STATUS": "Paid",
+      "PAYMENT_NOTE": "Insurance coverage for root canal procedure."
+    },
+    {
+      "PM_TREATMENT_PLAN_ID": 5,
+      "PAYMENT_DATE": "2023-12-17",
+      "PAYER": "Sarah Taylor",
+      "PAYER_PHONENUMBER": "444-888-9999",
+      "PAID_MONEY": 400,
+      "EXCESS_MONEY": 0,
+      "TYPE_PAY": "Banking",
+      "PAYMENT_STATUS": "Paid",
+      "PAYMENT_NOTE": "Full payment for braces."
+    },
+    {
+      "PM_TREATMENT_PLAN_ID": 6,
+      "PAYMENT_DATE": "2023-12-14",
+      "PAYER": "William Davis",
+      "PAYER_PHONENUMBER": "222-555-8888",
+      "PAID_MONEY": 350,
+      "EXCESS_MONEY": 0,
+      "TYPE_PAY": "Cash",
+      "PAYMENT_STATUS": "Paid",
+      "PAYMENT_NOTE": "Cleaning and checkup."
+    },
+    {
+      "PM_TREATMENT_PLAN_ID": 7,
+      "PAYMENT_DATE": "2023-12-16",
+      "PAYER": "Jennifer Lee",
+      "PAYER_PHONENUMBER": "666-333-7777",
+      "PAID_MONEY": 500,
+      "EXCESS_MONEY": 50,
+      "TYPE_PAY": "Cash",
+      "PAYMENT_NOTE": "Second installment for veneers."
+    },
+    {
+    "PM_TREATMENT_PLAN_ID": 8,
+    "PAYMENT_DATE": "2023-12-13",
+    "PAYER": "Christopher Anderson",
+    "PAYER_PHONENUMBER": "101-202-303",
+    "PAID_MONEY": 150,
+    "EXCESS_MONEY": 0,
+    "TYPE_PAY": "Cash",
+    "PAYMENT_STATUS": "Paid",
+    "PAYMENT_NOTE": "Partial payment for crown replacement."
+    },
+    {
+    "PM_TREATMENT_PLAN_ID": 9,
+    "PAYMENT_DATE": "2023-12-11",
+    "PAYER": "Susan Roberts",
+    "PAYER_PHONENUMBER": "777-444-111",
+    "PAID_MONEY": 600,
+    "EXCESS_MONEY": 75,
+    "TYPE_PAY": "Banking",
+    "PAYMENT_STATUS": "Paid",
+    "PAYMENT_NOTE": "Full payment for wisdom teeth extraction."
+    },
+    {
+    "PM_TREATMENT_PLAN_ID": 10,
+    "PAYMENT_DATE": "2023-12-10",
+    "PAYER": "Daniel Garcia",
+    "PAYER_PHONENUMBER": "555-000-999",
+    "PAID_MONEY": 450,
+    "EXCESS_MONEY": 25,
+    "TYPE_PAY": "Banking",
+    "PAYMENT_NOTE": "Final payment for teeth bleaching."
+    }
+]

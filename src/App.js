@@ -17,10 +17,13 @@ Overview,
 SignIn,
 SignUp,
 Patient,
-Employee
+Employee,
+Payment,
+EditPaymentForm
 
 } from "./pages";
 
+import AddPaymentForm from "./pages/AddPaymentForm/AddPaymentForm";
 
 const App = () => {
  
@@ -40,8 +43,9 @@ const App = () => {
               <Route path="/Employee" element={<Employee />} />
               <Route path="/signin" element={<SignIn/>} />
               <Route path="/signup" element={<SignUp />} />
-
-
+              <Route path="/Payment" element={<Payment />} />
+              <Route path="/addPaymentForm" element={<AddPaymentForm/>} />
+              <Route path="/editPaymentForm/:paymentID" element={<EditPaymentForm />} />
            
             </Routes>
           </div>
