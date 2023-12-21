@@ -15,6 +15,7 @@ import AddRequestForm from "./AddRequestForm";
 import Employee from "./Employee";
 import AddEmployeeForm from "./AddEmployeeForm";
 import Payment from "./Payment";
+import TeethListModal from "./TeethListModal";
 
 import TreatmentPlan from "./TreatmentPlan";
 import AddTreatmentPlan from "./AddTreatmentPlan";
@@ -36,13 +37,12 @@ export {
     Request,
     AddRequestForm,
 
-  
     Employee,
     AddEmployeeForm,
 
     Payment,
 
     TreatmentPlan,
-    AddTreatmentPlan
-
+    AddTreatmentPlan,
+    TeethListModal
 };

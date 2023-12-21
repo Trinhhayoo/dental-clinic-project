@@ -1,0 +1,43 @@
+[
+    {
+      "PARENT_TREATMENT_ID": 1,
+      "PARENT_TREATMENT_NAME": "General Checkup"
+    },
+    {
+      "PARENT_TREATMENT_ID": 2,
+      "PARENT_TREATMENT_NAME": "Dental Cleaning"
+    },
+    {
+      "PARENT_TREATMENT_ID": 3,
+      "PARENT_TREATMENT_NAME": "Orthopedic Consultation"
+    },
+    {
+      "PARENT_TREATMENT_ID": 4,
+      "PARENT_TREATMENT_NAME": "Physical Rehabilitation"
+    },
+    {
+      "PARENT_TREATMENT_ID": 5,
+      "PARENT_TREATMENT_NAME": "Nutritional Counseling"
+    },
+    {
+      "PARENT_TREATMENT_ID": 6,
+      "PARENT_TREATMENT_NAME": "Psychological Therapy"
+    },
+    {
+      "PARENT_TREATMENT_ID": 7,
+      "PARENT_TREATMENT_NAME": "Cardiology Evaluation"
+    },
+    {
+      "PARENT_TREATMENT_ID": 8,
+      "PARENT_TREATMENT_NAME": "Dermatology Consultation"
+    },
+    {
+      "PARENT_TREATMENT_ID": 9,
+      "PARENT_TREATMENT_NAME": "Acupuncture Session"
+    },
+    {
+      "PARENT_TREATMENT_ID": 10,
+      "PARENT_TREATMENT_NAME": "Prenatal Care"
+    }
+  ]
+  

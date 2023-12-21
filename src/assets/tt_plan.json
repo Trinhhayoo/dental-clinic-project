@@ -1,62 +1,62 @@
 [
     {
-        "TEETH_ID": 1,
+        "TEETH_TREATMETN_ID": 1,
         "TT_TREATMENT_PLAN_ID": 1,
-        "TT_TEETH_ID": "Upper Right First Molar",
-        "TT_SURFACE_ID": "Occlusal"
+        "TT_TEETH_TREATMETN_ID": 1,
+        "TT_SURFACE_ID": 1
     },
     {
-        "TEETH_ID": 2,
+        "TEETH_TREATMETN_ID": 2,
         "TT_TREATMENT_PLAN_ID": 1,
-        "TT_TEETH_ID": "Upper Right First Molar",
-        "TT_SURFACE_ID": "Mesial"
+        "TT_TEETH_TREATMETN_ID": 2,
+        "TT_SURFACE_ID": 2
     },
     {
-        "TEETH_ID": 3,
+        "TEETH_TREATMETN_ID": 3,
         "TT_TREATMENT_PLAN_ID": 1,
-        "TT_TEETH_ID": "Upper Right First Molar",
-        "TT_SURFACE_ID": "Distal"
+        "TT_TEETH_TREATMETN_ID": 1,
+        "TT_SURFACE_ID": 3
     },
     {
-        "TEETH_ID": 4,
+        "TEETH_TREATMETN_ID": 4,
         "TT_TREATMENT_PLAN_ID": 2,
-        "TT_TEETH_ID": "Upper Left First Molar",
-        "TT_SURFACE_ID": "Occlusal"
+        "TT_TEETH_TREATMETN_ID": 2,
+        "TT_SURFACE_ID": 1
     },
     {
-        "TEETH_ID": 5,
+        "TEETH_TREATMETN_ID": 5,
         "TT_TREATMENT_PLAN_ID": 2,
-        "TT_TEETH_ID": "Upper Left First Molar",
-        "TT_SURFACE_ID": "Buccal"
+        "TT_TEETH_TREATMETN_ID": 2,
+        "TT_SURFACE_ID": 4
     },
     {
-        "TEETH_ID": 6,
+        "TEETH_TREATMETN_ID": 6,
         "TT_TREATMENT_PLAN_ID": 3,
-        "TT_TEETH_ID": "Lower Right Second Molar",
-        "TT_SURFACE_ID": "Lingual"
+        "TT_TEETH_TREATMETN_ID": 3,
+        "TT_SURFACE_ID": 5
     },
     {
-        "TEETH_ID": 7,
+        "TEETH_TREATMETN_ID": 7,
         "TT_TREATMENT_PLAN_ID": 4,
-        "TT_TEETH_ID": "Lower Left Second Molar",
-        "TT_SURFACE_ID": "Occlusal"
+        "TT_TEETH_TREATMETN_ID": 4,
+        "TT_SURFACE_ID": 1
     },
     {
-        "TEETH_ID": 8,
+        "TEETH_TREATMETN_ID": 8,
         "TT_TREATMENT_PLAN_ID": 4,
-        "TT_TEETH_ID": "Lower Left Second Molar",
-        "TT_SURFACE_ID": "Distal"
+        "TT_TEETH_TREATMETN_ID": 4,
+        "TT_SURFACE_ID": 3
     },
     {
-        "TEETH_ID": 9,
+        "TEETH_TREATMETN_ID": 9,
         "TT_TREATMENT_PLAN_ID": 5,
-        "TT_TEETH_ID": "Upper Right Central Incisor",
-        "TT_SURFACE_ID": "Incisal"
+        "TT_TEETH_TREATMETN_ID": 5,
+        "TT_SURFACE_ID": 6
     },
     {
-        "TEETH_ID": 10,
+        "TEETH_TREATMETN_ID": 10,
         "TT_TREATMENT_PLAN_ID": 5,
-        "TT_TEETH_ID": "Upper Right Central Incisor",
-        "TT_SURFACE_ID": "Buccal"
+        "TT_TEETH_TREATMETN_ID": 5,
+        "TT_SURFACE_ID": 4
     }
 ]

@@ -34,7 +34,8 @@ AddEmployeeForm,
 Payment,
 
 TreatmentPlan,
-AddTreatmentPlan
+AddTreatmentPlan,
+TeethListModal
 
 
 } from "./pages";
@@ -65,6 +66,8 @@ const App = () => {
               <Route path="/Appointment" element={<Appointment />} />
               <Route path="/TreatmentPlan" element={<TreatmentPlan/>} />
               <Route path="/AddTreatmentPlan" element={<AddTreatmentPlan/>} />
+              <Route path="/TeethListModal" element={<TeethListModal/>} />
+
               <Route path="/AddAppointmentForm" element={<AddAppointmentForm/>} />
               <Route path="/EditAppointmentForm/:appointmentId" element={<EditAppointmentForm />} />
               <Route path="/Request" element={<Request />} />
