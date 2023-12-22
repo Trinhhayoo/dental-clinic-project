@@ -56,7 +56,7 @@ const EmpComponent = ({ employees }) => {
 
                     <div key={index} className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr,0.5fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
                         <h3 className='font-bold text-base text-100 '>
-                            {emp?.NAME}
+                            {emp?.EMP_NAME}
                         </h3>
                         
                         <div className='flex flex-row  items-center  gap-6 '>

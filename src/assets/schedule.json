@@ -1,82 +1,82 @@
 [
     {
-        "SCHEDULE_ID": 1,
-        "DENTIST_ID": 1,
-        "SCHEDULE_DATE": "Monday",
-        "TIME_WORK": "08:00",
-        "IS_OFF": false,
-        "IS_APPOINTMENT": false
+        "SCHEDULE_ID": "SCH001",
+        "DENTIST_ID": 101,
+        "SCHEDULE_DATE": "2023-01-15",
+        "SCHEDULE_TIME": "09:00:00",
+        "isOff": false,
+        "isAppointment": true
     },
     {
-        "SCHEDULE_ID": 2,
-        "DENTIST_ID": 1,
-        "SCHEDULE_DATE": "Monday",
-        "TIME_WORK": "01:00 PM",
-        "IS_OFF": false,
-        "IS_APPOINTMENT": false
+        "SCHEDULE_ID": "SCH002",
+        "DENTIST_ID": 102,
+        "SCHEDULE_DATE": "2023-02-20",
+        "SCHEDULE_TIME": "10:30:00",
+        "isOff": false,
+        "isAppointment": true
     },
     {
-        "SCHEDULE_ID": 1,
-        "DENTIST_ID": 2,
-        "SCHEDULE_DATE": "Tuesday",
-        "TIME_WORK": "09:00 AM",
-        "IS_OFF": false,
-        "IS_APPOINTMENT": false
+        "SCHEDULE_ID": "SCH003",
+        "DENTIST_ID": 103,
+        "SCHEDULE_DATE": "2023-03-05",
+        "SCHEDULE_TIME": "14:00:00",
+        "isOff": false,
+        "isAppointment": false
     },
     {
-        "SCHEDULE_ID": 2,
-        "DENTIST_ID": 2,
-        "SCHEDULE_DATE": "Tuesday",
-        "TIME_WORK": "02:00 PM",
-        "IS_OFF": false,
-        "IS_APPOINTMENT": false
+        "SCHEDULE_ID": "SCH004",
+        "DENTIST_ID": 104,
+        "SCHEDULE_DATE": "2023-04-10",
+        "SCHEDULE_TIME": "15:00:00",
+        "isOff": true,
+        "isAppointment": false
     },
     {
-        "SCHEDULE_ID": 1,
-        "DENTIST_ID": 3,
-        "SCHEDULE_DATE": "Wednesday",
-        "TIME_WORK": "08:00 AM",
-        "IS_OFF": false,
-        "IS_APPOINTMENT": false
+        "SCHEDULE_ID": "SCH005",
+        "DENTIST_ID": 105,
+        "SCHEDULE_DATE": "2023-05-15",
+        "SCHEDULE_TIME": "16:00:00",
+        "isOff": false,
+        "isAppointment": true
     },
     {
-        "SCHEDULE_ID": 2,
-        "DENTIST_ID": 3,
-        "SCHEDULE_DATE": "Wednesday",
-        "TIME_WORK": "01:00 PM",
-        "IS_OFF": false,
-        "IS_APPOINTMENT": false
+        "SCHEDULE_ID": "SCH006",
+        "DENTIST_ID": 106,
+        "SCHEDULE_DATE": "2023-06-20",
+        "SCHEDULE_TIME": "11:00:00",
+        "isOff": false,
+        "isAppointment": true
     },
     {
-        "SCHEDULE_ID": 1,
-        "DENTIST_ID": 4,
-        "SCHEDULE_DATE": "Thursday",
-        "TIME_WORK": "10:00 AM",
-        "IS_OFF": false,
-        "IS_APPOINTMENT": false
+        "SCHEDULE_ID": "SCH007",
+        "DENTIST_ID": 107,
+        "SCHEDULE_DATE": "2023-07-25",
+        "SCHEDULE_TIME": "09:00:00",
+        "isOff": false,
+        "isAppointment": false
     },
     {
-        "SCHEDULE_ID": 2,
-        "DENTIST_ID": 4,
-        "SCHEDULE_DATE": "Thursday",
-        "TIME_WORK": "03:00 PM",
-        "IS_OFF": false,
-        "IS_APPOINTMENT": false
+        "SCHEDULE_ID": "SCH008",
+        "DENTIST_ID": 108,
+        "SCHEDULE_DATE": "2023-08-30",
+        "SCHEDULE_TIME": "18:00:00",
+        "isOff": true,
+        "isAppointment": false
     },
     {
-        "SCHEDULE_ID": 1,
-        "DENTIST_ID": 5,
-        "SCHEDULE_DATE": "Friday",
-        "TIME_WORK": "08:00 AM",
-        "IS_OFF": false,
-        "IS_APPOINTMENT": false
+        "SCHEDULE_ID": "SCH009",
+        "DENTIST_ID": 109,
+        "SCHEDULE_DATE": "2023-09-04",
+        "SCHEDULE_TIME": "09:00:00",
+        "isOff": false,
+        "isAppointment": true
     },
     {
-        "SCHEDULE_ID": 2,
-        "DENTIST_ID": 5,
-        "SCHEDULE_DATE": "Friday",
-        "TIME_WORK": "01:00 PM",
-        "IS_OFF": false,
-        "IS_APPOINTMENT": false
+        "SCHEDULE_ID": "SCH010",
+        "DENTIST_ID": 110,
+        "SCHEDULE_DATE": "2023-10-10",
+        "SCHEDULE_TIME": "09:00:00",
+        "isOff": false,
+        "isAppointment": true
     }
 ]

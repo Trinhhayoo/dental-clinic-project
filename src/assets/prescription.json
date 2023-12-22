@@ -1,72 +1,102 @@
 [
     {
         "PRESCRIPTION_ID": 1,
-        "P_TREATMENT_PLAN_ID": 1,
-        "P_DESCRIPTION": "Prescription for pain relief",
-        "P_QUANTITY": 30,
-        "P_MEDICINE_ID": 101
+        "P_TREATMENT_PLAN_ID": 101,
+        "P_DESCRIPTION": "Take medicine after meals."
     },
     {
         "PRESCRIPTION_ID": 2,
-        "P_TREATMENT_PLAN_ID": 2,
-        "P_DESCRIPTION": "Antibiotic prescription",
-        "P_QUANTITY": 20,
-        "P_MEDICINE_ID": 102
+        "P_TREATMENT_PLAN_ID": 102,
+        "P_DESCRIPTION": "Apply ointment twice a day."
     },
     {
         "PRESCRIPTION_ID": 3,
-        "P_TREATMENT_PLAN_ID": 3,
-        "P_DESCRIPTION": "Mouthwash prescription",
-        "P_QUANTITY": 1,
-        "P_MEDICINE_ID": 103
+        "P_TREATMENT_PLAN_ID": 103,
+        "P_DESCRIPTION": "Complete the antibiotic course."
     },
     {
         "PRESCRIPTION_ID": 4,
-        "P_TREATMENT_PLAN_ID": 4,
-        "P_DESCRIPTION": "Orthodontic braces care instructions",
-        "P_QUANTITY": 1,
-        "P_MEDICINE_ID": 104
+        "P_TREATMENT_PLAN_ID": 104,
+        "P_DESCRIPTION": "Take painkillers as needed."
     },
     {
         "PRESCRIPTION_ID": 5,
-        "P_TREATMENT_PLAN_ID": 5,
-        "P_DESCRIPTION": "Fluoride treatment prescription",
-        "P_QUANTITY": 1,
-        "P_MEDICINE_ID": 105
+        "P_TREATMENT_PLAN_ID": 105,
+        "P_DESCRIPTION": "Use eye drops regularly."
     },
     {
         "PRESCRIPTION_ID": 6,
-        "P_TREATMENT_PLAN_ID": 6,
-        "P_DESCRIPTION": "Pain Relief Cream",
-        "P_QUANTITY": 15,
-        "P_MEDICINE_ID": 106
+        "P_TREATMENT_PLAN_ID": 106,
+        "P_DESCRIPTION": "Take medication with plenty of water."
     },
     {
         "PRESCRIPTION_ID": 7,
-        "P_TREATMENT_PLAN_ID": 7,
-        "P_DESCRIPTION": "Toothache Drops",
-        "P_QUANTITY": 10,
-        "P_MEDICINE_ID": 107
+        "P_TREATMENT_PLAN_ID": 107,
+        "P_DESCRIPTION": "Apply cream to affected area."
     },
     {
         "PRESCRIPTION_ID": 8,
-        "P_TREATMENT_PLAN_ID": 8,
-        "P_DESCRIPTION": "Sensitive Teeth Toothpaste",
-        "P_QUANTITY": 5,
-        "P_MEDICINE_ID": 108
+        "P_TREATMENT_PLAN_ID": 108,
+        "P_DESCRIPTION": "Follow the dosage instructions on the label."
     },
     {
         "PRESCRIPTION_ID": 9,
-        "P_TREATMENT_PLAN_ID": 9,
-        "P_DESCRIPTION": "Teeth Whitening Kit",
-        "P_QUANTITY": 2,
-        "P_MEDICINE_ID": 109
+        "P_TREATMENT_PLAN_ID": 109,
+        "P_DESCRIPTION": "Avoid alcohol while taking medication."
     },
     {
         "PRESCRIPTION_ID": 10,
-        "P_TREATMENT_PLAN_ID": 10,
-        "P_DESCRIPTION": "Oral Antiseptic Rinse",
-        "P_QUANTITY": 3,
-        "P_MEDICINE_ID": 110
+        "P_TREATMENT_PLAN_ID": 110,
+        "P_DESCRIPTION": "Take the pill at the same time every day."
+    },
+    {
+        "PRESCRIPTION_ID": 11,
+        "P_TREATMENT_PLAN_ID": 111,
+        "P_DESCRIPTION": "Use nasal spray as directed by the doctor."
+    },
+    {
+        "PRESCRIPTION_ID": 12,
+        "P_TREATMENT_PLAN_ID": 112,
+        "P_DESCRIPTION": "Finish the entire course of antibiotics."
+    },
+    {
+        "PRESCRIPTION_ID": 13,
+        "P_TREATMENT_PLAN_ID": 113,
+        "P_DESCRIPTION": "Keep the medication in a cool, dry place."
+    },
+    {
+        "PRESCRIPTION_ID": 14,
+        "P_TREATMENT_PLAN_ID": 114,
+        "P_DESCRIPTION": "Report any side effects to the doctor."
+    },
+    {
+        "PRESCRIPTION_ID": 15,
+        "P_TREATMENT_PLAN_ID": 115,
+        "P_DESCRIPTION": "Do not crush or chew the tablets."
+    },
+    {
+        "PRESCRIPTION_ID": 16,
+        "P_TREATMENT_PLAN_ID": 116,
+        "P_DESCRIPTION": "Take medication with or without food, as directed."
+    },
+    {
+        "PRESCRIPTION_ID": 17,
+        "P_TREATMENT_PLAN_ID": 117,
+        "P_DESCRIPTION": "Avoid exposure to sunlight while on this medication."
+    },
+    {
+        "PRESCRIPTION_ID": 18,
+        "P_TREATMENT_PLAN_ID": 118,
+        "P_DESCRIPTION": "Use a measuring spoon for liquid medications."
+    },
+    {
+        "PRESCRIPTION_ID": 19,
+        "P_TREATMENT_PLAN_ID": 119,
+        "P_DESCRIPTION": "Keep out of reach of children."
+    },
+    {
+        "PRESCRIPTION_ID": 20,
+        "P_TREATMENT_PLAN_ID": 120,
+        "P_DESCRIPTION": "Store in a tightly closed container."
     }
 ]

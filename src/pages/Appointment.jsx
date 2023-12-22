@@ -8,6 +8,7 @@ import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import { useNavigate } from "react-router-dom"; 
 
 import appointment from "../assets/appointment.json"
+import employeeList from "../assets/employee.json"
 import { FaPlus } from "react-icons/fa6";
 
 import React, { useEffect, useState } from 'react';
@@ -74,9 +75,9 @@ const Recentappointment = ({ recentappointment }) => {
                         </div>
                         <div>
                         <p className='text-black-100 '>
-                                {appointment?.A_DENTIST_NAME}
+                        {employeeList.find(employee => employee.EMPLOYEE_ID === appointment.A_DENTIST_ID)?.EMP_NAME}
 
-                            </p>
+                        </p>
                         </div>
                         
                         <div className="hidden md:flex flex-col">

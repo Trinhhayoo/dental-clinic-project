@@ -1,34 +1,82 @@
 [
     {
         "SURFACE_TEETH_ID": 1,
-        "SURFACE_NAME": "Occlusal"
-    },
-    {
-        "SURFACE_TEETH_ID": 2,
-        "SURFACE_NAME": "Mesial"
-    },
-    {
-        "SURFACE_TEETH_ID": 3,
-        "SURFACE_NAME": "Distal"
-    },
-    {
-        "SURFACE_TEETH_ID": 4,
         "SURFACE_NAME": "Buccal"
     },
     {
-        "SURFACE_TEETH_ID": 5,
+        "SURFACE_TEETH_ID": 2,
         "SURFACE_NAME": "Lingual"
     },
     {
+        "SURFACE_TEETH_ID": 3,
+        "SURFACE_NAME": "Mesial"
+    },
+    {
+        "SURFACE_TEETH_ID": 4,
+        "SURFACE_NAME": "Distal"
+    },
+    {
+        "SURFACE_TEETH_ID": 5,
+        "SURFACE_NAME": "Occlusal"
+    },
+    {
         "SURFACE_TEETH_ID": 6,
-        "SURFACE_NAME": "Incisal"
+        "SURFACE_NAME": "Buccal"
     },
     {
         "SURFACE_TEETH_ID": 7,
-        "SURFACE_NAME": "Palatal"
+        "SURFACE_NAME": "Lingual"
     },
     {
         "SURFACE_TEETH_ID": 8,
-        "SURFACE_NAME": "Labial"
+        "SURFACE_NAME": "Mesial"
+    },
+    {
+        "SURFACE_TEETH_ID": 9,
+        "SURFACE_NAME": "Distal"
+    },
+    {
+        "SURFACE_TEETH_ID": 10,
+        "SURFACE_NAME": "Occlusal"
+    },
+    {
+        "SURFACE_TEETH_ID": 11,
+        "SURFACE_NAME": "Buccal"
+    },
+    {
+        "SURFACE_TEETH_ID": 12,
+        "SURFACE_NAME": "Lingual"
+    },
+    {
+        "SURFACE_TEETH_ID": 13,
+        "SURFACE_NAME": "Mesial"
+    },
+    {
+        "SURFACE_TEETH_ID": 14,
+        "SURFACE_NAME": "Distal"
+    },
+    {
+        "SURFACE_TEETH_ID": 15,
+        "SURFACE_NAME": "Occlusal"
+    },
+    {
+        "SURFACE_TEETH_ID": 16,
+        "SURFACE_NAME": "Buccal"
+    },
+    {
+        "SURFACE_TEETH_ID": 17,
+        "SURFACE_NAME": "Lingual"
+    },
+    {
+        "SURFACE_TEETH_ID": 18,
+        "SURFACE_NAME": "Mesial"
+    },
+    {
+        "SURFACE_TEETH_ID": 19,
+        "SURFACE_NAME": "Distal"
+    },
+    {
+        "SURFACE_TEETH_ID": 20,
+        "SURFACE_NAME": "Occlusal"
     }
 ]

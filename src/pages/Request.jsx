@@ -8,6 +8,8 @@ import { FaPlus } from "react-icons/fa6";
 import React, { useState } from 'react';
 import { Button } from "@material-tailwind/react";
 import request from "../assets/request.json"
+import patient from "../assets/patient.json"
+
 import { useNavigate } from "react-router-dom"; 
 
 
@@ -44,7 +46,8 @@ const Recentrequest = ({ recentrequest }) => {
                         </h3>
                         <div className='flex flex-row  items-center  gap-6 '>
                             <p className='text-black-100 '>
-                                {request?.RQ_NAME}
+                            {patient.find(patient => patient.PATIENT_ID === request?.RQ_PATIENT_ID)?.PP_NAME}
+                                
                             </p>
                         </div>
                         <div>

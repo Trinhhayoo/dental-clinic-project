@@ -1,0 +1,107 @@
+[
+    {
+        "PRESCRIPTION_ID": 1,
+        "MEDICINE_ID": 101,
+        "PD_QUANTITY": 2
+    },
+    {
+        "PRESCRIPTION_ID": 1,
+        "MEDICINE_ID": 102,
+        "PD_QUANTITY": 1
+    },
+    {
+        "PRESCRIPTION_ID": 2,
+        "MEDICINE_ID": 103,
+        "PD_QUANTITY": 3
+    },
+    {
+        "PRESCRIPTION_ID": 3,
+        "MEDICINE_ID": 104,
+        "PD_QUANTITY": 1
+    },
+    {
+        "PRESCRIPTION_ID": 4,
+        "MEDICINE_ID": 105,
+        "PD_QUANTITY": 2
+    },
+    {
+        "PRESCRIPTION_ID": 5,
+        "MEDICINE_ID": 106,
+        "PD_QUANTITY": 1
+    },
+    {
+        "PRESCRIPTION_ID": 6,
+        "MEDICINE_ID": 107,
+        "PD_QUANTITY": 2
+    },
+    {
+        "PRESCRIPTION_ID": 7,
+        "MEDICINE_ID": 108,
+        "PD_QUANTITY": 1
+    },
+    {
+        "PRESCRIPTION_ID": 8,
+        "MEDICINE_ID": 109,
+        "PD_QUANTITY": 3
+    },
+    {
+        "PRESCRIPTION_ID": 9,
+        "MEDICINE_ID": 110,
+        "PD_QUANTITY": 1
+    },
+    {
+        "PRESCRIPTION_ID": 10,
+        "MEDICINE_ID": 111,
+        "PD_QUANTITY": 2
+    },
+    {
+        "PRESCRIPTION_ID": 11,
+        "MEDICINE_ID": 112,
+        "PD_QUANTITY": 1
+    },
+    {
+        "PRESCRIPTION_ID": 12,
+        "MEDICINE_ID": 113,
+        "PD_QUANTITY": 3
+    },
+    {
+        "PRESCRIPTION_ID": 13,
+        "MEDICINE_ID": 114,
+        "PD_QUANTITY": 1
+    },
+    {
+        "PRESCRIPTION_ID": 14,
+        "MEDICINE_ID": 115,
+        "PD_QUANTITY": 2
+    },
+    {
+        "PRESCRIPTION_ID": 15,
+        "MEDICINE_ID": 116,
+        "PD_QUANTITY": 1
+    },
+    {
+        "PRESCRIPTION_ID": 16,
+        "MEDICINE_ID": 117,
+        "PD_QUANTITY": 3
+    },
+    {
+        "PRESCRIPTION_ID": 17,
+        "MEDICINE_ID": 118,
+        "PD_QUANTITY": 1
+    },
+    {
+        "PRESCRIPTION_ID": 18,
+        "MEDICINE_ID": 119,
+        "PD_QUANTITY": 2
+    },
+    {
+        "PRESCRIPTION_ID": 19,
+        "MEDICINE_ID": 120,
+        "PD_QUANTITY": 1
+    },
+    {
+        "PRESCRIPTION_ID": 20,
+        "MEDICINE_ID": 121,
+        "PD_QUANTITY": 3
+    }
+]

@@ -1,83 +1,162 @@
 [
-    {
-      "EMPLOYEE_ID": 1,
-      "NAME": "Nguyễn Thị A",
-      "GENDER": "Female",
-      "DATE_OF_BIRTH": "1980-05-20",
-      "ADDRESS": "123 Main St, Cityville",
-      "ROLE_TYPE": "DENTIST"
-    },
-    {
-      "EMPLOYEE_ID": 2,
-      "NAME": "Trần Văn B",
+  {
+      "EMPLOYEE_ID": "EMP001",
+      "USER_ID": 1001,
+      "EMP_NAME": "John Doe",
       "GENDER": "Male",
-      "DATE_OF_BIRTH": "1985-10-15",
-      "ADDRESS": "456 Oak St, Townsville",
-      "ROLE_TYPE": "ADMIN"
-    },
-    {
-      "EMPLOYEE_ID": 3,
-      "NAME": "Lê Thị C",
+      "DATE_OF_BIRTH": "1990-05-15",
+      "ADDRESS": "123 Main St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP002",
+      "USER_ID": 1002,
+      "EMP_NAME": "Jane Smith",
       "GENDER": "Female",
-      "DATE_OF_BIRTH": "1990-02-28",
-      "ADDRESS": "789 Pine St, Villagetown",
-      "ROLE_TYPE": "STAFF"
-    },
-    {
-      "EMPLOYEE_ID": 4,
-      "NAME": "Phạm Văn D",
+      "DATE_OF_BIRTH": "1985-08-22",
+      "ADDRESS": "456 Oak St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP003",
+      "USER_ID": 1003,
+      "EMP_NAME": "Bob Johnson",
       "GENDER": "Male",
-      "DATE_OF_BIRTH": "1982-08-10",
-      "ADDRESS": "111 Elm St, Hamletsville",
-      "ROLE_TYPE": "DENTIST"
-    },
-    {
-      "EMPLOYEE_ID": 5,
-      "NAME": "Ngô Thị E",
+      "DATE_OF_BIRTH": "1992-11-30",
+      "ADDRESS": "789 Elm St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP004",
+      "USER_ID": 1004,
+      "EMP_NAME": "Alice Williams",
       "GENDER": "Female",
-      "DATE_OF_BIRTH": "1995-04-05",
-      "ADDRESS": "789 Birch St, Villagetown",
-      "ROLE_TYPE": "ADMIN"
-    },
-    {
-      "EMPLOYEE_ID": 6,
-      "NAME": "Trần Văn F",
+      "DATE_OF_BIRTH": "1988-03-10",
+      "ADDRESS": "101 Pine St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP005",
+      "USER_ID": 1005,
+      "EMP_NAME": "Michael Brown",
       "GENDER": "Male",
-      "DATE_OF_BIRTH": "1988-12-22",
-      "ADDRESS": "222 Maple St, Suburbia",
-      "ROLE_TYPE": "STAFF"
-    },
-    {
-      "EMPLOYEE_ID": 7,
-      "NAME": "Vũ Thị G",
+      "DATE_OF_BIRTH": "1995-07-18",
+      "ADDRESS": "202 Cedar St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP006",
+      "USER_ID": 1006,
+      "EMP_NAME": "Sara Davis",
       "GENDER": "Female",
-      "DATE_OF_BIRTH": "1983-06-18",
-      "ADDRESS": "333 Cedar St, Villagetown",
-      "ROLE_TYPE": "DENTIST"
-    },
-    {
-      "EMPLOYEE_ID": 8,
-      "NAME": "Đỗ Văn H",
+      "DATE_OF_BIRTH": "1987-09-25",
+      "ADDRESS": "303 Maple St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP007",
+      "USER_ID": 1007,
+      "EMP_NAME": "Chris Wilson",
       "GENDER": "Male",
-      "DATE_OF_BIRTH": "1992-03-25",
-      "ADDRESS": "444 Pine St, Cityville",
-      "ROLE_TYPE": "ADMIN"
-    },
-    {
-      "EMPLOYEE_ID": 9,
-      "NAME": "Lê Thị I",
+      "DATE_OF_BIRTH": "1993-02-14",
+      "ADDRESS": "404 Birch St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP008",
+      "USER_ID": 1008,
+      "EMP_NAME": "Emily Miller",
       "GENDER": "Female",
-      "DATE_OF_BIRTH": "1987-11-08",
-      "ADDRESS": "555 Oak St, Suburbia",
-      "ROLE_TYPE": "STAFF"
-    },
-    {
-      "EMPLOYEE_ID": 10,
-      "NAME": "Hoàng Văn J",
+      "DATE_OF_BIRTH": "1984-06-08",
+      "ADDRESS": "505 Walnut St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP009",
+      "USER_ID": 1009,
+      "EMP_NAME": "Tom Anderson",
       "GENDER": "Male",
-      "DATE_OF_BIRTH": "1994-09-12",
-      "ADDRESS": "666 Elm St, Townsville",
-      "ROLE_TYPE": "DENTIST"
-    }
-  ]
-  
+      "DATE_OF_BIRTH": "1998-04-03",
+      "ADDRESS": "606 Oak St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP010",
+      "USER_ID": 1010,
+      "EMP_NAME": "Jessica Garcia",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1986-10-20",
+      "ADDRESS": "707 Elm St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP011",
+      "USER_ID": 1011,
+      "EMP_NAME": "Andrew Martinez",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "1991-12-05",
+      "ADDRESS": "808 Pine St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP012",
+      "USER_ID": 1012,
+      "EMP_NAME": "Olivia Hernandez",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1989-01-28",
+      "ADDRESS": "909 Cedar St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP013",
+      "USER_ID": 1013,
+      "EMP_NAME": "Kevin Taylor",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "1994-08-15",
+      "ADDRESS": "010 Maple St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP014",
+      "USER_ID": 1014,
+      "EMP_NAME": "Sophia Adams",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1983-02-22",
+      "ADDRESS": "111 Birch St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP015",
+      "USER_ID": 1015,
+      "EMP_NAME": "Daniel Clark",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "1997-06-30",
+      "ADDRESS": "212 Walnut St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP016",
+      "USER_ID": 1016,
+      "EMP_NAME": "Isabella Lewis",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1982-11-17",
+      "ADDRESS": "313 Oak St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP017",
+      "USER_ID": 1017,
+      "EMP_NAME": "Matthew Hall",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "1996-04-12",
+      "ADDRESS": "414 Elm St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP018",
+      "USER_ID": 1018,
+      "EMP_NAME": "Ava Turner",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1981-07-28",
+      "ADDRESS": "515 Pine St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP019",
+      "USER_ID": 1019,
+      "EMP_NAME": "Ethan Baker",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "1999-09-05",
+      "ADDRESS": "616 Cedar St"
+  },
+  {
+      "EMPLOYEE_ID": "EMP020",
+      "USER_ID": 1020,
+      "EMP_NAME": "Mia Brooks",
+      "GENDER": "Female",
+      "DATE_OF_BIRTH": "1980-03-18",
+      "ADDRESS": "717 Maple St"
+  }
+]

@@ -1,42 +1,82 @@
 [
     {
         "TEETH_ID": 1,
-        "TEETH_NAME": "Upper Right First Molar"
+        "TEETH_NAME": "Incisor"
     },
     {
         "TEETH_ID": 2,
-        "TEETH_NAME": "Upper Left First Molar"
+        "TEETH_NAME": "Canine"
     },
     {
         "TEETH_ID": 3,
-        "TEETH_NAME": "Lower Right Second Molar"
+        "TEETH_NAME": "Premolar"
     },
     {
         "TEETH_ID": 4,
-        "TEETH_NAME": "Lower Left Second Molar"
+        "TEETH_NAME": "Molar"
     },
     {
         "TEETH_ID": 5,
-        "TEETH_NAME": "Upper Right Central Incisor"
+        "TEETH_NAME": "Wisdom Tooth"
     },
     {
         "TEETH_ID": 6,
-        "TEETH_NAME": "Upper Left Central Incisor"
+        "TEETH_NAME": "Incisor"
     },
     {
         "TEETH_ID": 7,
-        "TEETH_NAME": "Lower Right Central Incisor"
+        "TEETH_NAME": "Canine"
     },
     {
         "TEETH_ID": 8,
-        "TEETH_NAME": "Lower Left Central Incisor"
+        "TEETH_NAME": "Premolar"
     },
     {
         "TEETH_ID": 9,
-        "TEETH_NAME": "Upper Right Canine"
+        "TEETH_NAME": "Molar"
     },
     {
         "TEETH_ID": 10,
-        "TEETH_NAME": "Upper Left Canine"
+        "TEETH_NAME": "Wisdom Tooth"
+    },
+    {
+        "TEETH_ID": 11,
+        "TEETH_NAME": "Incisor"
+    },
+    {
+        "TEETH_ID": 12,
+        "TEETH_NAME": "Canine"
+    },
+    {
+        "TEETH_ID": 13,
+        "TEETH_NAME": "Premolar"
+    },
+    {
+        "TEETH_ID": 14,
+        "TEETH_NAME": "Molar"
+    },
+    {
+        "TEETH_ID": 15,
+        "TEETH_NAME": "Wisdom Tooth"
+    },
+    {
+        "TEETH_ID": 16,
+        "TEETH_NAME": "Incisor"
+    },
+    {
+        "TEETH_ID": 17,
+        "TEETH_NAME": "Canine"
+    },
+    {
+        "TEETH_ID": 18,
+        "TEETH_NAME": "Premolar"
+    },
+    {
+        "TEETH_ID": 19,
+        "TEETH_NAME": "Molar"
+    },
+    {
+        "TEETH_ID": 20,
+        "TEETH_NAME": "Wisdom Tooth"
     }
 ]

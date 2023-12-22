@@ -85,9 +85,11 @@ const AppointmentRequest = ({ request }) => {
               <div className="flex flex-col">
                 <p className="text-gray-600">{item.RQ_NAME}</p>
                 <div className="flex flex-row text-sm text-gray-300 gap-1">
-                  <p>{item.RQ_AGE}</p>
-                  <p>{item.RQ_DATE}</p>
-                  <p>{item.RQ_TIME}</p>
+                {patient.find(patient => patient.PATIENT_ID === request?.RQ_PATIENT_ID)?.PP_NAME}
+                  
+                <p>{item.RQ_DATE_TIME}</p>
+                <p>{item.RQ_TIME}</p>
+                 
                 </div>
 
               </div>

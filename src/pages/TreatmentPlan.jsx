@@ -6,7 +6,6 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import React, { useState } from 'react';
 import { Button } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
-import Employee from "./Employee";
 import ttPlanData from "../assets/tt_plan.json";
 import teethData from "../assets/teeth.json";
 import surfaceData from "../assets/surface.json";
@@ -77,10 +76,10 @@ const Recenttreatmentplan = ({ recenttreatmentplan }) => {
 
               <div className="hidden md:flex flex-col">
                 <p className='text-gray-400   text-xs mt-1'>
-                  {EmployeeList.find(Employee => Employee.EMPLOYEE_ID === treatmentplan.TP_DENTIST_ID)?.NAME}
+                  {EmployeeList.find(Employee => Employee.EMPLOYEE_ID === treatmentplan.TP_DENTIST_ID)?.EMP_NAME}
                 </p>
                 <p className='text-gray-400  text-xs mt-1'>
-                  {EmployeeList.find(Employee => Employee.EMPLOYEE_ID === treatmentplan.TP_ASSISTANT_ID)?.NAME}
+                  {EmployeeList.find(Employee => Employee.EMPLOYEE_ID === treatmentplan.TP_ASSISTANT_ID)?.EMP_ffNAME}
                 </p>
               </div>
               <div>
@@ -93,7 +92,7 @@ const Recenttreatmentplan = ({ recenttreatmentplan }) => {
                 {surfaceData.find(surface => surface.SURFACE_TEETH_ID === ttPlan?.TT_SURFACE_ID)?.SURFACE_NAME}
               </p> */}
               <p className='text-black-100 '>
-                {treatmentData.find(treatment => treatment.TREATMENT_ID === treatmentplan?.TP_TREATMENT_ID)?.TM_CATEGORY}
+                {treatmentData.find(treatment => treatment.TREATMENT_ID === treatmentplan?.TP_TREATMENT_ID)?.TREATMENT_NAME}
               </p>
               <Button
                 id="edittreatmentplan"
