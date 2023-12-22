@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const SearchPatient = ({ recentpatient, onPatientFound }) => {
+const SearchPatient = ({ onPatientFound }) => {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
 
@@ -10,20 +10,40 @@ const SearchPatient = ({ recentpatient, onPatientFound }) => {
     setSearchValue(e.target.value);
   };
 
-  const handleSearch = () => {
-    const foundPatient = recentpatient.find(
-      (patient) => patient.PP_EMAIL === searchValue || patient.PP_PHONENUMBER === searchValue
-    );
+  const handleSearch = async () => {
+    //debugger
+    try {
+      const response = await fetch('/api/searchPatient', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          searchValue,
+        }),
+      });
 
-    if (foundPatient) {
-      onPatientFound(foundPatient.PATIENT_ID);
-    } else {
-      onPatientFound(null);
+      if (!response.ok) {
+        //throw new Error('Search failed');
+        navigate(`/AddTreatmentPlan/${'001'}`);
+      }
+
+      const data = await response.json();
+
+      if (data && Array.isArray(data) && data.length > 0 && data[0].patientId) {
+        const foundPatient = data[0];
+        navigate(`/AddTreatmentPlan/${foundPatient.patientId}`);
+        onPatientFound(foundPatient.patientId);
+      } else {
+        onPatientFound(null);
+      }
+    } catch (error) {
+      console.error('Error searching patient:', error);
     }
   };
 
   const handleBackToPatient = () => {
-    navigate(-1); 
+    navigate(-1);
   };
 
   return (

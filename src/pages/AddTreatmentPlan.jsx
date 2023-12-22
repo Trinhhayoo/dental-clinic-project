@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Button } from '@material-tailwind/react';
-import { Link } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 const AddTreatmentPlan = () => {
   // State to manage form data
+  const { patientId } = useParams();
   const [formData, setFormData] = useState({
     TREATMENT_PLAN_ID: '',
-    TP_PATIENT_ID: '',
+    TP_PATIENT_ID: patientId,
     TP_DENTIST_ID: '',
     TP_PRESCRIPTION: '',
     TP_ASSISTANT_ID: '',

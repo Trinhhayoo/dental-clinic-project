@@ -15,6 +15,8 @@ import treatmentplan from "../assets/treatmentplan.json";
 import EmployeeList from "../assets/employee.json";
 import TeethListModal from './TeethListModal';
 import patient from "../assets/patient.json"
+import { Link } from 'react-router-dom';
+
 
 const Recenttreatmentplan = ({ recenttreatmentplan }) => {
   const navigate = useNavigate();
@@ -46,15 +48,14 @@ const Recenttreatmentplan = ({ recenttreatmentplan }) => {
 
   return (
     <div>
-      <div className='px-4 mt-4 border-none bg-gray-200 grid grid-cols-[1fr,1fr,2fr,2fr,3fr,2fr,2fr,1fr] rounded-mds font-bold py-4'>
+      <div className='px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr,2fr,1fr] rounded-mds font-bold py-4'>
         <p>Number</p>
         <p>Patient</p>
         <p>Dentist</p>
         <p>Precription</p>
         <p>Note</p>
-        <p>Teeth</p>
-        <p>Surface</p>
         <p>Treatment</p>
+        <p>Teeth</p>
         <p></p>
       </div>
 
@@ -63,7 +64,7 @@ const Recenttreatmentplan = ({ recenttreatmentplan }) => {
           const ttPlan = ttPlanData.find(tt => tt.TT_TREATMENT_PLAN_ID === treatmentplan.TREATMENT_PLAN_ID);
 
           return (
-            <div key={index} className='w-full grid grid-cols-[1fr,1fr,2fr,2fr,3fr,2fr,2fr,1fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
+            <div key={index} className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr,2fr,1fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
               <h3 className='font-bold text-base text-100 '>
                 {treatmentplan.TREATMENT_PLAN_ID}
               </h3>
@@ -88,20 +89,19 @@ const Recenttreatmentplan = ({ recenttreatmentplan }) => {
 
               <p>{treatmentplan.TP_NOTE}</p>
 
-              {/* Hiển thị tên răng và tên bề mặt */}
-              <button
-                className="text-blue-700 hover:underline focus:outline-none"
-                onClick={() => openModal(treatmentplan)}
-              >
-                View Teeth List
-              </button>
-              <p className='text-black-100 '>
+              {/* <p className='text-black-100 '>
                 {surfaceData.find(surface => surface.SURFACE_TEETH_ID === ttPlan?.TT_SURFACE_ID)?.SURFACE_NAME}
-              </p>
+              </p> */}
               <p className='text-black-100 '>
                 {treatmentData.find(treatment => treatment.TREATMENT_ID === treatmentplan?.TP_TREATMENT_ID)?.TM_CATEGORY}
               </p>
-
+              <Button
+                id="edittreatmentplan"
+                onClick={() =>  openModal(treatmentplan)}
+                //onClick={handleSignIn}
+                className="border-none  bg-purple-500 py-4 px-7 flex flex-row items-center gap-2">
+                <p className="flex">View</p>
+            </Button>
             </div>
           );
         })}
@@ -144,21 +144,28 @@ const TreatmentPlan = () => {
   const { username } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
-  const handleAddButtonClick = () => {
-    navigate('/AddTreatmentPlan');
-  };
+  // const handleAddButtonClick = () => {
+  //   navigate('/AddTreatmentPlan');
+  // };
 
   return (
     <div className="flex flex-col my-5">
       <div className="flex flex-row mb-4 items-center ">
-        <h2 className=" flex-grow text-black font-bold">treatmentplan List</h2>
-        <Button
+        <h2 className=" flex-grow text-black font-bold">Treatmentplan List</h2>
+        {/* <Button
           id="addtreatmentplan"
           onClick={handleAddButtonClick}
           className="border-none  bg-purple-500 py-4 px-4 flex flex-row items-center gap-2">
           <FaPlus className="flex" size={15} />
           <p className="flex">Add treatmentplan</p>
-        </Button>
+        </Button> */}
+        <Link to="/SearchPatient">
+          <Button className="border-none bg-purple-500 py-4 px-6 flex items-center gap-2 w-[100%]">
+          <FaPlus className="flex" size={15} />
+
+          <p className="flex"> Add treatmentplan</p>
+          </Button>
+        </Link>
       </div>
 
       <div className="flex">
