@@ -1,140 +1,159 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@material-tailwind/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
+import { addRequest, findPatient, getDentistFreeAppointment, createAppointment } from '../redux/services/Api';
+import { PatientNotFound } from '../components';
 const AddAppointmentForm = () => {
-  // State to manage form data
-  const [formData, setFormData] = useState({
-    A_ORDER_ID: '',
-    A_DATE: '',
-    A_ROOM_ID: '',
-    A_DENTIST_ID: '',
-    A_TIME: '',
-    A_REQUEST_ID: '',
-    // Add more fields as needed
-  });
+  const navigate = useNavigate();
+  const { requestId, patientId, date, time } = useParams();
+  const [dentistFree, setDentistFree] = useState([]);
+  const [dateAppointment, setDate] = useState();
+  const [timeAppointment, setTime] = useState('09:00:00');
 
-  // Handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isClick, setClick] = useState(false);
+  const [isDropdownOpenDentist, setDropdownOpenDentist] = useState(false);
+  const [filterDentist, setFilterDentist] = useState(null);
+
+  // Generate an array of room names from 1 to 110
+
+
+  const toggleDropdownDentist = () => {
+    setDropdownOpenDentist(!isDropdownOpenDentist);
   };
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform any necessary actions with the form data
-    console.log('Form data submitted:', formData);
-    // You can add logic to send the data to your backend or perform other actions
+  const handleOptionDentist = (Dentist) => {
+    setFilterDentist(Dentist);
+    setDropdownOpenDentist(false); // Đóng dropdown sau khi chọn
+    // Thêm logic của bạn để xử lý sự kiện khi chọn một tùy chọn
   };
+
+  useEffect(() => {
+    const FetchData = async () => {
+
+      try {
+        const { data: response } = await getDentistFreeAppointment(date, time);
+        setDentistFree(response);
+
+
+      } catch (error) {
+        console.error(error.message);
+      }
+
+    }
+
+    FetchData();
+  }, []);
+
+
+
+
+
+
+  useEffect(() => {
+    const AddFunct = async () => {
+
+      const appointmentInfo = {
+        "request_id": parseInt(requestId, 10),
+        "date_chosen": date,
+        "time_chosen": time,
+        "patient_id": parseInt(patientId, 10),
+        "dentist_id": parseInt(filterDentist, 10)
+      }
+
+      await createAppointment(appointmentInfo).then(response => {
+        console.log(response);
+        debugger
+
+      });
+    }
+    if (filterDentist != null) {
+      AddFunct();
+    }
+
+  }, [filterDentist]);
+
+
+
+
+
+
+
+
+
+
+
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Add Appointment</h2>
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
+    <div className="max-w-md flex flex-col mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
+      <h2 className="text-2xl font-semibold mb-4">Add Request</h2>
+
+
+      <form className="flex flex-col gap-4">
         <div>
-          <label htmlFor="orderID" className="block text-sm font-medium text-gray-700">
-            Order ID:
+          <label htmlFor="note" className="block text-sm font-medium text-gray-700">
+            Patient ID
           </label>
-          <input
-            type="text"
-            id="orderID"
-            name="A_ORDER_ID"
-            value={formData.A_ORDER_ID}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
+          <p>{patientId}</p>
+
+        </div>
+        <div>
+          <label htmlFor="note" className="block text-sm font-medium text-gray-700">
+            Date
+          </label>
+          <p>{date}</p>
+
+        </div>
+        <div>
+          <label htmlFor="note" className="block text-sm font-medium text-gray-700">
+            Time
+          </label>
+          <p>{time}</p>
+
         </div>
 
-        <div>
-          <label htmlFor="date" className="block text-sm font-medium text-gray-700">
-            Date:
-          </label>
-          <input
-            type="datetime-local"
-            id="date"
-            name="A_DATE"
-            value={formData.A_DATE}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
+        <div className="relative">
 
-        <div>
-          <label htmlFor="roomID" className="block text-sm font-medium text-gray-700">
-            Room ID:
-          </label>
-          <input
-            type="text"
-            id="roomID"
-            name="A_ROOM_ID"
-            value={formData.A_ROOM_ID}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
+       
 
-        <div>
-          <label htmlFor="dentistID" className="block text-sm font-medium text-gray-700">
-            Dentist ID:
-          </label>
-          <input
-            type="text"
-            id="dentistID"
-            name="A_DENTIST_ID"
-            value={formData.A_DENTIST_ID}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
 
-        <div>
-          <label htmlFor="time" className="block text-sm font-medium text-gray-700">
-            Time:
-          </label>
-          <input
-            type="time"
-            id="time"
-            name="A_TIME"
-            value={formData.A_TIME}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
 
-        <div>
-          <label htmlFor="requestID" className="block text-sm font-medium text-gray-700">
-            Request ID:
-          </label>
-          <input
-            type="text"
-            id="requestID"
-            name="A_REQUEST_ID"
-            value={formData.A_REQUEST_ID}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
+          {isDropdownOpenDentist && (
+            <div className=" h-[calc(100vh-80vh)]  overflow-y-scroll hide-scrollbar  absolute top-full mt-2 bg-white border border-gray-300 rounded-md mr-4 py-2 w-40">
+              {dentistFree.map((dentist, index) => (
+                <p
+                  key={index}
+                  className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center"
+                  onClick={() => handleOptionDentist(dentist)}
+                >
+                  {dentist}
 
-        {/* Add more fields as needed */}
+                </p>
+              ))}
+            </div>
+          )}
+           <p onClick={toggleDropdownDentist}>Chọn bác sĩ</p>
+        </div>
 
         <div className="mt-4 flex gap-4 justify-between">
-                    <Link to="/Appointment">
-                        <Button
-                            className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[100%]"
-                        >
-                            <p className="flex">Back</p>
-                        </Button>
-                    </Link>
+          <Link to="/Request">
+            <Button
+              className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[100%]"
+            >
+              <p className="flex">Back</p>
+            </Button>
+          </Link>
 
-                    <Button
-                        type="submit"
-                        className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[25%]"
-                    >
-                        <p className="flex">Save</p>
-                    </Button>
+          <Button
+            type="submit"
+            className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[55%]"
+          >
+            <p className="flex">Save</p>
+          </Button>
         </div>
       </form>
+
     </div>
   );
 };

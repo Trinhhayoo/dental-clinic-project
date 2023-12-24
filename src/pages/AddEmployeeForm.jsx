@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { addEmployee } from '../redux/services/Api';
 
-const AddEmployeeForm = ({ handleAddEmployee }) => {
+const AddEmployeeForm = () => {
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState(null);
   const [showOptions, setShowOptions] = useState(false);

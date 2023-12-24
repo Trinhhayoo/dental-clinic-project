@@ -34,7 +34,9 @@ Payment,
 StaffAdmin,
 DeleteSuccessfull,
 Dentist,
-EditEmployee
+EditEmployee,
+RequestDetail,
+AppointmentDetail
 
 
 } from "./pages";
@@ -62,8 +64,10 @@ const App = () => {
 
 
               <Route path="/Appointment" element={<Appointment />} />
-              <Route path="/AddAppointmentForm" element={<AddAppointmentForm/>} />
+              <Route path="/Appointment/:appointmentId" element={<AppointmentDetail />} />
+              <Route path="/AddAppointmentForm/:requestId/:patientId/:date/:time" element={<AddAppointmentForm/>} />
               <Route path="/EditAppointmentForm/:appointmentId" element={<EditAppointmentForm />} />
+              <Route path="/Request/:requestId" element={<RequestDetail />} />
               <Route path="/Request" element={<Request />} />
               <Route path="/AddRequestForm" element={<AddRequestForm/>} />
 

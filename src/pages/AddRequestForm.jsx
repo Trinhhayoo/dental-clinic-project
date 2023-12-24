@@ -1,96 +1,126 @@
 import React, { useState } from 'react';
 import { Button } from '@material-tailwind/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { addRequest, findPatient } from '../redux/services/Api';
+import { PatientNotFound } from '../components';
+const AddRequestForm = () => {
+  const navigate = useNavigate();
+  const [phonePP, setPhonePP] = useState();
+  const [patientId, setPatientId] = useState();
+  const [isPresent, setIspresent] = useState(false);
+  const [dateRequest, setDateRequest] = useState();
+  const [timeRequest, setTimeRequest] = useState('09:00:00');
+  const [noteRequest, setNoteRequest] = useState();
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isDelete, setDelete] = useState(false);
 
-const AddRequestForm = ({ handleAddRequest }) => {
-  // State to manage form data
-  const [formData, setFormData] = useState({
-    REQUEST_ID: '',
-    RQ_PATIENT_ID: '',
-    RQ_AGE: '',
-    RQ_NAME: '',
-    RQ_DATE: '',
-    RQ_TIME: '',
-    RQ_NOTE: '',
-    RQ_PHONE: '',
-    RQ_STATUS: 'Pending', // Set default value to 'Pending'
-    // Add more fields as needed
-  });
+  const searchFunc = async () => {
 
-  // Handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    await findPatient(phonePP, 10).then(response => {
+      setPatientId(response.data);
+      debugger
+      if (response.data === 0) {
+        // Hiển thị modal nếu không tìm thấy bệnh nhân
+        handleClick();
+      } else{
+        setPatientId(response.data);
+      }
+
+    });
+
+  }
+
+  const handleClick = () => {
+    // Open the delete confirmation modal
+    setIsDeleteModalOpen(true);
   };
 
-  // Handle form submission
+  const handleConfirmDelete = () => {
+    // Close the delete confirmation modal
+    setIsDeleteModalOpen(false);
+    setDelete(true);
+  };
+
+  const handleCancelDelete = () => {
+    // Close the delete confirmation modal
+    setIsDeleteModalOpen(false);
+  };
+
+  const something=(event)=> {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      // Trigger your custom form submission logic
+      searchFunc();
+    }
+}
+const handleTimeChange = (e) => {
+  const originalValue = e.target.value;
+  const formattedValue = originalValue.length === 5 ? `${originalValue}:00` : originalValue;
+
+  // Thực hiện các xử lý khác nếu cần
+
+  setTimeRequest(formattedValue);
+};
+
+
+
+  const addFunct = async () => {
+debugger
+    const requestInfo = {
+      "patient_id": patientId,
+      "dateRequest": dateRequest,
+      "timeRequest": timeRequest,
+      "noteRequest": noteRequest,
+      "phoneNumber": phonePP
+    }
+    console.log(requestInfo);
+   
+    await addRequest(requestInfo).then(response => {
+      console.log(response);
+debugger
+
+    });
+  }
+
+
+
+
+
   const handleSubmit = (e) => {
+    debugger
     e.preventDefault();
-    // Perform any necessary actions with the form data
-    handleAddRequest(formData);
-    // You can add logic to send the data to your backend or perform other actions
+    addFunct();
+
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
+    <div className="max-w-md flex flex-col mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-semibold mb-4">Add Request</h2>
-      <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
-        {/* First column */}
-        <div>
-          <label htmlFor="requestID" className="block text-sm font-medium text-gray-700">
-            Request ID:
-          </label>
-          <input
-            type="text"
-            id="requestID"
-            name="REQUEST_ID"
-            value={formData.REQUEST_ID}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
 
-        <div>
-          <label htmlFor="patientID" className="block text-sm font-medium text-gray-700">
-            Patient ID:
-          </label>
-          <input
-            type="text"
-            id="patientID"
-            name="RQ_PATIENT_ID"
-            value={formData.RQ_PATIENT_ID}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
+      <form
+      
+        autoComplete="off"
+        className="w-full" >
+        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Phone number</label>
+        <div class=" relative w-full items-center ">
 
-        <div>
-          <label htmlFor="age" className="block text-sm font-medium text-gray-700">
-            Age:
-          </label>
           <input
-            type="text"
-            id="age"
-            name="RQ_AGE"
-            value={formData.RQ_AGE}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
+            name="search-field"
+            autoComplete="off"
+            id="search-field"
+            type="search"
+            value={phonePP}
+            onKeyDown={(e) => something(e) }
+            onChange={(e) => setPhonePP(e.target.value)}
+            className="mt-1 p-2 border border-gray-300 rounded-md w-full" placeholder="Patient Phone number" required />
 
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-            Name:
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="RQ_NAME"
-            value={formData.RQ_NAME}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
         </div>
+      </form>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+
+        {isDeleteModalOpen && (
+          <PatientNotFound handleConfirmDelete={handleConfirmDelete} handleCancelDelete={handleCancelDelete} />
+        )}
 
         {/* Second column */}
         <div>
@@ -98,11 +128,11 @@ const AddRequestForm = ({ handleAddRequest }) => {
             Date:
           </label>
           <input
-            type="text"
+            type="date"
             id="date"
-            name="RQ_DATE"
-            value={formData.RQ_DATE}
-            onChange={handleInputChange}
+            name="A_DATE"
+            value={dateRequest}
+            onChange={(e) => setDateRequest(e.target.value)}
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
           />
         </div>
@@ -112,11 +142,13 @@ const AddRequestForm = ({ handleAddRequest }) => {
             Time:
           </label>
           <input
-            type="text"
+          type = "time"
+             minTime="09:00:00"
+             maxTime="16:00:00"
             id="time"
-            name="RQ_TIME"
-            value={formData.RQ_TIME}
-            onChange={handleInputChange}
+            name="A_TIME"
+            value={timeRequest}
+            onChange={(e) =>  handleTimeChange(e)}
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
           />
         </div>
@@ -129,25 +161,13 @@ const AddRequestForm = ({ handleAddRequest }) => {
             type="text"
             id="note"
             name="RQ_NOTE"
-            value={formData.RQ_NOTE}
-            onChange={handleInputChange}
+            value={noteRequest}
+            onChange={(e) => setNoteRequest(e.target.value)}
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
           />
         </div>
 
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-            Phone:
-          </label>
-          <input
-            type="text"
-            id="phone"
-            name="RQ_PHONE"
-            value={formData.RQ_PHONE}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
+
 
         <div className="mt-4 flex gap-4 justify-between">
           <Link to="/Request">
@@ -166,6 +186,7 @@ const AddRequestForm = ({ handleAddRequest }) => {
           </Button>
         </div>
       </form>
+
     </div>
   );
 };

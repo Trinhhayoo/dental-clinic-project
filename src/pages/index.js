@@ -19,6 +19,8 @@ import StaffAdmin from "./StaffAdmin";
 import DeleteSuccessfull from "./DeleteSucess";
 import Dentist from "./Dentist";
 import EditEmployee from "./EditEmployee";
+import RequestDetail from "./RequestDetail";
+import AppointmentDetail from "./AppointmentDetail";
 export {
     Overview,
     SignIn,
@@ -43,6 +45,8 @@ export {
     StaffAdmin,
     DeleteSuccessfull,
     Dentist,
-    EditEmployee
+    EditEmployee,
+    RequestDetail,
+    AppointmentDetail
 
 };

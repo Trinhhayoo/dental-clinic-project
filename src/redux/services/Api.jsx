@@ -12,6 +12,7 @@ const getEmpList = async () => {
 };
 const filterEmpGenderRole = async (gender,role) => {
     try {
+
         const response = await axios.get(
             `http://127.0.0.1:8082/employees/filterRoleGender/${gender}:${role}`,
         );
@@ -34,7 +35,7 @@ const getEmpID = async (EmpID) => {
       }
 }
 const deleteEmpID = async (UserID, EmpID) => {
-    debugger
+   
     try {
         const response = await axios.post(
             `http://localhost:8082/employees/deleteEmployeeById/${UserID}`, EmpID, {
@@ -50,7 +51,7 @@ const deleteEmpID = async (UserID, EmpID) => {
       }
 }
 const searchEmp = async (searchTerm) => {
-  debugger
+ 
   try {
       const response = await axios.get(
           `http://localhost:8082/employees/searchEmp/${searchTerm}`, {
@@ -98,7 +99,7 @@ const addEmployee = async (EmpInfo) => {
     }
 }
 const editEmployee = async (EmpInfo) => {
-  debugger
+
   try {
       const response = await axios.post(
         
@@ -114,6 +115,197 @@ const editEmployee = async (EmpInfo) => {
       return error;
     }
 }
+const getRequestList = async () => {
+ 
+  try {
+      const response = await axios.get(
+          `http://localhost:8082/requests/list`, {
+              headers: {
+                // Overwrite Axios's automatically set Content-Type
+                'Content-Type': 'application/json'
+              }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const getRequestID = async (RequestID) => {
+  try {
+   
+      const response = await axios.get(
+          `http://localhost:8082/requests/${RequestID}`,
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const deleteRequestID = async (RequestID) => {
+
+  try {
+      const response = await axios.post(
+          `http://localhost:8082/requests/deleteRequest/${RequestID}`, {
+              headers: {
+                // Overwrite Axios's automatically set Content-Type
+                'Content-Type': 'application/json'
+              }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const searchRequest = async (searchTerm) => {
+
+try {
+    const response = await axios.get(
+        `http://localhost:8082/requests/searchByPhone/${searchTerm}`, {
+            headers: {
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }}
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const addRequest = async (Request) => {
+
+  try {
+      const response = await axios.post(
+          `http://localhost:8082/requests/createRequest`,Request, {
+              headers: {
+                // Overwrite Axios's automatically set Content-Type
+                'Content-Type': 'application/json'
+              }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const filterRequestShift = async (shift) => {
+  try {
+      const response = await axios.get(
+          `http://127.0.0.1:8082/requests/filterByShift/${shift}`,
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const filterRequestStatus = async (status) => {
+  try {
+      const response = await axios.get(
+          `http://127.0.0.1:8082/requests/filterByStatus/${status}`,
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+
+const findPatient = async (phone) => {
+  try {
+  
+      const response = await axios.get(
+          `http://localhost:8082/requests/findPatient/${phone}`,
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const getAppointmentlist = async () => {
+  try {
+  
+      const response = await axios.get(
+          `http://localhost:8082/appointments/list`,
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const getAppointmentByPatient = async (patientName) => {
+  try {
+  
+    const response = await axios.get(
+      `http://localhost:8082/appointments/byPatient/${patientName}`, {
+         // Truyền thông tin patientName qua params
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const getDentistFreeAppointment = async (date, time) => {
+  try {
+  
+    const response = await axios.get(
+      `http://localhost:8082/appointments/viewDentistFree/${date}/${time}`, {
+         // Truyền thông tin patientName qua params
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const createAppointment = async (appointment) => {
+  try {
+   
+    const response = await axios.post(
+      `http://127.0.0.1:8082/appointments/addAppointment`,appointment, {
+         // Truyền thông tin patientName qua params
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const getAppointmentDetail = async (appointmentID) => {
+  try {
+   
+    const response = await axios.get(
+      `http://127.0.0.1:8082/appointments/byID/${appointmentID}`,{
+         // Truyền thông tin patientName qua params
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
 export {
    getEmpList,
    filterEmpGenderRole,
@@ -122,6 +314,19 @@ export {
    searchEmp,
    viewPlanList,
    addEmployee,
-   editEmployee
+   editEmployee,
+   getRequestList,
+   getRequestID,
+   filterRequestShift,
+   searchRequest,
+   deleteRequestID,
+   addRequest,
+   findPatient,
+   filterRequestStatus,
+   getAppointmentlist,
+   getAppointmentByPatient,
+   getDentistFreeAppointment,
+   createAppointment,
+   getAppointmentDetail
   };
   

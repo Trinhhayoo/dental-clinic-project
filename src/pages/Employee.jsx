@@ -28,7 +28,7 @@ const EmpComponent = ({ emp, handleDeleteClick }) => {
 
 
 
-debugger
+
 
     return (
         <div>
