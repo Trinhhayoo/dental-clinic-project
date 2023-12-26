@@ -1,122 +1,122 @@
 [
     {
-        "TREATMENT_ID": "TREAT001",
-        "PARENT_TREATMENT_ID": 1,
-        "TREATMENT_NAME": "Dental Examination",
-        "TM_COST": 100
+        "TEETH_TREATMENT_PLAN_ID": 1,
+        "TT_TREATMENT_PLAN_ID": 1,
+        "TT_TEETH_ID": 4,
+        "TT_SURFACE_ID": 6
     },
     {
-        "TREATMENT_ID": "TREAT002",
-        "PARENT_TREATMENT_ID": 2,
-        "TREATMENT_NAME": "Teeth Cleaning",
-        "TM_COST": 150
+        "TEETH_TREATMENT_PLAN_ID": 2,
+        "TT_TREATMENT_PLAN_ID": 1,
+        "TT_TEETH_ID": 2,
+        "TT_SURFACE_ID": 1
     },
     {
-        "TREATMENT_ID": "TREAT003",
-        "PARENT_TREATMENT_ID": 3,
-        "TREATMENT_NAME": "Orthodontic Braces",
-        "TM_COST": 2000
+        "TEETH_TREATMENT_PLAN_ID": 3,
+        "TT_TREATMENT_PLAN_ID": 1,
+        "TT_TEETH_ID": 2,
+        "TT_SURFACE_ID": 3
     },
     {
-        "TREATMENT_ID": "TREAT004",
-        "PARENT_TREATMENT_ID": 4,
-        "TREATMENT_NAME": "Tooth Extraction",
-        "TM_COST": 300
+        "TEETH_TREATMENT_PLAN_ID": 4,
+        "TT_TREATMENT_PLAN_ID": 9,
+        "TT_TEETH_ID": 3,
+        "TT_SURFACE_ID": 2
     },
     {
-        "TREATMENT_ID": "TREAT005",
-        "PARENT_TREATMENT_ID": 5,
-        "TREATMENT_NAME": "Dental Implant",
-        "TM_COST": 2500
+        "TEETH_TREATMENT_PLAN_ID": 5,
+        "TT_TREATMENT_PLAN_ID": 2,
+        "TT_TEETH_ID": 5,
+        "TT_SURFACE_ID": 4
     },
     {
-        "TREATMENT_ID": "TREAT006",
-        "PARENT_TREATMENT_ID": 1,
-        "TREATMENT_NAME": "Root Canal Therapy",
-        "TM_COST": 500
+        "TEETH_TREATMENT_PLAN_ID": 6,
+        "TT_TREATMENT_PLAN_ID": 12,
+        "TT_TEETH_ID": 1,
+        "TT_SURFACE_ID": 5
     },
     {
-        "TREATMENT_ID": "TREAT007",
-        "PARENT_TREATMENT_ID": 2,
-        "TREATMENT_NAME": "Teeth Whitening",
-        "TM_COST": 200
+        "TEETH_TREATMENT_PLAN_ID": 7,
+        "TT_TREATMENT_PLAN_ID": 17,
+        "TT_TEETH_ID": 5,
+        "TT_SURFACE_ID": 1
     },
     {
-        "TREATMENT_ID": "TREAT008",
-        "PARENT_TREATMENT_ID": 3,
-        "TREATMENT_NAME": "Dental Filling",
-        "TM_COST": 150
+        "TEETH_TREATMENT_PLAN_ID": 8,
+        "TT_TREATMENT_PLAN_ID": 4,
+        "TT_TEETH_ID": 6,
+        "TT_SURFACE_ID": 3
     },
     {
-        "TREATMENT_ID": "TREAT009",
-        "PARENT_TREATMENT_ID": 4,
-        "TREATMENT_NAME": "Gum Disease Treatment",
-        "TM_COST": 400
+        "TEETH_TREATMENT_PLAN_ID": 9,
+        "TT_TREATMENT_PLAN_ID": 8,
+        "TT_TEETH_ID": 2,
+        "TT_SURFACE_ID": 6
     },
     {
-        "TREATMENT_ID": "TREAT010",
-        "PARENT_TREATMENT_ID": 5,
-        "TREATMENT_NAME": "Mouthguard Fitting",
-        "TM_COST": 300
+        "TEETH_TREATMENT_PLAN_ID": 10,
+        "TT_TREATMENT_PLAN_ID": 11,
+        "TT_TEETH_ID": 1,
+        "TT_SURFACE_ID": 2
     },
     {
-        "TREATMENT_ID": "TREAT011",
-        "PARENT_TREATMENT_ID": 1,
-        "TREATMENT_NAME": "Chiropractic Adjustment",
-        "TM_COST": 120
+        "TEETH_TREATMENT_PLAN_ID": 11,
+        "TT_TREATMENT_PLAN_ID": 19,
+        "TT_TEETH_ID": 3,
+        "TT_SURFACE_ID": 4
     },
     {
-        "TREATMENT_ID": "TREAT012",
-        "PARENT_TREATMENT_ID": 2,
-        "TREATMENT_NAME": "Eye Examination",
-        "TM_COST": 80
+        "TEETH_TREATMENT_PLAN_ID": 12,
+        "TT_TREATMENT_PLAN_ID": 1,
+        "TT_TEETH_ID": 6,
+        "TT_SURFACE_ID": 5
     },
     {
-        "TREATMENT_ID": "TREAT013",
-        "PARENT_TREATMENT_ID": 3,
-        "TREATMENT_NAME": "Physical Therapy",
-        "TM_COST": 200
+        "TEETH_TREATMENT_PLAN_ID": 13,
+        "TT_TREATMENT_PLAN_ID": 14,
+        "TT_TEETH_ID": 4,
+        "TT_SURFACE_ID": 1
     },
     {
-        "TREATMENT_ID": "TREAT014",
-        "PARENT_TREATMENT_ID": 4,
-        "TREATMENT_NAME": "Allergy Testing",
-        "TM_COST": 150
+        "TEETH_TREATMENT_PLAN_ID": 14,
+        "TT_TREATMENT_PLAN_ID": 10,
+        "TT_TEETH_ID": 2,
+        "TT_SURFACE_ID": 2
     },
     {
-        "TREATMENT_ID": "TREAT015",
-        "PARENT_TREATMENT_ID": 5,
-        "TREATMENT_NAME": "Speech Therapy",
-        "TM_COST": 180
+        "TEETH_TREATMENT_PLAN_ID": 15,
+        "TT_TREATMENT_PLAN_ID": 5,
+        "TT_TEETH_ID": 3,
+        "TT_SURFACE_ID": 3
     },
     {
-        "TREATMENT_ID": "TREAT016",
-        "PARENT_TREATMENT_ID": 1,
-        "TREATMENT_NAME": "Gastroenterology Consultation",
-        "TM_COST": 250
+        "TEETH_TREATMENT_PLAN_ID": 16,
+        "TT_TREATMENT_PLAN_ID": 18,
+        "TT_TEETH_ID": 4,
+        "TT_SURFACE_ID": 4
     },
     {
-        "TREATMENT_ID": "TREAT017",
-        "PARENT_TREATMENT_ID": 2,
-        "TREATMENT_NAME": "Rheumatology Evaluation",
-        "TM_COST": 300
+        "TEETH_TREATMENT_PLAN_ID": 17,
+        "TT_TREATMENT_PLAN_ID": 6,
+        "TT_TEETH_ID": 5,
+        "TT_SURFACE_ID": 5
     },
     {
-        "TREATMENT_ID": "TREAT018",
-        "PARENT_TREATMENT_ID": 3,
-        "TREATMENT_NAME": "Sleep Disorder Consultation",
-        "TM_COST": 200
+        "TEETH_TREATMENT_PLAN_ID": 18,
+        "TT_TREATMENT_PLAN_ID": 13,
+        "TT_TEETH_ID": 1,
+        "TT_SURFACE_ID": 6
     },
     {
-        "TREATMENT_ID": "TREAT019",
-        "PARENT_TREATMENT_ID": 4,
-        "TREATMENT_NAME": "Oncology Consultation",
-        "TM_COST": 350
+        "TEETH_TREATMENT_PLAN_ID": 19,
+        "TT_TREATMENT_PLAN_ID": 3,
+        "TT_TEETH_ID": 2,
+        "TT_SURFACE_ID": 1
     },
     {
-        "TREATMENT_ID": "TREAT020",
-        "PARENT_TREATMENT_ID": 5,
-        "TREATMENT_NAME": "Dietary Counseling",
-        "TM_COST": 120
+        "TEETH_TREATMENT_PLAN_ID": 20,
+        "TT_TREATMENT_PLAN_ID": 16,
+        "TT_TEETH_ID": 6,
+        "TT_SURFACE_ID": 3
     }
 ]

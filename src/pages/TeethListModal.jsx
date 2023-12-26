@@ -7,7 +7,7 @@ const TeethListModal = ({ treatmentPlan, closeModal }) => {
   const teethList = ttPlanData
     .filter((tt) => tt.TT_TREATMENT_PLAN_ID === treatmentPlan.TREATMENT_PLAN_ID)
     .map((ttPlan, ttIndex) => ({
-      tooth: teethData.find((teeth) => teeth.TEETH_ID === ttPlan?.TT_TEETH_TREATMETN_ID)?.TEETH_NAME,
+      tooth: teethData.find((teeth) => teeth.TEETH_ID === ttPlan?.TT_TEETH_ID)?.TEETH_NAME,
       surface: surfaceData.find((surface) => surface.SURFACE_TEETH_ID === ttPlan?.TT_SURFACE_ID)?.SURFACE_NAME,
     }));
 

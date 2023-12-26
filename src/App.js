@@ -32,6 +32,7 @@ Employee,
 AddEmployeeForm,
 
 Payment,
+AddPaymentForm,
 
 TreatmentPlan,
 AddTreatmentPlan,
@@ -61,6 +62,7 @@ const App = () => {
 
               <Route path="/AddPatientForm" element={<AddPatientForm/>} />
               <Route path="/EditPatientForm/:patientId" element={<EditPatientForm/>} />
+              <Route path="/AddPaymentForm" element={<AddPaymentForm/>} />
 
 
               <Route path="/Appointment" element={<Appointment />} />

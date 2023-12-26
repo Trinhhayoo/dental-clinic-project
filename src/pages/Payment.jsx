@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 const Recentpayment = ({ recentpayment }) => {
     const navigate = useNavigate();
     const handleEditButtonClick = (paymentId) => {
-        navigate(`/EditAppointmentForm/${paymentId}`);
+        navigate(`/EditPaymentForm/${paymentId}`);
     };
 
     const itemsPerPage = 6;
@@ -137,7 +137,7 @@ const Payment = () => {
     const navigate = useNavigate();
 
     const handleAddButtonClick = () => {
-        navigate('/AddpaymentForm');
+        navigate('/AddPaymentForm');
       };
     return (
         <div className="flex flex-col my-5">
