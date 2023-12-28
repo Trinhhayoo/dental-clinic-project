@@ -306,6 +306,23 @@ const getAppointmentDetail = async (appointmentID) => {
     return error;
   }
 }
+const deleteAppointmentId = async (appointmentID) => {
+  try {
+   
+    const response = await axios.post(
+      `http://127.0.0.1:8082/appointments/deleteID/${appointmentID}`,{
+         // Truyền thông tin patientName qua params
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
 export {
    getEmpList,
    filterEmpGenderRole,
@@ -327,6 +344,7 @@ export {
    getAppointmentByPatient,
    getDentistFreeAppointment,
    createAppointment,
-   getAppointmentDetail
+   getAppointmentDetail,
+   deleteAppointmentId
   };
   

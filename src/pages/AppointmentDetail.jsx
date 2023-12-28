@@ -1,7 +1,7 @@
 // Import React and necessary libraries
 import React, { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { getRequestID,deleteRequestID, getAppointmentDetail } from '../redux/services/Api';
+import { getRequestID,deleteRequestID, deleteAppointmentId, getAppointmentDetail } from '../redux/services/Api';
 import { Button } from '@material-tailwind/react';
 import { useNavigate } from "react-router-dom";
 import { HandleDelele } from '../components';
@@ -66,7 +66,24 @@ const AppointmentDetail = () => {
     // Chuyển đổi thành chuỗi ngày tháng
     return originalDate.toISOString().split('T')[0];
   }
+  useEffect(() => {
+    const FetchData = async () => {
 
+      
+      await deleteAppointmentId(appointmentId).then(response => {
+       if(response != null){
+        navigate("/deleteSuccess");
+       }
+         
+        
+      });
+
+    }
+    if(isDelete == true){
+        FetchData();
+    }
+   
+  }, [isDelete]);
  
 
   const handleDeleteClick = () => {
