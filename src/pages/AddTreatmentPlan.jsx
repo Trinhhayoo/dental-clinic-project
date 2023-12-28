@@ -159,15 +159,11 @@ const AddTreatmentPlan = () => {
           </Button>
         </Link>
 
-        <Link to="/SearchPatient">
-          <Button className="border-none bg-purple-500 py-4 px-6 flex items-center gap-2 w-[100%]">
-            <p className="flex">Find Patient</p>
-          </Button>
-        </Link>
+       
 
         <Button
           type="submit"
-          className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[100%]"
+          className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[27%]"
         >
           <p className="flex">Save</p>
         </Button>
