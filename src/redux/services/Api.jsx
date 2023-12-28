@@ -323,6 +323,74 @@ const deleteAppointmentId = async (appointmentID) => {
     return error;
   }
 }
+const editAppointmentId = async (appointmentUpdated) => {
+  try {
+   
+    const response = await axios.post(
+      `http://127.0.0.1:8082/appointments/edit/${appointmentUpdated.appointment_id}`, appointmentUpdated, {
+         // Truyền thông tin patientName qua params
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const retreatments = async () => {
+  try {
+   
+    const response = await axios.get(
+      `http://127.0.0.1:8082/retreatments/view_retreatment`, {
+         // Truyền thông tin patientName qua params
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const retreatmentDetail = async (retreatmentId) => {
+  try {
+   debugger
+    const response = await axios.get(
+      `http://127.0.0.1:8082/retreatments/${retreatmentId}`, {
+         // Truyền thông tin patientName qua params
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const UpdateretreatmentDetail = async (retreatmentId) => {
+  try {
+   debugger
+    const response = await axios.get(
+      `http://127.0.0.1:8082/retreatments/update/${retreatmentId}`, {
+         // Truyền thông tin patientName qua params
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
 export {
    getEmpList,
    filterEmpGenderRole,
@@ -345,6 +413,10 @@ export {
    getDentistFreeAppointment,
    createAppointment,
    getAppointmentDetail,
-   deleteAppointmentId
+   deleteAppointmentId,
+   editAppointmentId,
+   retreatments, 
+   retreatmentDetail,
+   UpdateretreatmentDetail
   };
   

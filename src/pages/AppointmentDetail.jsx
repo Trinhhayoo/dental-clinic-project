@@ -191,11 +191,12 @@ const AppointmentDetail = () => {
       
       </div>
       <div className='flex flex-row gap-32'>
-      <Button className="border-none bg-blue-500 py-4 w-24 justify-center flex flex-row items-center"  onClick={handleDeleteClick}>Edit</Button>
+      <Link className="pt-1" to={`/EditAppointmentForm/${appointmentDetail?appointmentDetail[0] : ''}`}>
+      <Button className="border-none bg-blue-500 py-4 w-24 justify-center flex flex-row items-center"  >Edit</Button>
+                </Link>
 
-      {isDeleteModalOpen && (
-        <HandleDelele handleConfirmDelete = {handleConfirmDelete} handleCancelDelete ={handleCancelDelete} empDetail={appointmentDetail} />
-      )}
+
+      
      
       
       </div>

@@ -51,7 +51,7 @@ const AddAppointmentForm = () => {
 
 
 
-  useEffect(() => {
+  
     const AddFunct = async () => {
 
       const appointmentInfo = {
@@ -63,18 +63,27 @@ const AddAppointmentForm = () => {
       }
 
       await createAppointment(appointmentInfo).then(response => {
-        console.log(response);
+        debugger
+        if(response.data != null){
+          navigate(`/Appointment/${response.data}`)
+        }
         debugger
 
       });
-    }
+    
+   
+  };
+
+  
+
+  const handleSubmit = (e) => {
+    debugger
+    e.preventDefault();
     if (filterDentist != null) {
       AddFunct();
     }
 
-  }, [filterDentist]);
-
-
+  };
 
 
 
@@ -87,7 +96,7 @@ const AddAppointmentForm = () => {
 
   return (
     <div className="max-w-md flex flex-col mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Add Request</h2>
+      <h2 className="text-2xl font-semibold mb-4">Add Appointment</h2>
 
 
       <form className="flex flex-col gap-4">
@@ -133,7 +142,14 @@ const AddAppointmentForm = () => {
               ))}
             </div>
           )}
-           <p onClick={toggleDropdownDentist}>Chọn bác sĩ</p>
+           <p className='cursor-pointer text-blue-500' onClick={toggleDropdownDentist}>
+            {
+              !filterDentist &&  "Chọn bác sĩ"
+            }
+            {
+               filterDentist
+            }
+            </p>
         </div>
 
         <div className="mt-4 flex gap-4 justify-between">
@@ -148,6 +164,7 @@ const AddAppointmentForm = () => {
           <Button
             type="submit"
             className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[55%]"
+            onClick={handleSubmit}
           >
             <p className="flex">Save</p>
           </Button>

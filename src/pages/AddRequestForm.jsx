@@ -22,7 +22,7 @@ const AddRequestForm = () => {
       if (response.data === 0) {
         // Hiển thị modal nếu không tìm thấy bệnh nhân
         handleClick();
-      } else{
+      } else {
         setPatientId(response.data);
       }
 
@@ -41,31 +41,34 @@ const AddRequestForm = () => {
     setDelete(true);
   };
 
-  const handleCancelDelete = () => {
+  const handleCancelRegister = () => {
     // Close the delete confirmation modal
     setIsDeleteModalOpen(false);
+    debugger
   };
 
-  const something=(event)=> {
+  const something = (event) => {
     if (event.keyCode === 13) {
       event.preventDefault();
+      const inputValue = document.getElementById('search-field').value;
+      setPhonePP(inputValue);
       // Trigger your custom form submission logic
       searchFunc();
     }
-}
-const handleTimeChange = (e) => {
-  const originalValue = e.target.value;
-  const formattedValue = originalValue.length === 5 ? `${originalValue}:00` : originalValue;
+  }
+  const handleTimeChange = (e) => {
+    const originalValue = e.target.value;
+    const formattedValue = originalValue.length === 5 ? `${originalValue}:00` : originalValue;
 
-  // Thực hiện các xử lý khác nếu cần
+    // Thực hiện các xử lý khác nếu cần
 
-  setTimeRequest(formattedValue);
-};
+    setTimeRequest(formattedValue);
+  };
 
 
 
   const addFunct = async () => {
-debugger
+    debugger
     const requestInfo = {
       "patient_id": patientId,
       "dateRequest": dateRequest,
@@ -74,10 +77,12 @@ debugger
       "phoneNumber": phonePP
     }
     console.log(requestInfo);
-   
+
     await addRequest(requestInfo).then(response => {
-      console.log(response);
-debugger
+      if (response.data != null) {
+        navigate(`/Request/${response.data.request_id}`)
+      }
+
 
     });
   }
@@ -98,7 +103,7 @@ debugger
       <h2 className="text-2xl font-semibold mb-4">Add Request</h2>
 
       <form
-      
+
         autoComplete="off"
         className="w-full" >
         <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Phone number</label>
@@ -110,7 +115,7 @@ debugger
             id="search-field"
             type="search"
             value={phonePP}
-            onKeyDown={(e) => something(e) }
+            onKeyDown={(e) => something(e)}
             onChange={(e) => setPhonePP(e.target.value)}
             className="mt-1 p-2 border border-gray-300 rounded-md w-full" placeholder="Patient Phone number" required />
 
@@ -119,7 +124,7 @@ debugger
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
 
         {isDeleteModalOpen && (
-          <PatientNotFound handleConfirmDelete={handleConfirmDelete} handleCancelDelete={handleCancelDelete} />
+          <PatientNotFound handleConfirmDelete={handleConfirmDelete} handleCancelRegister={handleCancelRegister} />
         )}
 
         {/* Second column */}
@@ -142,13 +147,13 @@ debugger
             Time:
           </label>
           <input
-          type = "time"
-             minTime="09:00:00"
-             maxTime="16:00:00"
+            type="time"
+            minTime="09:00:00"
+            maxTime="16:00:00"
             id="time"
             name="A_TIME"
             value={timeRequest}
-            onChange={(e) =>  handleTimeChange(e)}
+            onChange={(e) => handleTimeChange(e)}
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
           />
         </div>

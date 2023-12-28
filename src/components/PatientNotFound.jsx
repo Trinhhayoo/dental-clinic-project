@@ -1,4 +1,4 @@
-const PatientNotFound = ({ handleConfirmDelete, handleCancelDelete}) => {
+const PatientNotFound = ({ handleConfirmDelete, handleCancelRegister}) => {
     return (
 
         <div className="fixed inset-0 z-10 overflow-y-auto">
@@ -6,7 +6,7 @@ const PatientNotFound = ({ handleConfirmDelete, handleCancelDelete}) => {
           <div
             className="fixed inset-0 transition-opacity"
             aria-hidden="true"
-            onClick={handleCancelDelete}
+          
           >
             <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
           </div>
@@ -26,13 +26,19 @@ const PatientNotFound = ({ handleConfirmDelete, handleCancelDelete}) => {
           >
             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div className="sm:flex sm:items-start">
-                <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                  <svg
+                <div  className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                   <svg
                     className="h-6 w-6 text-red-600"
                     stroke="currentColor"
                     fill="none"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
+                    onClick={(e) => {
+                      if (e.target === e.currentTarget) {
+                        // Chỉ thực hiện cancel khi click vào overlay, không phải là nút xác nhận
+                        handleCancelRegister();
+                      }
+                    }}
                   >
                     <path
                       stroke-linecap="round"
@@ -40,7 +46,7 @@ const PatientNotFound = ({ handleConfirmDelete, handleCancelDelete}) => {
                       stroke-width="2"
                       d="M6 18L18 6M6 6l12 12"
                     />
-                  </svg>
+                  </svg> 
                 </div>
                 <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                   <h3
@@ -58,6 +64,7 @@ const PatientNotFound = ({ handleConfirmDelete, handleCancelDelete}) => {
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+          
               <button
                 onClick={handleConfirmDelete}
                 type="button"
@@ -65,6 +72,8 @@ const PatientNotFound = ({ handleConfirmDelete, handleCancelDelete}) => {
               >
                 Đăng ký hồ sơ
               </button>
+
+              
             
             </div>
           </div>

@@ -21,6 +21,8 @@ import Dentist from "./Dentist";
 import EditEmployee from "./EditEmployee";
 import RequestDetail from "./RequestDetail";
 import AppointmentDetail from "./AppointmentDetail";
+import Retreatments from "./Retreatments";
+import RetreatmentDetail from "./Retreatment";
 export {
     Overview,
     SignIn,
@@ -47,6 +49,9 @@ export {
     Dentist,
     EditEmployee,
     RequestDetail,
-    AppointmentDetail
+    AppointmentDetail,
+
+    Retreatments,
+    RetreatmentDetail
 
 };

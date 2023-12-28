@@ -36,7 +36,9 @@ DeleteSuccessfull,
 Dentist,
 EditEmployee,
 RequestDetail,
-AppointmentDetail
+AppointmentDetail,
+Retreatments,
+RetreatmentDetail
 
 
 } from "./pages";
@@ -70,6 +72,9 @@ const App = () => {
               <Route path="/Request/:requestId" element={<RequestDetail />} />
               <Route path="/Request" element={<Request />} />
               <Route path="/AddRequestForm" element={<AddRequestForm/>} />
+
+              <Route path="/Retreatment" element={<Retreatments />} />
+              <Route path="/Retreatment/:retreatment_id" element={<RetreatmentDetail />} />
 
               <Route path="/Employee" element={<Employee />} />
               <Route path="/Employee/:employeeId" element={<StaffAdmin />} />
