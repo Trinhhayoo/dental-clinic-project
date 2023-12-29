@@ -23,6 +23,8 @@ import RequestDetail from "./RequestDetail";
 import AppointmentDetail from "./AppointmentDetail";
 import Retreatments from "./Retreatments";
 import RetreatmentDetail from "./Retreatment";
+import EditPaymentForm from "./EditPaymentForm";
+import AddPaymentForm from "./AddPaymentForm/AddPaymentForm";
 export {
     Overview,
     SignIn,
@@ -52,6 +54,10 @@ export {
     AppointmentDetail,
 
     Retreatments,
-    RetreatmentDetail
+    RetreatmentDetail,
+
+    AddPaymentForm,
+    EditPaymentForm
+
 
 };
