@@ -57,7 +57,7 @@ StaffAdmin,
 DeleteSuccessfull,
 Dentist,
 EditEmployee,
-RequestDetail,
+
 AppointmentDetail,
 Retreatments,
 RetreatmentDetail
