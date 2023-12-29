@@ -3,7 +3,7 @@ import { Button } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
 import roomsData from "../assets/room.json";
 import dentistsData from "../assets/employee.json";
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { addRequest, findPatient, getDentistFreeAppointment, createAppointment } from '../redux/services/Api';
 import { PatientNotFound } from '../components';

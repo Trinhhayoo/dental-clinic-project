@@ -11,11 +11,11 @@ import Appointment from "./Appointment";
 import AddAppointmentForm from "./AddAppointmentForm"
 import EditAppointmentForm from "./EditAppointmentForm";
 import PatientTreatmentPlan from "./PatientTreatmentPlan";
-import AppointmentDetail from "./AppointmentDetail";
+
 
 import Request from "./Request";
 import AddRequestForm from "./AddRequestForm";
-import RequestDetail from "./RequestDetail";
+
 import EditRequestForm from "./EditRequestForm";
 
 import Employee from "./Employee";
@@ -34,7 +34,7 @@ import TreatmentPlanDetail from "./TreatmentPlanDetail";
 import PrescriptionListModal from "./PrescriptionListModal";
 import EditTreatmentPlanForm from "./EditTreatmentPlanForm ";
 import PaymentDetail from "./PaymentDetail";
-import EditPaymentForm from "./EditPaymentForm";
+
 import StaffAdmin from "./StaffAdmin";
 import DeleteSuccessfull from "./DeleteSucess";
 import Dentist from "./Dentist";
@@ -44,7 +44,7 @@ import AppointmentDetail from "./AppointmentDetail";
 import Retreatments from "./Retreatments";
 import RetreatmentDetail from "./Retreatment";
 import EditPaymentForm from "./EditPaymentForm";
-import AddPaymentForm from "./AddPaymentForm/AddPaymentForm";
+
 export {
 
     Overview,
@@ -82,13 +82,13 @@ export {
     DeleteSuccessfull,
     Dentist,
     EditEmployee,
-    RequestDetail,
-    AppointmentDetail,
+   
+  
 
     Retreatments,
     RetreatmentDetail,
 
-    AddPaymentForm,
+   
     EditPaymentForm,
 
 
@@ -99,5 +99,5 @@ export {
     PrescriptionListModal,
     EditTreatmentPlanForm,
     PaymentDetail,
-    EditPaymentForm
+   
 };

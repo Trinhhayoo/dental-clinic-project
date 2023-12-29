@@ -57,8 +57,8 @@ StaffAdmin,
 DeleteSuccessfull,
 Dentist,
 EditEmployee,
-RequestDetail,
-AppointmentDetail,
+
+
 Retreatments,
 RetreatmentDetail
 
@@ -116,7 +116,7 @@ const App = () => {
               <Route path="/Request/:requestId" element={<RequestDetail />} />
               <Route path="/Request" element={<Request />} />
               <Route path="/AddRequestForm" element={<AddRequestForm/>} />
-              <Route path="/RequestDetail/:requestId" element={<RequestDetail />} />
+             
               <Route path="/EditRequestForm/:requestId" element={<EditRequestForm />} />
 
 
