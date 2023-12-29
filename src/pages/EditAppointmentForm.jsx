@@ -6,9 +6,13 @@ import { Button } from '@material-tailwind/react';
 import { useNavigate } from "react-router-dom";
 import { HandleDelele } from '../components';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 // Define the EmployeeProfile component
-const AppointmentDetail = () => {
+const EditAppointmentForm = () => {
     const navigate = useNavigate();
+    const { token } = useSelector(
+        (state) => state.user
+      );
     const [appointmentDetail, setAppointmentDetail] = useState();
     const [reload, setReload] = useState('reload');
     const { appointmentId } = useParams();
@@ -29,7 +33,7 @@ const AppointmentDetail = () => {
         const FetchData = async () => {
 
 
-            await getAppointmentDetail(appointmentId).then(response => {
+            await getAppointmentDetail(appointmentId, token).then(response => {
                 setAppointmentDetail(response.data);
 
                 console.log(response);
@@ -57,7 +61,7 @@ const AppointmentDetail = () => {
             const time_n = time_new ? time_new : appointmentDetail?.[4];
             debugger
             try {
-                const { data: response } = await getDentistFreeAppointment(date_n, time_n);
+                const { data: response } = await getDentistFreeAppointment(date_n, time_n, token);
                 setDentistFree(response);
 
 
@@ -126,10 +130,10 @@ const AppointmentDetail = () => {
             "time_new": time_new ? time_new : appointmentDetail?.[4],
         }
 
-        debugger
-        await editAppointmentId(appointmentInfo).then(response => {
+        
+        await editAppointmentId(appointmentInfo, token).then(response => {
             if (response.data != null) {
-                navigate(`/Appointment/${appointmentId}`)
+                navigate(`/Appointment/${response.data.appointmentID}`)
             }
 
 
@@ -287,4 +291,4 @@ const AppointmentDetail = () => {
 
 
 // Export the component
-export default AppointmentDetail;
+export default EditAppointmentForm;

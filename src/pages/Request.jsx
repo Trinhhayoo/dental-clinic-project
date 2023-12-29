@@ -15,6 +15,9 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
+  
+  
+
 import { FaPlus } from "react-icons/fa6";
 
 import React, { useEffect, useState } from 'react';
@@ -89,7 +92,9 @@ const RequestComponent = ({ requestDetail, handleDeleteClick }) => {
 
 };
 const Request = () => {
-    const { username } = useSelector((state) => state.user);
+    const { token } = useSelector(
+        (state) => state.user
+      );
     const navigate = useNavigate();
     const [requests, setRequest] = useState([]);
     const [currentPage, setCurrentPage] = React.useState(1);
@@ -108,7 +113,7 @@ const Request = () => {
         const FetchData = async () => {
 
             try {
-                const { data: response } = await getRequestList();
+                const { data: response } = await getRequestList(token);
                setRequest(response)
 
             } catch (error) {
@@ -124,7 +129,7 @@ const Request = () => {
         const FetchData = async () => {
 
          debugger
-            await deleteRequestID(requestDelete?.request_id).then(response => {
+            await deleteRequestID(requestDelete?.request_id, token).then(response => {
                 if (response.data != null) {
                     navigate("/deleteSuccess");
                 }
@@ -145,7 +150,7 @@ const Request = () => {
 
         const FilterData = async (filterShift) => {
             try {
-                const { data: response } = await filterRequestShift(filterShift);
+                const { data: response } = await filterRequestShift(filterShift, token);
 
                 setRequest(response);
                
@@ -164,7 +169,7 @@ const Request = () => {
 
         const FilterData = async () => {
             try {
-                const { data: response } = await filterRequestStatus(filterStatus);
+                const { data: response } = await filterRequestStatus(filterStatus, token);
 
                 setRequest(response);
                debugger
@@ -246,7 +251,7 @@ const Request = () => {
     }
     const searchFunc = async () => {
 
-        await searchRequest(searchTerm).then(response => {
+        await searchRequest(searchTerm, token).then(response => {
             setRequest(response.data);
             console.log(requests)
         });

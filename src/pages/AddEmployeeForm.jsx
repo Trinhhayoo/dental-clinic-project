@@ -3,9 +3,12 @@ import { Button } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { addEmployee } from '../redux/services/Api';
-
+import { useSelector } from 'react-redux';
 const AddEmployeeForm = () => {
   const navigate = useNavigate();
+  const { token } = useSelector(
+    (state) => state.user
+  );
   const [selectedOption, setSelectedOption] = useState(null);
   const [showOptions, setShowOptions] = useState(false);
   const dropdownRef = useRef(null);
@@ -76,7 +79,7 @@ const AddEmployeeForm = () => {
       "role": selectedRole.label
     }
     debugger
-    await addEmployee(userInfo).then(response => {
+    await addEmployee(userInfo, token).then(response => {
       if (response.data != null) {
         // Sử dụng split() để tách chuỗi thành mảng
         const values = response.data.split(',');

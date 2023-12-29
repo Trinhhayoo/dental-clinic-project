@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { IoMdPerson } from "react-icons/io";
 import { RiLockPasswordFill } from "react-icons/ri";
-
+import { login } from "../../redux/services/Api";
+import {setToken} from "../../redux/features/userSlice";
 import "./SignIn.css"
 
 const SignIn = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
         email: "",
@@ -15,36 +18,44 @@ const SignIn = () => {
 
     const [errorMessage, setErrorMessage] = useState("");
 
-    const handleSubmit = () => {
+    const handleSubmit =  async () => {
         const {email,password} = formData;
+        const requestInfo = {
+            "userName": email,
+            "password": password
+          }
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         const passwordPattern = /^[a-zA-Z0-9]{3,16}$/;
 
-        if (formData.email === "admin" && formData.password === "123") {
-            navigate("/home");
-        } 
-
-        else if (!email.trim()) {
+        if (!email.trim()) {
             setErrorMessage("Email is required");
             return;
         }
-        else if (!emailPattern.test(email)) {
-            setErrorMessage("Invalid email format");
-            return;
-        }
+        
     
-        else if (!password.trim()) {
+         if (!password.trim()) {
             setErrorMessage("Password is required");
             return;
         }
     
-        else if (!passwordPattern.test(password)) {
-            setErrorMessage("Password must be 3-16 characters");
-            return;
-        }
-        else {
-            setErrorMessage("Invalid email or password");
-        }
+        //  if (!passwordPattern.test(password)) {
+        //     setErrorMessage("Password must be 3-16 characters");
+        //     return;
+        // }
+        // else {
+        //     setErrorMessage("Invalid email or password");
+        // }
+        debugger
+
+        await login(requestInfo).then(response => {
+            dispatch(setToken(response.data));
+            if (response.data != null){
+                navigate("/Employee");
+            }
+           
+        })
+
+        
     };
 
     const handleInputChange = (e) => {

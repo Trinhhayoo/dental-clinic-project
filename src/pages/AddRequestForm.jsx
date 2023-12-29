@@ -3,8 +3,13 @@ import { Button } from '@material-tailwind/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { addRequest, findPatient } from '../redux/services/Api';
 import { PatientNotFound } from '../components';
+import { useSelector } from 'react-redux';
 const AddRequestForm = () => {
+
   const navigate = useNavigate();
+  const { token } = useSelector(
+    (state) => state.user
+  );
   const [phonePP, setPhonePP] = useState();
   const [patientId, setPatientId] = useState();
   const [isPresent, setIspresent] = useState(false);
@@ -16,7 +21,7 @@ const AddRequestForm = () => {
 
   const searchFunc = async () => {
 
-    await findPatient(phonePP, 10).then(response => {
+    await findPatient(phonePP, token).then(response => {
       setPatientId(response.data);
       debugger
       if (response.data === 0) {
@@ -78,7 +83,7 @@ const AddRequestForm = () => {
     }
     console.log(requestInfo);
 
-    await addRequest(requestInfo).then(response => {
+    await addRequest(requestInfo, token).then(response => {
       if (response.data != null) {
         navigate(`/Request/${response.data.request_id}`)
       }

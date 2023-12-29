@@ -7,8 +7,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { addRequest, findPatient, getDentistFreeAppointment, createAppointment } from '../redux/services/Api';
 import { PatientNotFound } from '../components';
+import { useSelector } from 'react-redux';
 const AddAppointmentForm = () => {
   const navigate = useNavigate();
+  const { token } = useSelector(
+    (state) => state.user
+  );
   const { requestId, patientId, date, time } = useParams();
   const [dentistFree, setDentistFree] = useState([]);
   const [dateAppointment, setDate] = useState();
@@ -36,7 +40,7 @@ const AddAppointmentForm = () => {
     const FetchData = async () => {
 
       try {
-        const { data: response } = await getDentistFreeAppointment(date, time);
+        const { data: response } = await getDentistFreeAppointment(date, time, token);
         setDentistFree(response);
 
 
@@ -65,7 +69,7 @@ const AddAppointmentForm = () => {
         "dentist_id": parseInt(filterDentist, 10)
       }
 
-      await createAppointment(appointmentInfo).then(response => {
+      await createAppointment(appointmentInfo, token).then(response => {
         debugger
         if(response.data != null){
           navigate(`/Appointment/${response.data}`)
