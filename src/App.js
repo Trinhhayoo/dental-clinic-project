@@ -60,7 +60,7 @@ EditEmployee,
 
 
 Retreatments,
-RetreatmentDetail
+RetreatmentDetail,
 
 
 } from "./pages";
@@ -96,7 +96,7 @@ const App = () => {
 
               <Route path="/Appointment" element={<Appointment />} />
               <Route path="/TreatmentPlan" element={<TreatmentPlan/>} />
-              <Route path="/AddTreatmentPlan/:patientId" element={<AddTreatmentPlan/>} />
+              <Route path="/AddTreatmentPlan/:patientId/:dentistId/:date/:time" element={<AddTreatmentPlan/>} />
               <Route path="/TeethListModal" element={<TeethListModal/>} />
               <Route path="/PrescriptionListModal" element={<PrescriptionListModal/>} />
 

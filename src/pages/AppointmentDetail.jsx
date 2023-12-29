@@ -32,7 +32,7 @@ const AppointmentDetail = () => {
 
       await getAppointmentDetail(appointmentId, token).then(response => {
         setAppointmentDetail(response.data);
-
+debugger
         console.log(response);
 
 
@@ -170,15 +170,18 @@ const AppointmentDetail = () => {
           </div>
         
           </div>
-         
+          <div  className='grid grid-cols-[2fr,1fr,1fr]'>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">
               Status
             </p>
             <p>{appointmentDetail?appointmentDetail[8] : ''}</p>
           </div>
-
-        
+          
+          <Link to = {`/AddTreatmentPlan/${appointmentDetail?.[1]}/${appointmentDetail?.[5]}/${appointmentDetail? dateFormat(appointmentDetail?.[3]): 0}/${appointmentDetail?.[4]}`} >
+          <Button className="border-none bg-blue-500 py-4 w-24 justify-center flex flex-row items-center"  >Create TreatmentPlan</Button>
+          </Link>
+          </div>
          
          
         </div>

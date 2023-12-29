@@ -434,6 +434,59 @@ const login = async (userInfo) => {
       return error;
     }
   }
+const getParentTreatment = async (token) => {
+  try {
+    const response = await axios.get(
+        `http://localhost:8082/treatment/listParentTreatment`, {
+            headers: {
+              "Authorization": `${token}`,
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }}
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const getreatment = async (parentTreatment, token) => {
+
+  try {
+    const response = await axios.get(
+        `http://localhost:8082/treatment/listTreatment?parent_id=${parentTreatment}`,{
+            headers: {
+              "Authorization": `${token}`,
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }},
+            
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const createTreatmentPlan = async (treatmentPlan, token) => {
+  debugger
+  try {
+    const response = await axios.post(
+        `http://localhost:8082/treatment/addTreatmentPlan`, treatmentPlan, {
+            headers: {
+              "Authorization": `${token}`,
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }}
+            
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+
 export {
    getEmpList,
    filterEmpGenderRole,
@@ -461,6 +514,9 @@ export {
    retreatments, 
    retreatmentDetail,
    UpdateretreatmentDetail,
-   login
+   login,
+   getParentTreatment,
+   getreatment,
+   createTreatmentPlan
   };
   
