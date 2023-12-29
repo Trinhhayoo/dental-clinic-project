@@ -3,8 +3,11 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import paymentData from '../assets/payment.json'; 
 import { Button } from '@material-tailwind/react';
 
+import { useDispatch, useSelector } from "react-redux";
+
 const EditPaymentForm = () => {
     const { paymentID } = useParams();
+   
     const [payment, setPayment] = useState(null);
     const navigate = useNavigate();
 

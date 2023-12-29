@@ -7,7 +7,7 @@ import { selectUser } from "../assets";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Button } from "@material-tailwind/react";
 
-import { setLogout } from "../redux/features/userSlice";
+
 
 const Userbar = () => {
   const { username } = useSelector((state) => state.user);
@@ -23,7 +23,7 @@ const Userbar = () => {
     navigate("/signup");
   };
   const handleLogout = () => {
-    dispatch(setLogout());
+   // dispatch(setLogout());
    
     navigate("/home");
   };

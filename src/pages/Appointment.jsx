@@ -21,7 +21,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from "@material-tailwind/react";
 import { HandleDelele } from '../components';
 
-import { getAppointmentlist, addRequest, filterRequestShift,getAppointmentByPatient, deleteRequestID, findPatient, filterRequestStatus } from "../redux/services/Api";
+import { getAppointmentlist, addRequest, filterRequestShift, getAppointmentByPatient, deleteRequestID, findPatient, filterRequestStatus } from "../redux/services/Api";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -34,7 +34,7 @@ const AppointmentComponent = ({ appointmentDetail, handleDeleteClick }) => {
     };
 
 
-
+debugger
     return (
         <div>
 
@@ -100,7 +100,9 @@ const AppointmentComponent = ({ appointmentDetail, handleDeleteClick }) => {
 
 };
 const Appointment = () => {
-    const { username } = useSelector((state) => state.user);
+    const { token } = useSelector(
+        (state) => state.user
+    );
     const navigate = useNavigate();
     const [appointments, setAppointment] = useState([]);
     const [currentPage, setCurrentPage] = React.useState(1);
@@ -135,7 +137,7 @@ const Appointment = () => {
         const FetchData = async () => {
 
             try {
-                const { data: response } = await getAppointmentlist();
+                const { data: response } = await getAppointmentlist(token);
                 setAppointment(response);
                 debugger
 
@@ -152,7 +154,7 @@ const Appointment = () => {
         const FetchData = async () => {
 
             debugger
-            await deleteRequestID(requestDelete?.request_id).then(response => {
+            await deleteRequestID(requestDelete?.request_id, token).then(response => {
                 if (response.data != null) {
                     navigate("/deleteSuccess");
                 }
@@ -173,10 +175,10 @@ const Appointment = () => {
 
         const FilterData = async (filterShift) => {
             try {
-                const { data: response } = await filterRequestShift(filterShift);
+                const { data: response } = await filterRequestShift(filterShift, token);
 
                 setAppointment(response);
-
+                
 
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -192,11 +194,11 @@ const Appointment = () => {
 
         const FilterData = async () => {
             try {
-                const { data: response } = await filterRequestStatus(filterStatus);
+                const { data: response } = await filterRequestStatus(filterStatus, token);
 
                 setAppointment(response);
 
-
+                debugger
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -255,8 +257,9 @@ const Appointment = () => {
     };
 
 
-
+    
     const itemsPerPage = 6;
+   
 
     // Assuming you have a state variable to track the current page
 
@@ -273,8 +276,8 @@ const Appointment = () => {
         setCurrentPage(currentPage - 1);
     }
     const searchFunc = async () => {
-       
-        await getAppointmentByPatient(searchTerm).then(response => {
+
+        await getAppointmentByPatient(searchTerm, token).then(response => {
             setAppointment(response.data);
             debugger
             console.log(appointments)
@@ -288,7 +291,7 @@ const Appointment = () => {
         searchFunc();
 
     };
-
+    console.log(visibleAppointment);
 
     return (
         <div className="flex flex-col my-5 ">
@@ -358,7 +361,7 @@ const Appointment = () => {
 
                     {isDropdownOpenRoom && (
                         <div className=" h-[calc(100vh-80vh)]  overflow-y-scroll hide-scrollbar  absolute top-full mt-2 bg-white border border-gray-300 rounded-md mr-4 py-2 w-40">
-                            {roomNames.map((roomName, index) => (
+                            {roomNames?.map((roomName, index) => (
                                 <p
                                     key={index}
                                     className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center"

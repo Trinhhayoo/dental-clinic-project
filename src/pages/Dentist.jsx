@@ -5,6 +5,7 @@ import { FaMale } from "react-icons/fa";
 import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import { HandleDelele } from '../components';
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { useSelector } from 'react-redux';
 const TodayAppointment = ({ item }) => {
 
     return (
@@ -14,16 +15,16 @@ const TodayAppointment = ({ item }) => {
             
 
             <div className="flex flex-col">
-                <p className="text-gray-600">{item.treatmentPlanId}</p>
+                <p className="text-gray-600">{item?.treatmentPlanId}</p>
                 <div className="flex flex-row text-sm text-gray-300 ">
-                    <p className="text-sm">{item.date}</p>
+                    <p className="text-sm">{item?.date}</p>
 
                 </div>
 
             </div>
-            {item.status == "CANCEDLED" && <div className=" border flex border-none rounded-md w-full my-[10px] px-[1.5px] items-center justify-center bg-red-100 text-red-500 text-[8px] "> {item.status} </div>}
-              {item.status == "DONE" && <div className=" border flex border-none rounded-md w-full my-[10px] px-[1.5px] items-center justify-center bg-blue-100 text-green-500 text-[8px]"> {item.status} </div>}
-              {item.status == "PENDING" && <div className=" border flex border-none rounded-md w-full my-[10px] px-[1.5px] items-center justify-center bg-gray-100 text-red-500 text-[8px] "> {item.status} </div>}
+            {item?.status == "CANCEDLED" && <div className=" border flex border-none rounded-md w-full my-[10px] px-[1.5px] items-center justify-center bg-red-100 text-red-500 text-[8px] "> {item.status} </div>}
+              {item?.status == "DONE" && <div className=" border flex border-none rounded-md w-full my-[10px] px-[1.5px] items-center justify-center bg-blue-100 text-green-500 text-[8px]"> {item.status} </div>}
+              {item?.status == "PENDING" && <div className=" border flex border-none rounded-md w-full my-[10px] px-[1.5px] items-center justify-center bg-gray-100 text-red-500 text-[8px] "> {item.status} </div>}
 
 
 
@@ -35,6 +36,9 @@ const TodayAppointment = ({ item }) => {
 };
 const Dentist = () => {
     const navigate = useNavigate();
+    const { token } = useSelector(
+        (state) => state.user
+      );
     const { dentistId, employeeId } = useParams();
     const [dentistDetail, setDentistDetail] = useState();
     const [treatmentPlanList, setTreatmentPlanList] = useState([]);
@@ -46,12 +50,12 @@ const Dentist = () => {
         const FetchData = async () => {
 
 
-            await getEmpID(employeeId).then(response => {
+            await getEmpID(employeeId, token).then(response => {
                 setDentistDetail(response.data);
 
                 console.log(response);
             });
-            await viewPlanList(dentistId).then(response => {
+            await viewPlanList(dentistId, token).then(response => {
                 setTreatmentPlanList(response.data);
 
                 console.log(response);
@@ -66,7 +70,7 @@ const Dentist = () => {
             const userData = {
                 "empID": dentistDetail?.employeeID,
             };
-            await deleteEmpID(dentistDetail?.userID, userData).then(response => {
+            await deleteEmpID(dentistDetail?.userID, userData, token).then(response => {
                 if (response.data == "delete success") {
                     navigate("/deleteSuccess");
                 }
@@ -158,7 +162,7 @@ const Dentist = () => {
                     </div>
                     <div className="h-[calc(100vh-60vh)] w-[calc(100vh-60vh)] overflow-y-scroll hide-scrollbar   px-4 py-2 bg-white rounded-lg  shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] ">
                         {
-                            treatmentPlanList.map((item, index) => (
+                            treatmentPlanList?.map((item, index) => (
                                 <TodayAppointment key={index} item={item} />
                             ))
                         }

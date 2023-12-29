@@ -96,6 +96,9 @@ const EmpComponent = ({ emp, handleDeleteClick }) => {
 
 };
 const Employee = () => {
+    const {token} = useSelector(
+        (state) => state.user
+    );
 
 
     const [currentPage, setCurrentPage] = React.useState(1);
@@ -117,8 +120,9 @@ const Employee = () => {
         const FetchData = async () => {
 
             try {
-                const { data: response } = await getEmpList();
+                const { data: response } = await getEmpList(token);
                 setEmployee(response);
+                navigate()
 
             } catch (error) {
                 console.error(error.message);

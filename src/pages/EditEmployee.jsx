@@ -2,22 +2,25 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@material-tailwind/react';
 import { Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import {editEmployee, getEmpID} from '../redux/services/Api';
-import moment from 'moment'; 
-
+import { editEmployee, getEmpID } from '../redux/services/Api';
+import moment from 'moment';
+import { useDispatch, useSelector } from "react-redux";
 const EditEmployee = () => {
   const navigate = useNavigate();
-  const {employeeID} = useParams();
+  const { token } = useSelector(
+    (state) => state.user
+  );
+  const { employeeID } = useParams();
   const [selectedOption, setSelectedOption] = useState(null);
   const [showOptions, setShowOptions] = useState(false);
   const dropdownRef = useRef(null);
 
- 
+
   const [empName, setEmpName] = useState();
   const [gender, setGender] = useState();
   const [dob, setDob] = useState();
   const [address, setAddress] = useState();
-  
+
   const [reload, setReload] = useState('reload');
   const [employeeId, setEmployeeId] = useState();
   const [userId, setUserId] = useState();
@@ -41,22 +44,22 @@ const EditEmployee = () => {
     };
   }, []);
   useEffect(() => {
-    
+
     const FetchData = async () => {
 
 
-      await getEmpID(employeeID).then(response => {
+      await getEmpID(employeeID, token).then(response => {
         setEmpName(response?.data?.empName);
         setGender(response?.data?.gender);
         setAddress(response?.data?.address);
-       // Parse and format the date
-      const parsedDate = moment(response?.data?.dob).format('YYYY-MM-DD');
-      setDob(parsedDate);
+        // Parse and format the date
+        const parsedDate = moment(response?.data?.dob).format('YYYY-MM-DD');
+        setDob(parsedDate);
         setEmployeeId(response?.data?.employeeID);
-        setUserId(response?.data?.userID);
-       setSelectedOption(response?.data?.gender)
-        
-       
+        setUserId(response?.data?.userid);
+        setSelectedOption(response?.data?.gender)
+        debugger
+
 
       });
 
@@ -77,7 +80,7 @@ const EditEmployee = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
- 
+
 
 
 
@@ -89,18 +92,18 @@ const EditEmployee = () => {
   const addFunct = async () => {
 
     const userInfo = {
-    "address": address,
-    "dob": dob,
-    "userID": parseInt(userId,10),
-    "employeeID": employeeId,
-    "empName": empName,
-    "gender": selectedOption
+      "address": address,
+      "dob": dob,
+      "userid": parseInt(userId, 10),
+      "employeeID": employeeID,
+      "empName": empName,
+      "gender": selectedOption.label ? selectedOption.label : gender
     }
     debugger
-    await editEmployee(userInfo).then(response => {
-      console.log(response);
+    await editEmployee(userInfo, token).then(response => {
+      navigate(`/Employee/${response.data.employeeID}`)
 
-debugger
+
     });
   }
 
@@ -134,7 +137,7 @@ debugger
           />
         </div>
 
-      
+
 
         <div className="relative" ref={dropdownRef}>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -142,7 +145,7 @@ debugger
           </label>
           <input
             type="text"
-            
+
             onClick={() => setShowOptions(!showOptions)}
             value={selectedOption ? selectedOption : gender}
             readOnly
@@ -193,7 +196,7 @@ debugger
         </div>
 
 
-      
+
 
         {/* Add more fields as needed */}
 

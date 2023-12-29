@@ -6,9 +6,13 @@ import { Button } from '@material-tailwind/react';
 import { useNavigate } from "react-router-dom";
 import { HandleDelele } from '../components';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 // Define the EmployeeProfile component
 const StaffAdmin = () => {
   const navigate = useNavigate();
+  const { token } = useSelector(
+    (state) => state.user
+  );
   const [empDetail, setEmpDetail] = useState();
   const [reload, setReload] = useState('reload');
   const { employeeId } = useParams();
@@ -26,7 +30,7 @@ const StaffAdmin = () => {
     const FetchData = async () => {
 
 
-      await getEmpID(employeeId).then(response => {
+      await getEmpID(employeeId, token).then(response => {
         setEmpDetail(response.data);
 
         console.log(response);
@@ -43,7 +47,8 @@ const StaffAdmin = () => {
       const userData = {
         "empID": empDetail?.employeeID,
       };
-      await deleteEmpID(empDetail?.userID, userData).then(response => {
+      debugger
+      await deleteEmpID(empDetail?.userid, userData, token).then(response => {
         if(response.data == "delete success"){
           navigate("/deleteSuccess");
         }
@@ -69,7 +74,7 @@ const StaffAdmin = () => {
     setIsDeleteModalOpen(false);
     setDelete(true);
 
-   
+   console.log(isDelete);
    
   };
 

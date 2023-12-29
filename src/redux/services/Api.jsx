@@ -1,20 +1,28 @@
 import axios from "axios";
-const getEmpList = async () => {
+
+const getEmpList = async (token) => {
   try {
     const response = await axios.get(
-      "http://127.0.0.1:8082/employees/EmpList",
-
+      "http://127.0.0.1:8082/employees/EmpList",{
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      }}
     );
     return response;
   } catch (error) {
     return error;
   }
 };
-const filterEmpGenderRole = async (gender,role) => {
+const filterEmpGenderRole = async (gender,role, token) => {
     try {
 
         const response = await axios.get(
-            `http://127.0.0.1:8082/employees/filterRoleGender/${gender}:${role}`,
+            `http://127.0.0.1:8082/employees/filterRoleGender/${gender}:${role}`,{
+              headers: {
+                "Authorization": `${token}`,
+                'Content-Type': 'application/json'
+              }}
         );
        
         return response;
@@ -23,10 +31,14 @@ const filterEmpGenderRole = async (gender,role) => {
       }
 }
 
-const getEmpID = async (EmpID) => {
+const getEmpID = async (EmpID, token) => {
     try {
         const response = await axios.get(
-            `http://localhost:8082/employees/getEmployeeById/${EmpID}`,
+            `http://localhost:8082/employees/getEmployeeById/${EmpID}`, {
+              headers: {
+                "Authorization": `${token}`,
+                'Content-Type': 'application/json'
+              }}
         );
        
         return response;
@@ -34,15 +46,15 @@ const getEmpID = async (EmpID) => {
         return error;
       }
 }
-const deleteEmpID = async (UserID, EmpID) => {
+const deleteEmpID = async (UserID, EmpID, token) => {
    
     try {
         const response = await axios.post(
-            `http://localhost:8082/employees/deleteEmployeeById/${UserID}`, EmpID, {
-                headers: {
-                  // Overwrite Axios's automatically set Content-Type
-                  'Content-Type': 'application/json'
-                }}
+            `http://localhost:8082/employees/deleteEmployeeById/${UserID}`, EmpID,{
+              headers: {
+                "Authorization": `${token}`,
+                'Content-Type': 'application/json'
+              }}
         );
        
         return response;
@@ -50,15 +62,15 @@ const deleteEmpID = async (UserID, EmpID) => {
         return error;
       }
 }
-const searchEmp = async (searchTerm) => {
+const searchEmp = async (searchTerm, token) => {
  
   try {
       const response = await axios.get(
           `http://localhost:8082/employees/searchEmp/${searchTerm}`, {
-              headers: {
-                // Overwrite Axios's automatically set Content-Type
-                'Content-Type': 'application/json'
-              }}
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
       );
      
       return response;
@@ -66,15 +78,15 @@ const searchEmp = async (searchTerm) => {
       return error;
     }
 }
-const viewPlanList = async (dentistId) => {
+const viewPlanList = async (dentistId, token) => {
  
   try {
       const response = await axios.get(
-          `http://localhost:8082/employees/getPlanDentist/${dentistId}`, {
-              headers: {
-                // Overwrite Axios's automatically set Content-Type
-                'Content-Type': 'application/json'
-              }}
+          `http://localhost:8082/employees/getPlanDentist/${dentistId}`,{
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
       );
      
       return response;
@@ -82,15 +94,15 @@ const viewPlanList = async (dentistId) => {
       return error;
     }
 }
-const addEmployee = async (EmpInfo) => {
+const addEmployee = async (EmpInfo, token) => {
  
   try {
       const response = await axios.post(
-          `http://localhost:8082/employees/addEmployee`,EmpInfo, {
-              headers: {
-                // Overwrite Axios's automatically set Content-Type
-                'Content-Type': 'application/json'
-              }}
+          `http://localhost:8082/employees/addEmployee`,EmpInfo,{
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
       );
      
       return response;
@@ -98,16 +110,16 @@ const addEmployee = async (EmpInfo) => {
       return error;
     }
 }
-const editEmployee = async (EmpInfo) => {
+const editEmployee = async (EmpInfo, token) => {
 
   try {
       const response = await axios.post(
         
           `http://localhost:8082/employees/changeEmp/${EmpInfo.employeeId}`,EmpInfo, {
-              headers: {
-                // Overwrite Axios's automatically set Content-Type
-                'Content-Type': 'application/json'
-              }}
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
       );
      
       return response;
@@ -115,15 +127,15 @@ const editEmployee = async (EmpInfo) => {
       return error;
     }
 }
-const getRequestList = async () => {
+const getRequestList = async (token) => {
  
   try {
       const response = await axios.get(
           `http://localhost:8082/requests/list`, {
-              headers: {
-                // Overwrite Axios's automatically set Content-Type
-                'Content-Type': 'application/json'
-              }}
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
       );
      
       return response;
@@ -131,11 +143,16 @@ const getRequestList = async () => {
       return error;
     }
 }
-const getRequestID = async (RequestID) => {
+const getRequestID = async (RequestID, token) => {
   try {
    
       const response = await axios.get(
           `http://localhost:8082/requests/${RequestID}`,
+          {
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
       );
      
       return response;
@@ -143,15 +160,15 @@ const getRequestID = async (RequestID) => {
       return error;
     }
 }
-const deleteRequestID = async (RequestID) => {
+const deleteRequestID = async (RequestID, token) => {
 
   try {
       const response = await axios.post(
-          `http://localhost:8082/requests/deleteRequest/${RequestID}`, {
-              headers: {
-                // Overwrite Axios's automatically set Content-Type
-                'Content-Type': 'application/json'
-              }}
+          `http://localhost:8082/requests/deleteRequest/${RequestID}`,{
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
       );
      
       return response;
@@ -159,15 +176,15 @@ const deleteRequestID = async (RequestID) => {
       return error;
     }
 }
-const searchRequest = async (searchTerm) => {
+const searchRequest = async (searchTerm, token) => {
 
 try {
     const response = await axios.get(
         `http://localhost:8082/requests/searchByPhone/${searchTerm}`, {
-            headers: {
-              // Overwrite Axios's automatically set Content-Type
-              'Content-Type': 'application/json'
-            }}
+          headers: {
+            "Authorization": `${token}`,
+            'Content-Type': 'application/json'
+          }}
     );
    
     return response;
@@ -175,11 +192,237 @@ try {
     return error;
   }
 }
-const addRequest = async (Request) => {
+const addRequest = async (Request, token) => {
 
   try {
       const response = await axios.post(
           `http://localhost:8082/requests/createRequest`,Request, {
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const filterRequestShift = async (shift, token) => {
+  try {
+      const response = await axios.get(
+          `http://127.0.0.1:8082/requests/filterByShift/${shift}`,
+          {
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const filterRequestStatus = async (status, token) => {
+  try {
+      const response = await axios.get(
+          `http://127.0.0.1:8082/requests/filterByStatus/${status}`, {
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+
+const findPatient = async (phone, token) => {
+  try {
+  
+      const response = await axios.get(
+          `http://localhost:8082/requests/findPatient/${phone}`,
+          {
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const getAppointmentlist = async (token) => {
+  try {
+  
+      const response = await axios.get(
+          `http://localhost:8082/appointments/list`,
+          {
+            headers: {
+              "Authorization": `${token}`,
+              'Content-Type': 'application/json'
+            }}
+      );
+     
+      return response;
+    } catch (error) {
+      return error;
+    }
+}
+const getAppointmentByPatient = async (patientName, token) => {
+  try {
+  
+    const response = await axios.get(
+      `http://localhost:8082/appointments/byPatient/${patientName}`, {
+        headers: {
+          "Authorization": `${token}`,
+          'Content-Type': 'application/json'
+        }}
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const getDentistFreeAppointment = async (date, time, token) => {
+  try {
+  
+    const response = await axios.get(
+      `http://localhost:8082/appointments/viewDentistFree/${date}/${time}`, {
+        headers: {
+          "Authorization": `${token}`,
+          'Content-Type': 'application/json'
+        }}
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const createAppointment = async (appointment, token) => {
+  try {
+   
+    const response = await axios.post(
+      `http://127.0.0.1:8082/appointments/addAppointment`,appointment, {
+        headers: {
+          "Authorization": `${token}`,
+          'Content-Type': 'application/json'
+        }}
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const getAppointmentDetail = async (appointmentID, token) => {
+  try {
+   
+    const response = await axios.get(
+      `http://127.0.0.1:8082/appointments/byID/${appointmentID}`,{
+        headers: {
+          "Authorization": `${token}`,
+          'Content-Type': 'application/json'
+        }}
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const deleteAppointmentId = async (appointmentID, token) => {
+  try {
+   
+    const response = await axios.post(
+      `http://127.0.0.1:8082/appointments/deleteID/${appointmentID}`,{
+        headers: {
+          "Authorization": `${token}`,
+          'Content-Type': 'application/json'
+        }}
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const editAppointmentId = async (appointmentUpdated, token) => {
+  try {
+   
+    const response = await axios.post(
+      `http://127.0.0.1:8082/appointments/edit/${appointmentUpdated.appointment_id}`, appointmentUpdated, {
+        headers: {
+          "Authorization": `${token}`,
+          'Content-Type': 'application/json'
+        }}
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const retreatments = async (token) => {
+  try {
+   
+    const response = await axios.get(
+      `http://127.0.0.1:8082/retreatments/view_retreatment`,{
+        headers: {
+          "Authorization": `${token}`,
+          'Content-Type': 'application/json'
+        }}
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const retreatmentDetail = async (retreatmentId, token) => {
+  try {
+   debugger
+    const response = await axios.get(
+      `http://127.0.0.1:8082/retreatments/${retreatmentId}`, {
+        headers: {
+          "Authorization": `${token}`,
+          'Content-Type': 'application/json'
+        }}
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const UpdateretreatmentDetail = async (retreatmentId, token) => {
+  try {
+   debugger
+    const response = await axios.get(
+      `http://127.0.0.1:8082/retreatments/update/${retreatmentId}`, {
+        headers: {
+          "Authorization": `${token}`,
+          'Content-Type': 'application/json'
+        }}
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const login = async (userInfo) => {
+
+  try {
+      const response = await axios.post(
+          `http://localhost:8082/auth/login`, userInfo, {
               headers: {
                 // Overwrite Axios's automatically set Content-Type
                 'Content-Type': 'application/json'
@@ -190,207 +433,7 @@ const addRequest = async (Request) => {
     } catch (error) {
       return error;
     }
-}
-const filterRequestShift = async (shift) => {
-  try {
-      const response = await axios.get(
-          `http://127.0.0.1:8082/requests/filterByShift/${shift}`,
-      );
-     
-      return response;
-    } catch (error) {
-      return error;
-    }
-}
-const filterRequestStatus = async (status) => {
-  try {
-      const response = await axios.get(
-          `http://127.0.0.1:8082/requests/filterByStatus/${status}`,
-      );
-     
-      return response;
-    } catch (error) {
-      return error;
-    }
-}
-
-const findPatient = async (phone) => {
-  try {
-  
-      const response = await axios.get(
-          `http://localhost:8082/requests/findPatient/${phone}`,
-      );
-     
-      return response;
-    } catch (error) {
-      return error;
-    }
-}
-const getAppointmentlist = async () => {
-  try {
-  
-      const response = await axios.get(
-          `http://localhost:8082/appointments/list`,
-      );
-     
-      return response;
-    } catch (error) {
-      return error;
-    }
-}
-const getAppointmentByPatient = async (patientName) => {
-  try {
-  
-    const response = await axios.get(
-      `http://localhost:8082/appointments/byPatient/${patientName}`, {
-         // Truyền thông tin patientName qua params
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      }
-    );
-
-    return response;
-  } catch (error) {
-    return error;
   }
-}
-const getDentistFreeAppointment = async (date, time) => {
-  try {
-  
-    const response = await axios.get(
-      `http://localhost:8082/appointments/viewDentistFree/${date}/${time}`, {
-         // Truyền thông tin patientName qua params
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      }
-    );
-
-    return response;
-  } catch (error) {
-    return error;
-  }
-}
-const createAppointment = async (appointment) => {
-  try {
-   
-    const response = await axios.post(
-      `http://127.0.0.1:8082/appointments/addAppointment`,appointment, {
-         // Truyền thông tin patientName qua params
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      }
-    );
-
-    return response;
-  } catch (error) {
-    return error;
-  }
-}
-const getAppointmentDetail = async (appointmentID) => {
-  try {
-   
-    const response = await axios.get(
-      `http://127.0.0.1:8082/appointments/byID/${appointmentID}`,{
-         // Truyền thông tin patientName qua params
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      }
-    );
-
-    return response;
-  } catch (error) {
-    return error;
-  }
-}
-const deleteAppointmentId = async (appointmentID) => {
-  try {
-   
-    const response = await axios.post(
-      `http://127.0.0.1:8082/appointments/deleteID/${appointmentID}`,{
-         // Truyền thông tin patientName qua params
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      }
-    );
-
-    return response;
-  } catch (error) {
-    return error;
-  }
-}
-const editAppointmentId = async (appointmentUpdated) => {
-  try {
-   
-    const response = await axios.post(
-      `http://127.0.0.1:8082/appointments/edit/${appointmentUpdated.appointment_id}`, appointmentUpdated, {
-         // Truyền thông tin patientName qua params
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      }
-    );
-
-    return response;
-  } catch (error) {
-    return error;
-  }
-}
-const retreatments = async () => {
-  try {
-   
-    const response = await axios.get(
-      `http://127.0.0.1:8082/retreatments/view_retreatment`, {
-         // Truyền thông tin patientName qua params
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      }
-    );
-
-    return response;
-  } catch (error) {
-    return error;
-  }
-}
-const retreatmentDetail = async (retreatmentId) => {
-  try {
-   debugger
-    const response = await axios.get(
-      `http://127.0.0.1:8082/retreatments/${retreatmentId}`, {
-         // Truyền thông tin patientName qua params
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      }
-    );
-
-    return response;
-  } catch (error) {
-    return error;
-  }
-}
-const UpdateretreatmentDetail = async (retreatmentId) => {
-  try {
-   debugger
-    const response = await axios.get(
-      `http://127.0.0.1:8082/retreatments/update/${retreatmentId}`, {
-         // Truyền thông tin patientName qua params
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      }
-    );
-
-    return response;
-  } catch (error) {
-    return error;
-  }
-}
 export {
    getEmpList,
    filterEmpGenderRole,
@@ -417,6 +460,7 @@ export {
    editAppointmentId,
    retreatments, 
    retreatmentDetail,
-   UpdateretreatmentDetail
+   UpdateretreatmentDetail,
+   login
   };
   

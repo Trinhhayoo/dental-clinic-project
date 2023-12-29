@@ -6,9 +6,13 @@ import { Button } from '@material-tailwind/react';
 import { useNavigate } from "react-router-dom";
 import { HandleDelele } from '../components';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 // Define the EmployeeProfile component
 const RequestDetail = () => {
   const navigate = useNavigate();
+  const { token } = useSelector(
+    (state) => state.user
+  );
   const [requestDetail, setRequestDetail] = useState();
   const [reload, setReload] = useState('reload');
   const { requestId } = useParams();
@@ -26,7 +30,7 @@ const RequestDetail = () => {
     const FetchData = async () => {
 
 
-      await getRequestID(requestId).then(response => {
+      await getRequestID(requestId, token).then(response => {
         setRequestDetail(response.data);
 
         console.log(response);
@@ -41,7 +45,7 @@ const RequestDetail = () => {
     const FetchData = async () => {
 
       
-      await deleteRequestID(requestId).then(response => {
+      await deleteRequestID(requestId, token).then(response => {
        if(response != null){
         navigate("/deleteSuccess");
        }
