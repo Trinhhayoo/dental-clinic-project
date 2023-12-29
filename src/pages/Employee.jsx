@@ -20,6 +20,12 @@ import { Button } from "@material-tailwind/react";
 
 
 const EmpComponent = ({ employees }) => {
+    const navigate = useNavigate();
+
+    const handleViewButtonClick = (employeeId) => {
+        navigate(`/EmployeeDetail/${employeeId}`);
+    };
+
 
     const itemsPerPage = 6;
 
@@ -85,8 +91,15 @@ const EmpComponent = ({ employees }) => {
                         </div>
                         <p>{emp?.EMPLOYEE_ID}</p>
                         <div className="flex flex-row gap-2"> 
-                            <MdEdit  />
-                            <MdDelete className="text-red-500" />
+                        <Button
+                            id="viewpatient"
+                            onClick={() => handleViewButtonClick(emp.EMPLOYEE_ID)}
+                            //onClick={handleSignIn}
+                            className="border-none  bg-purple-500 py-4 px-4 flex flex-row items-center gap-2">
+
+                            <FaPlus className="flex" size={15} />
+                            <p className="flex">View</p>
+                        </Button>
                         </div>
                         
                         

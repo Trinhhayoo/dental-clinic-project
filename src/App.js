@@ -17,6 +17,10 @@ Overview,
 SignIn,
 SignUp,
 Patient,
+PatientDetail,
+PatientAppointments,
+PatientTreatmentPlan,
+
 AddPatientForm,
 EditPatientForm,
 SearchPatient,
@@ -24,12 +28,16 @@ SearchPatient,
 Appointment,
 AddAppointmentForm,
 EditAppointmentForm, 
+AppointmentDetail,
+
 
 Request,
 AddRequestForm,
 
 Employee,
 AddEmployeeForm,
+EmployeeDetail,
+EditEmployeeForm,
 
 Payment,
 AddPaymentForm,
@@ -58,6 +66,10 @@ const App = () => {
               <Route path="/" element={<Overview />} />
               <Route path="/home" element={<Overview />} />
               <Route path="/Patient" element={<Patient />} />
+              <Route path="/PatientDetail/:patientId" element={<PatientDetail />} />
+              <Route path="/PatientAppointments/:patientId" element={<PatientAppointments />} />
+              <Route path="/PatientTreatmentPlan/:patientId" element={<PatientTreatmentPlan />} />
+
               <Route path="/SearchPatient" element={<SearchPatient />} />
 
               <Route path="/AddPatientForm" element={<AddPatientForm/>} />
@@ -72,11 +84,19 @@ const App = () => {
 
               <Route path="/AddAppointmentForm" element={<AddAppointmentForm/>} />
               <Route path="/EditAppointmentForm/:appointmentId" element={<EditAppointmentForm />} />
+              <Route path="/AppointmentDetail/:appointmentId" element={<AppointmentDetail />} />
+
+
+
               <Route path="/Request" element={<Request />} />
               <Route path="/AddRequestForm" element={<AddRequestForm/>} />
 
               <Route path="/Employee" element={<Employee />} />
               <Route path="/AddEmployeeForm" element={<AddEmployeeForm/>} />
+              <Route path="/EmployeeDetail/:employeeId" element={<EmployeeDetail />} />
+              <Route path="/EditEmployeeForm/:employeeId" element={<EditEmployeeForm/>} />
+
+
 
               <Route path="/Payment" element={<Payment/>} />
 

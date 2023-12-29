@@ -1,3 +1,5 @@
+// AddEmployeeForm.jsx
+
 import React, { useState } from 'react';
 import { Button } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
@@ -10,7 +12,7 @@ const AddEmployeeForm = ({ handleAddEmployee }) => {
     GENDER: '',
     DATE_OF_BIRTH: '',
     ADDRESS: '',
-    ROLE_TYPE: '',
+    ROLE_TYPE: '', // Updated to include role type
     // Add more fields as needed
   });
 
@@ -106,17 +108,21 @@ const AddEmployeeForm = ({ handleAddEmployee }) => {
           <label htmlFor="roleType" className="block text-sm font-medium text-gray-700">
             Role Type:
           </label>
-          <input
-            type="text"
+          <select
             id="roleType"
             name="ROLE_TYPE"
             value={formData.ROLE_TYPE}
             onChange={handleInputChange}
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
+          >
+            <option value="" disabled>
+              Select Role Type
+            </option>
+            <option value="Dentist">Dentist</option>
+            <option value="Staff">Staff</option>
+            <option value="Admin">Admin</option>
+          </select>
         </div>
-
-        {/* Add more fields as needed */}
 
         <div className="mt-4 flex gap-4 justify-between">
           <Link to="/Employee">

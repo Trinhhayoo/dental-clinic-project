@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 
 import appointment from "../assets/appointment.json"
 import employeeList from "../assets/employee.json"
+import patientList from "../assets/patient.json"
+
 import { FaPlus } from "react-icons/fa6";
 
 import React, { useEffect, useState } from 'react';
@@ -18,8 +20,8 @@ import { Button } from "@material-tailwind/react";
 
 const Recentappointment = ({ recentappointment }) => {
     const navigate = useNavigate();
-    const handleEditButtonClick = (appointmentId) => {
-        navigate(`/EditAppointmentForm/${appointmentId}`);
+    const handleViewButtonClick = (appointmentId) => {
+        navigate(`/AppointmentDetail/${appointmentId}`);
     };
 
     const itemsPerPage = 6;
@@ -47,9 +49,9 @@ const Recentappointment = ({ recentappointment }) => {
 
                 <p>Appointmen's number</p>
                 <p>Time</p>
+                <p>Patient</p>
                 <p>Dentist</p>
                 <p>Room</p>
-                <p>Request</p>
 
                 <p>  </p>
 
@@ -75,29 +77,29 @@ const Recentappointment = ({ recentappointment }) => {
                         </div>
                         <div>
                         <p className='text-black-100 '>
-                        {employeeList.find(employee => employee.EMPLOYEE_ID === appointment.A_DENTIST_ID)?.EMP_NAME}
+                        {patientList.find(patient => patient.PATIENT_ID === appointment.A_PATIENT_ID)?.PP_NAME}
 
                         </p>
                         </div>
                         
                         <div className="hidden md:flex flex-col">
-                        <p className='text-black-400   text-xs mt-1'>
-                                {appointment.A_ROOM_ID}
-                            </p>
+                        <p className='text-black-100 '>
+                        {employeeList.find(employee => employee.EMPLOYEE_ID === appointment.A_DENTIST_ID)?.EMP_NAME}
+                        </p>
                            
 
 
                         </div>
-                        <p>{appointment.A_REQUEST_ID}</p>
+                        <p>{appointment.A_ROOM_ID}</p>
                         
                         <Button
                             id="editappointment"
-                            onClick={() => handleEditButtonClick(appointment.A_ORDER_NUMBER)}
+                            onClick={() => handleViewButtonClick(appointment.A_ORDER_NUMBER)}
                             //onClick={handleSignIn}
                             className="border-none  bg-purple-500 py-4 px-4 flex flex-row items-center gap-2">
 
                             <FaPlus className="flex" size={15} />
-                            <p className="flex">Edit</p>
+                            <p className="flex">View</p>
                         </Button>
 
 
