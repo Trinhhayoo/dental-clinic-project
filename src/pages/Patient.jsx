@@ -142,44 +142,69 @@ const RecentPatient = ({ recentpatient }) => {
 const Patient = () => {
     const { username } = useSelector((state) => state.user);
     const navigate = useNavigate();
-
+    const [searchTerm, setSearchTerm] = useState('');
+  
     const handleAddButtonClick = () => {
-        navigate('/AddPatientForm');
-      };
+      navigate('/AddPatientForm');
+    };
+  
+    const handleSearchInputChange = (e) => {
+      setSearchTerm(e.target.value);
+    };
+  
+    // Filter patients based on the search term
+    const filteredPatients = patient.filter((patient) => {
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
+      return (
+        patient.PP_NAME.toLowerCase().includes(lowerCaseSearchTerm) ||
+        patient.PATIENT_ID.toLowerCase().includes(lowerCaseSearchTerm)
+      );
+    });
+  
     return (
-        <div className="flex flex-col my-5">
-            <div className="flex flex-row mb-4 items-center ">
-
-                <h2 className=" flex-grow text-black font-bold">Patient List</h2>
-                <Button
-                    id="addPatient"
-                    onClick={handleAddButtonClick}
-                    //onClick={handleSignIn}
-                    className="border-none  bg-purple-500 py-4 px-4 flex flex-row items-center gap-2">
-
-                    <FaPlus className="flex" size={15} />
-                    <p className="flex">Add Patient</p>
-                </Button>
-            </div>
-            <div className="flex">
-                <form className="w-full" >
-                    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                    <div class=" relative w-full items-center ">
-
-                        <input type="search" id="default-search" class="   w-2/5   p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Patient name, patient id..." required />
-                        <CiSearch type="submit" size = {20} class=" absolute start-2.5 top-2.5 text-black cursor-pointer" />
-                    </div>
-                </form>
-            </div>
-
-
-
-            <RecentPatient recentpatient={patient} />
-         
-
+      <div className="flex flex-col my-5">
+        <div className="flex flex-row mb-4 items-center ">
+          <h2 className=" flex-grow text-black font-bold">Patient List</h2>
+          <Button
+            id="addPatient"
+            onClick={handleAddButtonClick}
+            className="border-none bg-purple-500 py-4 px-4 flex flex-row items-center gap-2"
+          >
+            <FaPlus className="flex" size={15} />
+            <p className="flex">Add Patient</p>
+          </Button>
         </div>
-    )
-
-
-};
-export default Patient;
+        <div className="flex">
+          <form className="w-full">
+            <label
+              htmlFor="default-search"
+              className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            >
+              Search
+            </label>
+            <div className="relative w-full items-center ">
+              <input
+                type="search"
+                id="default-search"
+                className="w-2/5 p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Patient name, patient id..."
+                value={searchTerm}
+                onChange={handleSearchInputChange}
+                required
+              />
+              <CiSearch
+                type="submit"
+                size={20}
+                className="absolute start-2.5 top-2.5 text-black cursor-pointer"
+              />
+            </div>
+          </form>
+        </div>
+  
+        {/* Pass filteredPatients to RecentPatient */}
+        <RecentPatient recentpatient={filteredPatients} />
+      </div>
+    );
+  };
+  
+  export default Patient;

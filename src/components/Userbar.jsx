@@ -38,12 +38,7 @@ const Userbar = () => {
             className="border border-blue-500 bg-blue-500 py-2 ">
             Sign in
           </Button>
-          <Button
-            id="signupOutside"
-            onClick={handleSignUp}
-            className="border border-blue-500 bg-blue-500 py-2  ">
-            Sign up
-          </Button>
+         
         </div>
       ) : (
         <div className="flex flex-col">
