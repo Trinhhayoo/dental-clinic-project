@@ -17,8 +17,15 @@ import patient from "../assets/patient.json"
 import { Link } from 'react-router-dom';
 
 
+   
 const Recenttreatmentplan = ({ recenttreatmentplan }) => {
   const navigate = useNavigate();
+  
+
+  const handleViewButtonClick = (treatmentplanId) => {
+      navigate(`/TreatmentPlanDetail/${treatmentplanId}`);
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTreatmentPlan, setSelectedTreatmentPlan] = useState(null);
 
@@ -35,26 +42,16 @@ const Recenttreatmentplan = ({ recenttreatmentplan }) => {
     setCurrentPage(currentPage - 1);
   }
 
-  const openModal = (treatmentplan) => {
-    setSelectedTreatmentPlan(treatmentplan);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setSelectedTreatmentPlan(null);
-    setIsModalOpen(false);
-  };
 
   return (
     <div>
-      <div className='px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr,2fr,1fr] rounded-mds font-bold py-4'>
+      <div className='px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr,1fr,1fr] rounded-mds font-bold py-4'>
         <p>Number</p>
         <p>Patient</p>
         <p>Dentist</p>
         <p>Precription</p>
-        <p>Note</p>
         <p>Treatment</p>
-        <p>Teeth</p>
+        <p></p>
         <p></p>
       </div>
 
@@ -63,7 +60,7 @@ const Recenttreatmentplan = ({ recenttreatmentplan }) => {
           const ttPlan = ttPlanData.find(tt => tt.TT_TREATMENT_PLAN_ID === treatmentplan.TREATMENT_PLAN_ID);
 
           return (
-            <div key={index} className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr,2fr,1fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
+            <div key={index} className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr,1fr,1fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
               <h3 className='font-bold text-base text-100 '>
                 {treatmentplan.TREATMENT_PLAN_ID}
               </h3>
@@ -86,8 +83,6 @@ const Recenttreatmentplan = ({ recenttreatmentplan }) => {
                 <p>{treatmentplan.TP_PRESCRIPTION}</p>
               </div>
 
-              <p>{treatmentplan.TP_NOTE}</p>
-
               {/* <p className='text-black-100 '>
                 {surfaceData.find(surface => surface.SURFACE_TEETH_ID === ttPlan?.TT_SURFACE_ID)?.SURFACE_NAME}
               </p> */}
@@ -96,10 +91,17 @@ const Recenttreatmentplan = ({ recenttreatmentplan }) => {
               </p>
               <Button
                 id="edittreatmentplan"
-                onClick={() =>  openModal(treatmentplan)}
+                onClick={() => handleViewButtonClick(treatmentplan.TREATMENT_PLAN_ID)}
                 //onClick={handleSignIn}
                 className="border-none  bg-purple-500 py-4 px-7 flex flex-row items-center gap-2">
                 <p className="flex">View</p>
+            </Button>
+            <Button
+                id="edittreatmentplan"
+               // onClick={() => handleViewButtonClick(treatmentplan.TREATMENT_PLAN_ID)}
+                //onClick={handleSignIn}
+                className="border-none  bg-purple-500 py-4 px-7 flex flex-row items-center gap-2">
+                <p className="flex">Delete</p>
             </Button>
             </div>
           );
@@ -129,12 +131,7 @@ const Recenttreatmentplan = ({ recenttreatmentplan }) => {
         )}
       </div>
 
-      {isModalOpen && selectedTreatmentPlan && (
-        <TeethListModal
-          treatmentPlan={selectedTreatmentPlan}
-          closeModal={closeModal}
-        />
-      )}
+    
     </div>
   );
 };

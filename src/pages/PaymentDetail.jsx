@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '@material-tailwind/react';
-import appointmentData from '../assets/appointment.json';
+import paymentData from '../assets/payment.json';
 
-const AppointmentDetail = () => {
-  const { appointmentId } = useParams();
-  const [appointment, setAppointment] = useState(null);
+const PaymentDetail = () => {
+  const { paymentId } = useParams();
+  const [payment, setPayment] = useState(null);
 
   useEffect(() => {
-    const selectedAppointment = appointmentData.find(
-      (appointment) => appointment.APPOINTMENT_ID === parseInt(appointmentId)
+    const selectedPayment = paymentData.find(
+      (payment) => payment.PAYMENT_ID === parseInt(paymentId)
     );
-    setAppointment(selectedAppointment);
-  }, [appointmentId]);
+    setPayment(selectedPayment);
+  }, [paymentId]);
 
-  if (!appointment) {
+  if (!payment) {
     return <p>Loading...</p>;
   }
 
@@ -27,31 +27,33 @@ const AppointmentDetail = () => {
 
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Appointment Detail</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-center">Payment Detail</h2>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          {renderDetailField('Patient ID', appointment.A_PATIENT_ID)}
-          {renderDetailField('Order Number', appointment.A_ORDER_NUMBER)}
-          {renderDetailField('Date', appointment.A_DATE)}
-          {renderDetailField('Room ID', appointment.A_ROOM_ID)}
+          {renderDetailField('Treatment Plan ID', payment.PM_TREATMENT_PLAN_ID)}
+          {renderDetailField('Payment Date', payment.PAYMENT_DATE)}
+          {renderDetailField('Payer', payment.PAYER)}
+          {renderDetailField('Payer Phone Number', payment.PAYER_PHONENUMBER)}
+          {renderDetailField('Paid Money', payment.PAID_MONEY)}
         </div>
         <div>
-          {renderDetailField('Dentist ID', appointment.A_DENTIST_ID)}
-          {renderDetailField('Time', appointment.A_TIME)}
-          {renderDetailField('Request ID', appointment.A_REQUEST_ID)}
+          {renderDetailField('Excess Money', payment.EXCESS_MONEY)}
+          {renderDetailField('Type of Payment', payment.TYPE_PAY)}
+          {renderDetailField('Payment Status', payment.PAYMENT_STATUS)}
+          {renderDetailField('Payment Note', payment.PAYMENT_NOTE)}
           {/* Add other fields as needed */}
         </div>
       </div>
       <div className="mt-4 flex gap-4 justify-between col-span-2">
         {/* Add your Link components for different actions */}
         {/* For example, you can link to an Edit page */}
-        <Link to={`/EditAppointmentForm/${appointment.APPOINTMENT_ID}`}>
+        <Link to={`/EditPaymentForm/${payment.PAYMENT_ID}`}>
           <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[25%]">
             <p className="flex">Edit</p>
           </Button>
         </Link>
         {/* Add other actions as needed */}
-        <Link to="/Appointment">
+        <Link to="/Payment">
           <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[25%]">
             <p className="flex">Back</p>
           </Button>
@@ -61,4 +63,4 @@ const AppointmentDetail = () => {
   );
 };
 
-export default AppointmentDetail;
+export default PaymentDetail;

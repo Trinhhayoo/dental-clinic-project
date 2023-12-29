@@ -24,27 +24,34 @@ PatientTreatmentPlan,
 AddPatientForm,
 EditPatientForm,
 SearchPatient,
+PaymentDetail,
 
 Appointment,
 AddAppointmentForm,
 EditAppointmentForm, 
 AppointmentDetail,
 
-
+PrescriptionListModal,
 Request,
 AddRequestForm,
+RequestDetail,
+EditRequestForm,
 
 Employee,
 AddEmployeeForm,
 EmployeeDetail,
 EditEmployeeForm,
 
+EditTreatmentPlanForm,
+
 Payment,
 AddPaymentForm,
 
 TreatmentPlan,
 AddTreatmentPlan,
-TeethListModal
+TeethListModal,
+TreatmentPlanDetail,
+EditPaymentForm
 
 
 } from "./pages";
@@ -81,15 +88,24 @@ const App = () => {
               <Route path="/TreatmentPlan" element={<TreatmentPlan/>} />
               <Route path="/AddTreatmentPlan/:patientId" element={<AddTreatmentPlan/>} />
               <Route path="/TeethListModal" element={<TeethListModal/>} />
+              <Route path="/PrescriptionListModal" element={<PrescriptionListModal/>} />
+
+              <Route path="/TreatmentPlanDetail/:treatmentplanId" element={<TreatmentPlanDetail />} />
+
 
               <Route path="/AddAppointmentForm" element={<AddAppointmentForm/>} />
               <Route path="/EditAppointmentForm/:appointmentId" element={<EditAppointmentForm />} />
               <Route path="/AppointmentDetail/:appointmentId" element={<AppointmentDetail />} />
+              <Route path="/EditTreatmentPlanForm/:treatmentplanId" element={<EditTreatmentPlanForm/>} />
 
 
 
               <Route path="/Request" element={<Request />} />
               <Route path="/AddRequestForm" element={<AddRequestForm/>} />
+              <Route path="/RequestDetail/:requestId" element={<RequestDetail />} />
+              <Route path="/EditRequestForm/:requestId" element={<EditRequestForm />} />
+
+
 
               <Route path="/Employee" element={<Employee />} />
               <Route path="/AddEmployeeForm" element={<AddEmployeeForm/>} />
@@ -99,6 +115,10 @@ const App = () => {
 
 
               <Route path="/Payment" element={<Payment/>} />
+              <Route path="/PaymentDetail/:paymentId" element={<PaymentDetail />} />
+              <Route path="/EditPaymentForm/:paymentId" element={<EditPaymentForm />} />
+
+
 
               <Route path="/signin" element={<SignIn/>} />
               <Route path="/signup" element={<SignUp />} />

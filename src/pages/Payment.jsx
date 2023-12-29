@@ -18,8 +18,8 @@ import { useNavigate } from "react-router-dom";
 
 const Recentpayment = ({ recentpayment }) => {
     const navigate = useNavigate();
-    const handleEditButtonClick = (paymentId) => {
-        navigate(`/EditPaymentForm/${paymentId}`);
+    const handleViewButtonClick = (paymentId) => {
+        navigate(`/PaymentDetail/${paymentId}`);
     };
 
     const itemsPerPage = 6;
@@ -43,7 +43,7 @@ const Recentpayment = ({ recentpayment }) => {
         <div>
 
 
-            <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr,2fr,1fr] rounded-mds  font-bold py-4'>
+            <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr,2fr,1fr,1fr] rounded-mds  font-bold py-4'>
 
                 <p>Number</p>
                 <p>Date</p>
@@ -57,7 +57,7 @@ const Recentpayment = ({ recentpayment }) => {
             <div className="mt-4 flex flex-col gap-1 ">
                 {visiblepayments.map((payment, index) => (
 
-                    <div key={index} className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr,2fr,1fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
+                    <div key={index} className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr,2fr,1fr,1fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
                         <h3 className='font-bold text-base text-100 '>
                             {payment.PAYMENT_ID}
                         </h3>
@@ -92,13 +92,21 @@ const Recentpayment = ({ recentpayment }) => {
                         <p>{payment.TYPE_PAY}</p>
                         <p>{payment.PAYMENT_NOTE}</p>
                         <Button
-                            id="editappointment"
-                            onClick={() => handleEditButtonClick(payment.PAYMENT_ID)}
+                            id="viewpayment"
+                            onClick={() => handleViewButtonClick(payment.PAYMENT_ID)}
                             //onClick={handleSignIn}
-                            className="border-none  bg-purple-500 py-4 px-4 flex flex-row items-center gap-2">
+                            className="border-none  bg-purple-500 py-4 px-7 flex flex-row items-center gap-2">
 
-                            <FaPlus className="flex" size={15} />
-                            <p className="flex">Edit</p>
+                            <p className="flex">View</p>
+                        </Button>
+
+                        <Button
+                            id="viewpayment"
+                            //onClick={() => handleViewButtonClick(payment.PAYMENT_ID)}
+                            //onClick={handleSignIn}
+                            className="border-none  bg-purple-500 py-4 px-7 flex flex-row items-center gap-2">
+
+                            <p className="flex">Delete</p>
                         </Button>
 
                     </div>

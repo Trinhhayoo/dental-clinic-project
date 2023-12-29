@@ -15,6 +15,8 @@ import AppointmentDetail from "./AppointmentDetail";
 
 import Request from "./Request";
 import AddRequestForm from "./AddRequestForm";
+import RequestDetail from "./RequestDetail";
+import EditRequestForm from "./EditRequestForm";
 
 import Employee from "./Employee";
 import AddEmployeeForm from "./AddEmployeeForm";
@@ -28,7 +30,13 @@ import TeethListModal from "./TeethListModal";
 import TreatmentPlan from "./TreatmentPlan";
 import AddTreatmentPlan from "./AddTreatmentPlan";
 import SearchPatient from "./SearchPatient";
+import TreatmentPlanDetail from "./TreatmentPlanDetail";
+import PrescriptionListModal from "./PrescriptionListModal";
+import EditTreatmentPlanForm from "./EditTreatmentPlanForm ";
+import PaymentDetail from "./PaymentDetail";
+import EditPaymentForm from "./EditPaymentForm";
 export {
+
     Overview,
     SignIn,
     SignUp,
@@ -37,8 +45,6 @@ export {
     PatientDetail,
     PatientAppointments,
     PatientTreatmentPlan,
-
-
     AddPatientForm,
     EditPatientForm,
     SearchPatient,
@@ -50,6 +56,10 @@ export {
 
     Request,
     AddRequestForm,
+    RequestDetail,
+    EditRequestForm,
+    
+
 
     Employee,
     AddEmployeeForm,
@@ -61,5 +71,10 @@ export {
 
     TreatmentPlan,
     AddTreatmentPlan,
-    TeethListModal
+    TeethListModal,
+    TreatmentPlanDetail,
+    PrescriptionListModal,
+    EditTreatmentPlanForm,
+    PaymentDetail,
+    EditPaymentForm
 };

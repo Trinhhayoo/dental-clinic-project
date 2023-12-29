@@ -4,12 +4,12 @@ import { FaMale } from "react-icons/fa";
 import { FaFemale } from "react-icons/fa";
 import request from "../assets/request.json";
 import appointment from "../assets/appointment.json";
-import patient from "../assets/patient.json"
+import patient from "../assets/patient.json";
 import { IoMdCheckmark } from "react-icons/io";
 import { HiMiniXMark } from "react-icons/hi2";
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from "react";
 import { reports } from "../assets";
+import { Link } from "react-router-dom";
 
 const GenderCircle = ({ maleCount, femaleCount }) => {
   const [malePercentage, setMalePercentage] = useState(0);
@@ -25,57 +25,63 @@ const GenderCircle = ({ maleCount, femaleCount }) => {
   }, [maleCount, femaleCount]);
 
   return (
-    <div className=" flex flex-col">
+    <div className="flex flex-col">
       <div className="flex items-center flex-row pb-2 ">
         <p className="flex flex-grow font-bold">Gender</p>
       </div>
-      <div className="h-[calc(100vh-75vh)]  px-4 py-4 bg-white flex flex-col  items-center rounded-lg ">
-
+      <div className="h-[calc(100vh-75vh)] px-4 py-4 bg-white flex flex-col items-center rounded-lg ">
         <div
-          className=" w-24 h-24 mb-4 rounded-full bg-transparent"
+          className="w-24 h-24 mb-4 rounded-full bg-transparent"
           style={{
             background: `conic-gradient(
             yellow ${femalePercentage}%, 
             transparent ${femalePercentage}% ${malePercentage}%, 
             blue ${malePercentage}%
-          )`
+          )`,
           }}
         ></div>
-
-        <div className=" items-center flex flex-row gap-4">
+        <div className="items-center flex flex-row gap-4">
           <div className="w-3 h-3 items-center flex rounded-full bg-yellow-200 "></div>
-          <div className="flex flex-col justify-center"> <p className="text-gray-500 flex items-center text-sm font-bold">Female </p> <p className="text-gray-500 flex  justify-center text-sm font-bold">{femalePercentage.toFixed(0)}%</p></div>
+          <div className="flex flex-col justify-center">
+            <p className="text-gray-500 flex items-center text-sm font-bold">
+              Female{" "}
+            </p>{" "}
+            <p className="text-gray-500 flex justify-center text-sm font-bold">
+              {femalePercentage.toFixed(0)}%
+            </p>
+          </div>
           <div className="w-3 h-3 rounded-full bg-blue-500 ml-2"></div>
           <div className="flex flex-col">
             <p className="text-gray-500 text-sm font-bold">Male</p>
-            <p className="text-gray-500 text-sm flex  justify-center font-bold"> {malePercentage.toFixed(0)}%</p>
+            <p className="text-gray-500 text-sm flex justify-center font-bold">
+              {" "}
+              {malePercentage.toFixed(0)}%
+            </p>
           </div>
-
         </div>
-
-
       </div>
     </div>
-
   );
 };
 
-
 const AppointmentRequest = ({ request }) => {
-
   return (
-
-
-    <div className=" flex flex-col">
+    <div className="flex flex-col">
       <div className="flex items-center flex-row pb-2 ">
         <p className="flex flex-grow font-bold">Request</p>
         <div className="flex flex-row items-center">
-          <p className=" flex flex-grow-0 text-sm items-center justify-center">View all </p>
-          <MdKeyboardDoubleArrowRight />
+          <Link to="/Request">
+            <p className="flex flex-grow-0 text-sm items-center justify-center">
+              View all{" "}
+            </p>
+          </Link>
+          <Link to="/Request">
+            <MdKeyboardDoubleArrowRight />
+          </Link>
         </div>
       </div>
-      <div className="h-[calc(100vh-50vh)]  px-4 py-2 bg-white rounded-lg ">
-        {
+      <div className="h-[calc(100vh-50vh)] px-4 py-2 bg-white rounded-lg ">
+      {
           request.slice(0, 7).map((item, index) => (
             <div key={index} className="my-2 grid grid-cols-[1fr,3fr,1fr] justify-center">
               <div className="bg-gray-500 w-10  h-10 flex items-center justify-center rounded-full">
@@ -109,26 +115,30 @@ const AppointmentRequest = ({ request }) => {
             </div>
           ))
         }
+      
       </div>
     </div>
-  )
-
+  );
 };
+
 const TodayAppointment = ({ todayappointment }) => {
-
   return (
-
-
-    <div className=" flex flex-col">
+    <div className="flex flex-col">
       <div className="flex items-center flex-row pb-2 ">
         <p className="flex flex-grow font-bold">Today Appointment</p>
         <div className="flex flex-row items-center">
-          <p className=" flex flex-grow-0 text-sm items-center justify-center">View all </p>
-          <MdKeyboardDoubleArrowRight />
+          <Link to="/Appointment">
+            <p className="flex flex-grow-0 text-sm items-center justify-center">
+              View all{" "}
+            </p>
+          </Link>
+          <Link to="/Appointment">
+            <MdKeyboardDoubleArrowRight />
+          </Link>
         </div>
       </div>
-      <div className="h-[calc(100vh-50vh)]  px-4 py-2 bg-white rounded-lg ">
-        {
+      <div className="h-[calc(100vh-50vh)] px-4 py-2 bg-white rounded-lg ">
+      {
           todayappointment.slice(0, 7).map((item, index) => (
             <div key={index} className="my-2 grid grid-cols-[1fr,3fr,1fr] justify-center">
               <div className="bg-gray-500 w-10  h-10 flex items-center justify-center rounded-full">
@@ -151,61 +161,63 @@ const TodayAppointment = ({ todayappointment }) => {
         }
       </div>
     </div>
-  )
+  );
 };
+
 const RecentPatient = ({ recentpatient }) => {
   return (
     <div>
-    <div className="flex items-center flex-row pb-2 ">
+      <div className="flex items-center flex-row pb-2 ">
         <p className="flex flex-grow font-bold">Recent Patient</p>
-        <div className="flex flex-row items-center">
-          <p className=" flex flex-grow-0 text-sm items-center justify-center">View all </p>
+        <Link to="/Patient" className="flex flex-row items-center">
+          <p className="flex flex-grow-0 text-sm items-center justify-center">
+            View all{" "}
+          </p>
           <MdKeyboardDoubleArrowRight />
-        </div>
+        </Link>
       </div>
-  
-    <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr] rounded-mds  font-bold py-4'>
+      <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr] rounded-mds  font-bold py-4'>
 
-      <p>Patient's Name</p>
-      <p>Oral Health</p>
-      <p className='hidden md:flex '>Gender</p>
-      <p>Contact</p>
-      <p>Patient ID</p>
+<p>Patient's Name</p>
+<p>Oral Health</p>
+<p className='hidden md:flex '>Gender</p>
+<p>Contact</p>
+<p>Patient ID</p>
+
+</div>
+<div className="mt-4 flex flex-col gap-1 ">
+{recentpatient.slice(0, 4).map((patient, index) => (
+
+  <div key={index} className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
+    <h3 className='font-bold text-base text-100 '>
+      {patient.PP_NAME}
+    </h3>
+
+    <div className='flex flex-row  items-center  gap-6 '>
+
+
+
+      <p className='text-black-100 '>
+        {patient?.PP_ORAL_HEALTH}
+
+      </p>
+
+    </div >
+    <div>
+      Female
+    </div>
+    <div className="hidden md:flex flex-col">
+      <p className='text-gray-400   text-xs mt-1'>
+        {patient.PP_PHONENUMBER}
+      </p>
+      <p className='text-gray-400  text-xs mt-1'>
+        {/* {song?.subtitle} */}
+        {patient.PP_EMAIL}
+      </p>
+
 
     </div>
-    <div className="mt-4 flex flex-col gap-1 ">
-      {recentpatient.slice(0, 4).map((patient, index) => (
-
-        <div key={index} className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
-          <h3 className='font-bold text-base text-100 '>
-            {patient.PP_NAME}
-          </h3>
-
-          <div className='flex flex-row  items-center  gap-6 '>
-
-
-
-            <p className='text-black-100 '>
-              {patient?.PP_ORAL_HEALTH}
-
-            </p>
-
-          </div >
-          <div>
-            Female
-          </div>
-          <div className="hidden md:flex flex-col">
-            <p className='text-gray-400   text-xs mt-1'>
-              {patient.PP_PHONENUMBER}
-            </p>
-            <p className='text-gray-400  text-xs mt-1'>
-              {/* {song?.subtitle} */}
-              {patient.PP_EMAIL}
-            </p>
-
-
-          </div>
-          <p>{patient.PATIENT_ID}</p>
+    <p>{patient.PATIENT_ID}</p>
 
 
 
@@ -213,15 +225,16 @@ const RecentPatient = ({ recentpatient }) => {
 
 
 
-        </div>
-      ))}
-    </div>
-  
   </div>
-  )
+))}
+</div>
 
- 
+
+)
+    </div>
+  );
 };
+
 const Overview = () => {
   const { username } = useSelector((state) => state.user);
   const male = 110;
@@ -229,45 +242,33 @@ const Overview = () => {
   return (
     <div className="flex flex-col">
       <div className="flex flex-col mb-4">
-
         {username && <h3 >Welcome {username}</h3>}
         {!username && <h1 className="font-bold">Welcome Guest</h1>}
-        <p className="text-sm text-gray-500">Have a nice day at great work</p>
+        <p className="text-sm text-gray-500">
+          Have a nice day at great work
+        </p>
       </div>
       <div className="grid grid-cols-4 items-center gap-4 h-20  ">
-        {reports.map((item, index) =>
+        {reports.map((item, index) => (
           <div key={index} className={`border h-full rounded-md px-1  bg-red-300  grid grid-cols-3`}>
-
-
             <div className="col-span-1 flex justify-center items-center bg-white bg-opacity-50 m-6 rounded-full">
               <item.icon className="text-gray-500" />
             </div>
-
             <div className="col-span-2 flex flex-col justify-center">
               <p className="font-bold text-white text-3xl">{item.value}</p>
               <p className="text-gray-200 text-sm font-bold">{item.name}</p>
             </div>
           </div>
-        )}
-
+        ))}
       </div>
       <div className="grid grid-cols-[4fr,3fr,4fr] gap-4 mt-8 mb-8">
         <AppointmentRequest request={request} />
-
         <GenderCircle maleCount={40} femaleCount={60} />
-
-
         <TodayAppointment todayappointment={appointment} />
       </div>
-      
       <RecentPatient recentpatient={patient} />
-    
-     
     </div>
-  )
-
-
+  );
 };
+
 export default Overview;
-
-

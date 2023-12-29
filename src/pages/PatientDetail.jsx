@@ -43,25 +43,25 @@ const PatientDetail = () => {
           {renderDetailField('Date of Birth', patient.PP_DATE_OF_BIRTH)}
         </div>
       </div>
-      <div className="mt-4 flex gap-4 justify-between col-span-2">
-        <Link to={`/PatientTreatmentPlan/${patient.PATIENT_ID}`}>
-          <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[25%]">
-            <p className="flex">TreatmentPlan</p>
+      <div className="mt-4 flex flex-col gap-4">
+        <Link to="/Patient">
+          <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-full">
+            <p className="flex">Back</p>
           </Button>
         </Link>
         <Link to={`/EditPatientForm/${patient.PATIENT_ID}`}>
-          <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[25%]">
+          <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-full">
             <p className="flex">Edit</p>
           </Button>
         </Link>
-        <Link to={`/PatientAppointments/${patient.PATIENT_ID}`}>
-          <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[25%]">
-            <p className="flex">Appointments</p>
+        <Link to={`/PatientTreatmentPlan/${patient.PATIENT_ID}`}>
+          <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-full">
+            <p className="flex">TreatmentPlan</p>
           </Button>
         </Link>
-        <Link to="/Patient">
-          <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[25%]">
-            <p className="flex">Back</p>
+        <Link to={`/PatientAppointments/${patient.PATIENT_ID}`}>
+          <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-full">
+            <p className="flex">Appointments</p>
           </Button>
         </Link>
       </div>

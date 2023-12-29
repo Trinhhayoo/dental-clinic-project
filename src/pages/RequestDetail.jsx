@@ -1,20 +1,20 @@
-// EmployeeDetail.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import requestData from '../assets/request.json';
 import { Button } from '@material-tailwind/react';
-import  employeeData from "../assets/employee.json";
-const EmployeeDetail = () => {
-  const { employeeId } = useParams();
-  const [employee, setEmployee] = useState(null);
+
+const RequestDetail = () => {
+  const { requestId } = useParams();
+  const [request, setRequest] = useState(null);
 
   useEffect(() => {
-    const selectedEmployee = employeeData.find(
-      (employee) => employee.EMPLOYEE_ID === employeeId
+    const selectedRequest = requestData.find(
+      (request) => request.REQUEST_ID === parseInt(requestId)
     );
-    setEmployee(selectedEmployee);
-  }, [employeeId]);
+    setRequest(selectedRequest);
+  }, [requestId]);
 
-  if (!employee) {
+  if (!request) {
     return <p>Loading...</p>;
   }
 
@@ -27,30 +27,26 @@ const EmployeeDetail = () => {
 
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Employee Detail</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-center">Request Detail</h2>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          {renderDetailField('Name', employee.EMP_NAME)}
-          {renderDetailField('Gender', employee.GENDER)}
-          {renderDetailField('Date of Birth', employee.DATE_OF_BIRTH)}
-          {renderDetailField('Address', employee.ADDRESS)}
+          {renderDetailField('Patient ID', request.RQ_PATIENT_ID)}
+          {renderDetailField('Date and Time', request.RQ_DATE_TIME + ' ' + request.RQ_TIME)}
+          {renderDetailField('Note', request.RQ_NOTE)}
+          {renderDetailField('Phone', request.RQ_PHONE)}
         </div>
         <div>
-          {renderDetailField('Employee ID', employee.EMPLOYEE_ID)}
-          {renderDetailField('User ID', employee.USER_ID)}
+          {renderDetailField('Status', request.RQ_STATUS)}
           {/* Add other fields as needed */}
         </div>
       </div>
       <div className="mt-4 flex gap-4 justify-between col-span-2">
-        {/* Add your Link components for different actions */}
-        {/* For example, you can link to an Edit page */}
-        <Link to={`/EditEmployeeForm/${employee.EMPLOYEE_ID}`}>
+        <Link to={`/EditRequestForm/${request.REQUEST_ID}`}>
           <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[100%]">
             <p className="flex">Edit</p>
           </Button>
         </Link>
-        {/* Add other actions as needed */}
-        <Link to="/Employee">
+        <Link to="/Request">
           <Button className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[100%]">
             <p className="flex">Back</p>
           </Button>
@@ -60,4 +56,4 @@ const EmployeeDetail = () => {
   );
 };
 
-export default EmployeeDetail;
+export default RequestDetail;

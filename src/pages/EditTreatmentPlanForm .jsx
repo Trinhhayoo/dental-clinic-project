@@ -1,30 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import employeeData from '../assets/employee.json';
+import treatmentPlanData from '../assets/treatmentplan.json';
 import { Button } from '@material-tailwind/react';
 
-const EditEmployeeForm = () => {
-  const { employeeId } = useParams();
-  const [employee, setEmployee] = useState(null);
+const EditTreatmentPlanForm = () => {
+  const { treatmentplanId } = useParams();
+  const [treatmentPlan, setTreatmentPlan] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const selectedEmployee = employeeData.find(
-      (employee) => employee.EMPLOYEE_ID === employeeId
+    const selectedTreatmentPlan = treatmentPlanData.find(
+      (plan) => plan.TREATMENT_PLAN_ID === parseInt(treatmentplanId)
     );
-    setEmployee(selectedEmployee);
-  }, [employeeId]);
+    setTreatmentPlan(selectedTreatmentPlan);
+  }, [treatmentplanId]);
 
   const handleInputChange = (fieldName, value) => {
-    setEmployee({
-      ...employee,
+    setTreatmentPlan({
+      ...treatmentPlan,
       [fieldName]: value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Updated employee:', employee);
+    console.log('Updated treatment plan:', treatmentPlan);
     // Add logic to update data or dispatch actions if using Redux
   };
 
@@ -33,33 +33,36 @@ const EditEmployeeForm = () => {
       <label className="block text-sm font-bold text-gray-700">{label}</label>
       <input
         type="text"
-        value={employee[fieldName] || ''}
+        value={treatmentPlan[fieldName] || ''}
         onChange={(e) => handleInputChange(fieldName, e.target.value)}
         className="mt-1 p-2 w-full border rounded-md"
       />
     </div>
   );
 
-  if (!employee) {
+  if (!treatmentPlan) {
     return <p>Loading...</p>;
   }
 
   return (
     <div className="flex flex-col items-center">
-      <h2 className="mt-4 font-bold text-xl">Edit Employee {employee.EMPLOYEE_ID}</h2>
+      <h2 className="mt-4 font-bold text-xl">Edit Treatment Plan {treatmentPlan.TREATMENT_PLAN_ID}</h2>
       <form onSubmit={handleSubmit} className="mt-4 w-full max-w-md">
-        {renderInputField('EMP_NAME', 'Name')}
-        {renderInputField('GENDER', 'Gender')}
-        {renderInputField('DATE_OF_BIRTH', 'Date of Birth')}
-        {renderInputField('ADDRESS', 'Address')}
-        {renderInputField('EMPLOYEE_ID', 'Employee ID')}
-        {renderInputField('USER_ID', 'User ID')}
+        {renderInputField('TP_PATIENT_ID', 'Patient ID')}
+        {renderInputField('TP_DENTIST_ID', 'Dentist ID')}
+        {renderInputField('TP_PRESCRIPTION', 'Prescription')}
+        {renderInputField('TP_ASSISTANT_ID', 'Assistant ID')}
+        {renderInputField('TP_NOTE', 'Note')}
+        {renderInputField('TP_STATUS', 'Status')}
+        {renderInputField('TP_TREATMENT_ID', 'Treatment ID')}
+        {renderInputField('PARENT_TREATMENT_ID', 'Parent Treatment ID')}
+        {renderInputField('TP_DATE', 'Date')}
         {/* Add other fields as needed */}
         
         <div className="mt-4 flex gap-4 justify-between">
           <Button
             onClick={() => navigate(-1)}
-            className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[27%]"
+            className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[100%]"
           >
             <p className="flex">Back</p>
           </Button>
@@ -76,4 +79,4 @@ const EditEmployeeForm = () => {
   );
 };
 
-export default EditEmployeeForm;
+export default EditTreatmentPlanForm;
