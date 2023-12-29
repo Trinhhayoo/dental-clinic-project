@@ -17,5 +17,5 @@ export const store = configureStore({
       thunk: {
         extraArgument: {} // Có thể thêm các tham số bổ sung vào middleware
       },
-    }).concat(thunkMiddleware),
+    }).concat(CoreApi.middleware),
 });

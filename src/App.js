@@ -51,7 +51,16 @@ TreatmentPlan,
 AddTreatmentPlan,
 TeethListModal,
 TreatmentPlanDetail,
-EditPaymentForm
+EditPaymentForm,
+
+StaffAdmin,
+DeleteSuccessfull,
+Dentist,
+EditEmployee,
+RequestDetail,
+AppointmentDetail,
+Retreatments,
+RetreatmentDetail
 
 
 } from "./pages";
@@ -59,6 +68,7 @@ EditPaymentForm
 
 
 const App = () => {
+
  
   return (
     <div className="flex h-screen">
@@ -100,6 +110,10 @@ const App = () => {
 
 
 
+              <Route path="/Appointment/:appointmentId" element={<AppointmentDetail />} />
+              <Route path="/AddAppointmentForm/:requestId/:patientId/:date/:time" element={<AddAppointmentForm/>} />
+              <Route path="/EditAppointmentForm/:appointmentId" element={<EditAppointmentForm />} />
+              <Route path="/Request/:requestId" element={<RequestDetail />} />
               <Route path="/Request" element={<Request />} />
               <Route path="/AddRequestForm" element={<AddRequestForm/>} />
               <Route path="/RequestDetail/:requestId" element={<RequestDetail />} />
@@ -113,7 +127,16 @@ const App = () => {
               <Route path="/EditEmployeeForm/:employeeId" element={<EditEmployeeForm/>} />
 
 
+              <Route path="/Retreatment" element={<Retreatments />} />
+              <Route path="/Retreatment/:retreatment_id" element={<RetreatmentDetail />} />
 
+              <Route path="/Employee" element={<Employee />} />
+              <Route path="/Employee/:employeeId" element={<StaffAdmin />} />
+              <Route path="/Dentist/:dentistId/:employeeId" element={<Dentist />} />
+              <Route path="/deleteSuccess" element={<DeleteSuccessfull/>} />
+             
+              <Route path="/AddEmployee" element={<AddEmployeeForm/>} />
+              <Route path="/EditEmployee/:employeeID" element={<EditEmployee/>} />
               <Route path="/Payment" element={<Payment/>} />
               <Route path="/PaymentDetail/:paymentId" element={<PaymentDetail />} />
               <Route path="/EditPaymentForm/:paymentId" element={<EditPaymentForm />} />
