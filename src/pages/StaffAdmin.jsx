@@ -1,17 +1,17 @@
 // Import React and necessary libraries
 import React, { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { getRequestID,deleteRequestID } from '../redux/services/Api';
+import { getEmpID, deleteEmpID } from '../redux/services/Api';
 import { Button } from '@material-tailwind/react';
 import { useNavigate } from "react-router-dom";
 import { HandleDelele } from '../components';
 import { Link } from 'react-router-dom';
 // Define the EmployeeProfile component
-const RequestDetail = () => {
+const StaffAdmin = () => {
   const navigate = useNavigate();
-  const [requestDetail, setRequestDetail] = useState();
+  const [empDetail, setEmpDetail] = useState();
   const [reload, setReload] = useState('reload');
-  const { requestId } = useParams();
+  const { employeeId } = useParams();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isDelete, setDelete] = useState(false);
 
@@ -26,8 +26,8 @@ const RequestDetail = () => {
     const FetchData = async () => {
 
 
-      await getRequestID(requestId).then(response => {
-        setRequestDetail(response.data);
+      await getEmpID(employeeId).then(response => {
+        setEmpDetail(response.data);
 
         console.log(response);
 
@@ -40,33 +40,23 @@ const RequestDetail = () => {
   useEffect(() => {
     const FetchData = async () => {
 
-      
-      await deleteRequestID(requestId).then(response => {
-       if(response != null){
-        navigate("/deleteSuccess");
-       }
-         
-        
+      const userData = {
+        "empID": empDetail?.employeeID,
+      };
+      await deleteEmpID(empDetail?.userID, userData).then(response => {
+        if(response.data == "delete success"){
+          navigate("/deleteSuccess");
+        }
       });
 
     }
-    if(isDelete == true){
-        FetchData();
-    }
-   
+    FetchData();
   }, [isDelete]);
 
   const formatDate = (datetimeString) => {
     const date = new Date(datetimeString);
     return date.toLocaleDateString(); // Adjust the format as needed
   };
-  const dateFormat = (date) => {
-    const originalDate = new Date(date);
-
-    // Chuyển đổi thành chuỗi ngày tháng
-    return originalDate.toISOString().split('T')[0];
-  }
-
  
 
   const handleDeleteClick = () => {
@@ -90,15 +80,15 @@ const RequestDetail = () => {
 
   return (
     
-    <div className="max-w-md mx-auto flex items-center flex-col bg-white rounded-xl overflow-hidden justify-center py-4 px-32  shadow-md md:max-w-2xl my-20 ">
-      <div className=" py-8 items-center  flex flex-col gap-2">
+    <div className="max-w-md mx-auto py-4 flex items-center flex-col bg-white rounded-xl overflow-hidden  shadow-md md:max-w-2xl my-20 ">
+      <div className=" py-8  flex flex-col gap-2">
         <div className='flex flex-col items-center justify-center '>
           <p className="uppercase flex items-center tracking-wide text-md text-indigo-500 font-semibold">
 
-            Request Information
+            Employee Information
           </p>
 
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">{requestDetail?.request_id}</h2>
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">{empDetail?.empName}</h2>
         </div>
 
 
@@ -108,53 +98,40 @@ const RequestDetail = () => {
           <p> {empDetail.role}</p>
           </div> */}
 
-        <div className="mt-4 items-center justify-center ">
+        <div className="mt-4 ">
           <div className='grid grid-cols-[2fr,2fr] py-4'>
           <div className='flex flex-col'>
-            <p className="font-bold mb-2">Date: </p>
-            <p>{formatDate(requestDetail?.dateRequest)}</p>
+            <p className="font-bold mb-2">Gender: </p>
+            <p>{empDetail?.gender}</p>
           </div>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">
-              Time:
+              Address:
             </p>
-            <p>{requestDetail?.timeRequest}</p>
+            <p>{empDetail?.address}</p>
           </div>
           </div>
           <div  className='grid grid-cols-[2fr,1fr,1fr]'>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">
-              Note
+              Date of Birth
             </p>
-            
-            <p>{requestDetail?.noteRequest}</p>
+            <p>{formatDate(empDetail?.dob)}</p>
           </div>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">
-              Phone number:
+              Employee ID:
             </p>
-            <p>{requestDetail?.phoneNumber}</p>
+            <p>{empDetail?.employeeID}</p>
           </div>
-        
-          </div>
-          <div  className='grid grid-cols-[2fr,1fr,1fr]'>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">
-              Status
+              User ID:
             </p>
-            <p>{requestDetail?.statusRequest}</p>
+            <p>{empDetail?.userID}</p>
+          </div>
           </div>
 
-         {
-          requestDetail?.statusRequest == "pending" &&
-          <Link to = {`/AddAppointmentForm/${requestDetail?.request_id}/${requestDetail?.patient_id}/${dateFormat(requestDetail?.dateRequest)}/${requestDetail?.timeRequest}`}>
-             <Button className="border-none  text-xs bg-blue-500 py-4 w-24 justify-center flex flex-row items-center"  >Create Appointment</Button>
-          </Link>
-       
-         }
-        
-          </div>
-         
          
         </div>
 
@@ -163,9 +140,11 @@ const RequestDetail = () => {
       <Button className="border-none bg-blue-500 py-4 w-24 justify-center flex flex-row items-center"  onClick={handleDeleteClick}>Delete</Button>
 
       {isDeleteModalOpen && (
-        <HandleDelele handleConfirmDelete = {handleConfirmDelete} handleCancelDelete ={handleCancelDelete} empDetail={requestDetail} />
+        <HandleDelele handleConfirmDelete = {handleConfirmDelete} handleCancelDelete ={handleCancelDelete} empDetail={empDetail} />
       )}
-     
+      <Link to={`/EditEmployee/${empDetail?.employeeID}`}>
+      <Button  className="border-none  bg-blue-500 py-4 w-24 justify-center flex flex-row items-center ">Edit</Button>
+      </Link>
       
       </div>
       
@@ -175,4 +154,4 @@ const RequestDetail = () => {
 
 
 // Export the component
-export default RequestDetail;
+export default StaffAdmin;

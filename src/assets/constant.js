@@ -16,7 +16,8 @@ export const links = [
   { name: 'Request', to: '/Request', icon: VscGitPullRequestGoToChanges },
   { name: 'TreatmentPlan', to: '/TreatmentPlan', icon: CiStethoscope },
   { name: 'Payment', to: '/Payment', icon: MdOutlinePayments },
-  { name: 'Schedule', to: '/Schedule', icon: IoCalendarOutline }
+  { name: 'Schedule', to: '/Schedule', icon: IoCalendarOutline },
+  { name: 'Retreatment', to: '/Retreatment', icon: IoCalendarOutline }
 ];
 export const reports = [
   { name: 'Appointments', value: '24,4k', to: '/', icon: CiCalendar, color: 'red' },

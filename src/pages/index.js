@@ -35,6 +35,16 @@ import PrescriptionListModal from "./PrescriptionListModal";
 import EditTreatmentPlanForm from "./EditTreatmentPlanForm ";
 import PaymentDetail from "./PaymentDetail";
 import EditPaymentForm from "./EditPaymentForm";
+import StaffAdmin from "./StaffAdmin";
+import DeleteSuccessfull from "./DeleteSucess";
+import Dentist from "./Dentist";
+import EditEmployee from "./EditEmployee";
+import RequestDetail from "./RequestDetail";
+import AppointmentDetail from "./AppointmentDetail";
+import Retreatments from "./Retreatments";
+import RetreatmentDetail from "./Retreatment";
+import EditPaymentForm from "./EditPaymentForm";
+import AddPaymentForm from "./AddPaymentForm/AddPaymentForm";
 export {
 
     Overview,
@@ -68,6 +78,19 @@ export {
 
     Payment,
     AddPaymentForm,
+    StaffAdmin,
+    DeleteSuccessfull,
+    Dentist,
+    EditEmployee,
+    RequestDetail,
+    AppointmentDetail,
+
+    Retreatments,
+    RetreatmentDetail,
+
+    AddPaymentForm,
+    EditPaymentForm,
+
 
     TreatmentPlan,
     AddTreatmentPlan,
