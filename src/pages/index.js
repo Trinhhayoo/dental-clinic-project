@@ -11,6 +11,7 @@ import Appointment from "./Appointment";
 import AddAppointmentForm from "./AddAppointmentForm"
 import EditAppointmentForm from "./EditAppointmentForm";
 import PatientTreatmentPlan from "./PatientTreatmentPlan";
+import MedicineList from "./MedicineList";
 
 
 import Request from "./Request";
@@ -106,7 +107,9 @@ export {
     TreatmentPlanList,
 
     PatientDentist,
-    TreatmentPlanDetailPatient
+    TreatmentPlanDetailPatient,
+
+    MedicineList
     
    
 };

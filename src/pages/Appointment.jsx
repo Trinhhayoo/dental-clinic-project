@@ -21,7 +21,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from "@material-tailwind/react";
 import { HandleDelele } from '../components';
 
-import { getAppointmentlist, addRequest, filterRequestShift, getAppointmentByPatient, deleteRequestID, findPatient, filterRequestStatus } from "../redux/services/Api";
+import { viewAppointmentDentist, getAppointmentlist, addRequest, filterRequestShift, getAppointmentByPatient, deleteRequestID, findPatient, filterRequestStatus } from "../redux/services/Api";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -38,50 +38,41 @@ const AppointmentComponent = ({ appointmentDetail, handleDeleteClick }) => {
     return (
         <div>
 
-            <div className='w-full grid grid-cols-[1.5fr,1fr,1fr,2fr,2fr,0.5fr,0.5fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
+            <div className='w-full grid grid-cols-[1fr,1fr,1fr,1fr,1fr,0.5fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
                 <h3 className='font-bold text-base text-100 '>
 
 
-                    <Link className="pt-1" to={`/Appointment/${appointmentDetail?.appointmentID}`}>
-                        {appointmentDetail?.appointmentID}
+                    <Link className="pt-1" to={`/Appointment/${appointmentDetail?.appointment_id}`}>
+                        {appointmentDetail?.appointment_id}
                     </Link>
 
 
 
                 </h3>
-                <div className="hidden md:flex flex-col">
-                    <p className='text-gray-400   text-xs mt-1'>
-                        {formatDate(appointmentDetail?.date)}
-                    </p>
-                    <p className='text-gray-400  text-xs mt-1'>
-                        {/* {song?.subtitle} */}
-                        {appointmentDetail?.time}
-                    </p>
+
+                <p className=' mt-1'>
+                    {appointmentDetail?.date}
+                </p>
+                <p className='mt-1'>
+                    {/* {song?.subtitle} */}
+                    {appointmentDetail?.time}
+                </p>
 
 
-                </div>
-
-                <div className="hidden md:flex flex-col">
-                    <p className='text-gray-400   text-xs mt-1'>
-                        {appointmentDetail?.roomID}
-                    </p>
-                    <p className='text-gray-400  text-xs mt-1'>
-                        {/* {song?.subtitle} */}
-                        {appointmentDetail?.orderNumber}
-                    </p>
 
 
-                </div>
+
+                <p className=' mt-1'>
+                    {appointmentDetail?.patient_id}
+                </p>
+
+
+
+
                 <div>
-                    {appointmentDetail?.patientName}
+                    {appointmentDetail?.dentistid}
                 </div>
-                <div>
-                    <Link to={`/Dentist/${appointmentDetail?.dentistID}/${appointmentDetail?.EmpID}`} >
 
-                        {appointmentDetail?.dentistName}
-                    </Link>
-                </div>
-                <p>{appointmentDetail?.status}</p>
 
                 <div className="flex flex-row gap-2">
 
@@ -137,7 +128,8 @@ const Appointment = () => {
         const FetchData = async () => {
 
             try {
-                const { data: response } = await getAppointmentlist(token);
+              //  const { data: response } = await getAppointmentlist(token);
+              const { data: response } = await viewAppointmentDentist(2);
                 setAppointment(response);
                 debugger
 
@@ -178,7 +170,7 @@ const Appointment = () => {
                 const { data: response } = await filterRequestShift(filterShift, token);
 
                 setAppointment(response);
-                
+
 
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -257,9 +249,9 @@ const Appointment = () => {
     };
 
 
-    
+
     const itemsPerPage = 6;
-   
+
 
     // Assuming you have a state variable to track the current page
 
@@ -297,7 +289,7 @@ const Appointment = () => {
         <div className="flex flex-col my-5 ">
             <div className="flex flex-row mb-4 items-center ">
 
-                <h2 className=" flex-grow text-black font-bold">Request List</h2>
+                <h2 className=" flex-grow text-black font-bold">Appointment List</h2>
                 <Link className="pt-1" to={`/AddAppointmentForm`}>
                     <Button
 
@@ -393,21 +385,18 @@ const Appointment = () => {
 
             </div>
 
-            <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[1.5fr,1fr,1fr,2fr,2fr,0.5fr,0.5fr] rounded-mds  font-bold py-4'>
+            <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[1fr,1fr,1fr,1fr,1fr,0.5fr] rounded-mds  font-bold py-4'>
 
                 <p>Appointment ID</p>
-                <div className="flex flex-col">
-                    <p className="text-xs">Date</p>
-                    <p className="text-xs">Time</p>
-                </div>
-                <div className="flex flex-col">
-                    <p className="text-xs">Room</p>
-                    <p className="text-xs">Order</p>
-                </div>
+
+                <p>Date</p>
+                <p>Time</p>
+
+
 
                 <p>Patient</p>
                 <p>Dentist</p>
-                <p>Status</p>
+
 
 
             </div>

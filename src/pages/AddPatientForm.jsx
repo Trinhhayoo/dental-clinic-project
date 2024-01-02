@@ -2,16 +2,14 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { addEmployee,  findPatient } from '../redux/services/Api';
+import { addEmployee, findPatient, register, login } from '../redux/services/Api';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPatient, setRole } from '../redux/features/userSlice';
+import { setPatient, setRole , setUser, setToken, setUserId} from '../redux/features/userSlice';
 const AddPatientForm = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const { token } = useSelector(
-    (state) => state.user
-  );
+
 
   const [empName, setEmpName] = useState();
   const [phone, setPhone] = useState();
@@ -28,16 +26,14 @@ const AddPatientForm = () => {
 
   const searchFunc = async () => {
 
-    await findPatient(phone, token).then(response => {
-      setPatientId(response.data);
-      debugger
-      if (response.data === 0) {
-        // Hiển thị modal nếu không tìm thấy bệnh nhân
-        handleClick();
-      } else {
-        setPatientId(response?.data?.userId);
-        setRole(response?.data?.Role);
-        
+    await findPatient(phone).then(response => {
+
+
+      if (response.data != null) {
+        debugger
+        setPatientId(response?.data);
+
+
       }
 
     });
@@ -57,35 +53,68 @@ const AddPatientForm = () => {
   const addFunct = async () => {
 
     const userInfo = {
-      "empName": empName,
-      "dob": dob,
-      "address": address,
+      "name": empName,
       "phone": phone,
-
       "password": pass,
 
     }
 
-    await addEmployee(userInfo, token).then(response => {
+    await register(userInfo).then(response => {
       if (response.data != null) {
-        // Sử dụng split() để tách chuỗi thành mảng
-        const values = response.data.split(',');
 
+        
+        setPatientId(response?.data);
+        dispatch(setUser(userInfo.phone));
+        
+        dispatch(setRole("Patient"));
+         navigate(`/PatientDetail/${response?.data}`);
+         debugger
+        //  login(userInfo).then(response => {
+        //   if (response.data != null) {
+    
+        //    debugger
+        //     dispatch(setToken(response?.data));
+            
+    
+        //  //  navigate(`/AddRequestForm`);
+    
+        //   }
+    
+    
+        // });
+        
 
-        // values[0] sẽ là giá trị đầu tiên, values[1] sẽ là giá trị thứ hai
-        const userId = parseInt(values[0], 10);
-        const employeeId = values[1];
-
-
-
-
-        navigate(`/AddRequestForm`);
+      
 
       }
 
 
     });
+    
   }
+  // const Login = async () => {
+
+  //   const userInfo = {
+  //     "userName": phone,
+  //     "password": pass,
+
+  //   }
+
+  //   await login(userInfo).then(response => {
+  //     if (response.data != null) {
+
+  //      debugger
+  //       dispatch(setToken(response?.data));
+        
+
+  //    //  navigate(`/AddRequestForm`);
+
+  //     }
+
+
+  //   });
+    
+  // }
 
 
 
@@ -95,6 +124,7 @@ const AddPatientForm = () => {
     e.preventDefault();
 
     addFunct();
+   
 
   };
 
@@ -165,7 +195,7 @@ const AddPatientForm = () => {
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
           />
         </div>
-      
+
 
         <div>
           <label htmlFor="address" className="block text-sm font-medium text-gray-700">

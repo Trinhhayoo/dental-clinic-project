@@ -63,7 +63,8 @@ import {
   Retreatments,
   RetreatmentDetail,
   TreatmentPlanList,
-  PatientDentist
+  PatientDentist,
+  MedicineList
 
 
 } from "./pages";
@@ -87,31 +88,14 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Overview />} />
             <Route path="/home" element={<Overview />} />
-            {
-              (role == "Admin" || role == "Staff") &&
-              <Route path="/Patient" element={<Patient />} />
-            }
-            {
-              (role == "Admin" || role == "Staff") &&
-              <Route path="/Appointment" element={<Appointment />} />
-            }
 
-            {
-              role == "Dentist" &&
-              <Route path="/Patient/:DentistId" element={<PatientDentist />} />
-            }
-            {
-             role == "Dentist" &&
-             <Route path="/Appointment/:DentistId" element={<Appointment />} />
-            }
+            <Route path="/Patient" element={<Patient />} />
 
-            {
-              (role == "Patient") &&
-              <Route path="/PatientDetail/:patientId" element={<PatientDetail />} />
-            }
+            <Route path="/Appointment" element={<Appointment />} />
 
-
-
+            <Route path="/Patient/:DentistId" element={<PatientDentist />} />
+            <Route path="/Appointment/:DentistId" element={<Appointment />} />
+            <Route path="/PatientDetail/:patientId" element={<PatientDetail />} />
 
             <Route path="/PatientAppointments/:patientId" element={<PatientAppointments />} />
             <Route path="/PatientTreatmentPlan/:patientId" element={<PatientTreatmentPlan />} />
@@ -171,6 +155,7 @@ const App = () => {
             <Route path="/PaymentDetail/:paymentId" element={<PaymentDetail />} />
             <Route path="/EditPaymentForm/:paymentId" element={<EditPaymentForm />} />
 
+            <Route path="/MedicineList" element={<MedicineList/>} />
 
 
             <Route path="/signin" element={<SignIn />} />

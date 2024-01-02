@@ -20,7 +20,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from "@material-tailwind/react";
 import { HandleDelele } from '../components';
 
-import { getEmpList, filterEmpGenderRole, deleteEmpID, searchEmp, getAllPatient } from "../redux/services/Api";
+import { getEmpList, filterEmpGenderRole, deleteEmpID, searchEmp, getAllPatient, viewMedicineList} from "../redux/services/Api";
 import { useDispatch, useSelector } from "react-redux";
 
 const EmpComponent = ({ emp, handleDeleteClick }) => {
@@ -33,16 +33,16 @@ const EmpComponent = ({ emp, handleDeleteClick }) => {
     return (
         <div>
 
-            <div className='w-full grid grid-cols-[2fr,2fr,2fr,2fr,2fr,0.5fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
+            <div className='w-full grid grid-cols-[1fr,1fr,1fr,1fr,1fr,1fr,1fr,0.5fr] items-center hover:bg-black-400/50 py-2 p-4 rounded-2xl cursor-pointer mb-2 bg-white'>
                 <h3 className='font-bold text-base text-100 '>
                     {
-                        emp.role == "Dentist" && <Link className="pt-1" to={`/Dentist/${emp.user_id}/${emp.user_id}`}>
-                            {emp?.name}
+                        emp.role == "Dentist" && <Link className="pt-1" to={`/Dentist/${emp.user_id}/${emp.medicineid}`}>
+                            {emp?.m_name}
                         </Link>
                     }
                     {emp.role != "Dentist" &&
-                        <Link className="pt-1" to={`/Employee/${emp.employeeID}`}>
-                            {emp?.name}
+                        <Link className="pt-1" to={`/Employee/${emp.medicineid}`}>
+                            {emp?.m_name}
                         </Link>
                     }
 
@@ -54,7 +54,7 @@ const EmpComponent = ({ emp, handleDeleteClick }) => {
 
 
                     <p className='text-black-100 '>
-                        {emp?.password}
+                        {emp?.m_unit}
 
                     </p>
 
@@ -64,7 +64,7 @@ const EmpComponent = ({ emp, handleDeleteClick }) => {
                 </div>
                 <div className="hidden md:flex flex-col">
                     <p className=' mt-1'>
-                        {emp?.role}
+                        {emp?.contraindication}
                     </p>
                    
 
@@ -72,7 +72,16 @@ const EmpComponent = ({ emp, handleDeleteClick }) => {
                 </div>
                 <p className=' mt-1'>
                         {/* {song?.subtitle} */}
-                        {emp?.isAvailable? "YES" : "NO"}
+                        {emp?.quantity}
+                    </p>
+
+                    <p className=' mt-1'>
+                        {/* {song?.subtitle} */}
+                        {emp?.expiration_date}
+                    </p>
+                    <p className=' mt-1'>
+                        {/* {song?.subtitle} */}
+                        {emp?.cost}
                     </p>
                 
                 <div className="flex flex-row gap-2">
@@ -96,7 +105,7 @@ const EmpComponent = ({ emp, handleDeleteClick }) => {
 
 
 };
-const Employee = () => {
+const MedicineList = () => {
     const {token} = useSelector(
         (state) => state.user
     );
@@ -121,7 +130,7 @@ const Employee = () => {
         const FetchData = async () => {
 
             try {
-                const { data: response } = await getAllPatient();
+                const { data: response } = await viewMedicineList();
                 setEmployee(response);
                
 
@@ -333,13 +342,15 @@ const Employee = () => {
 
             </div>
 
-            <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[2fr,2fr,2fr,2fr,2fr,0.5fr] rounded-mds  font-bold py-4'>
+            <div className=' px-4 mt-4 border-none bg-gray-200 grid grid-cols-[1fr,1fr,1fr,1fr,1fr,1fr,1fr,0.5fr] rounded-mds  font-bold py-4'>
 
-                <p>User's Name</p>
-                <p>Password</p>
-                <p>Phone</p>
-                <p>Role</p>
-                <p>Is Available</p>
+                <p>Medicine ID</p>
+                <p>Name</p>
+                <p>Unit</p>
+                <p>Contraindication</p>
+                <p>Quantity</p>
+                <p>Expiration</p>
+                <p>Cost</p>
 
             </div>
             <div className="mt-4 flex flex-col gap-1 ">
@@ -386,6 +397,6 @@ const Employee = () => {
 
 
 };
-export default Employee;
+export default MedicineList;
 
 

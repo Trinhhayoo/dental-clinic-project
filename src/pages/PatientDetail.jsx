@@ -1,4 +1,4 @@
-import { PatientDetail, viewPlanList, deleteEmpID, PatientTP } from "../redux/services/Api";
+import { PatientDetail, viewPlanList, deleteEmpID, PatientTP, getPatientInfo } from "../redux/services/Api";
 import { useEffect, useState } from "react";
 import { Button } from "@material-tailwind/react";
 import { FaMale } from "react-icons/fa";
@@ -6,8 +6,10 @@ import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import { HandleDelele } from '../components';
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { useSelector } from 'react-redux';
+import { setUserId } from "../redux/features/userSlice";
+import { useDispatch } from "react-redux";
 const TodayAppointment = ({ item }) => {
-  
+
   return (
 
 
@@ -36,7 +38,8 @@ const TodayAppointment = ({ item }) => {
 };
 const Dentist = () => {
   const navigate = useNavigate();
-  const { token } = useSelector(
+  const dispatch = useDispatch();
+  const { token, username } = useSelector(
     (state) => state.user
   );
   const { patientId } = useParams();
@@ -50,16 +53,13 @@ const Dentist = () => {
     const FetchData = async () => {
 
 
-      await PatientDetail(patientId, token).then(response => {
+      await getPatientInfo(username).then(response => {
         setDentistDetail(response.data);
-
-        console.log(response);
-      });
-      await PatientTP(patientId, token).then(response => {
-        setTreatmentPlanList(response.data);
+        dispatch(setUserId(response.data[0].user_id));
         debugger
         console.log(response);
       });
+
 
     }
     FetchData();
@@ -114,31 +114,44 @@ const Dentist = () => {
             Patient Information
           </p>
 
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">{dentistDetail?.name}</h2>
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">{dentistDetail?.[0]?.name}</h2>
         </div>
 
         <div className="mt-4 ">
 
           <div className='flex flex-col'>
-            <p className="font-bold mb-2">Gender: </p>
-            <p>{dentistDetail?.gender}</p>
+            <p className="font-bold mb-2">Password: </p>
+            <p>{dentistDetail?.[0]?.password}</p>
           </div>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">
-              Address:
+              Phone
             </p>
-            <p>{dentistDetail?.address}</p>
+            <p>{dentistDetail?.[0]?.phone}</p>
           </div>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">
-              Email
+              User ID
             </p>
-            <p>{dentistDetail?.email}</p>
+            <p>{dentistDetail?.[0]?.user_id}</p>
+          </div>
+          <div className='flex flex-col'>
+            <p className="font-bold mb-2">
+              Role
+            </p>
+            <p>{dentistDetail?.[0]?.role}</p>
+          </div>
+          <div className='flex flex-col'>
+            <p className="font-bold mb-2">
+              Available
+            </p>
+            <p>{dentistDetail?.[0]?.isAvailable? "YES" : "NO"}</p>
           </div>
 
 
 
-          <div className='flex flex-col'>
+
+          {/* <div className='flex flex-col'>
             <p className="font-bold mb-2">
               Date of Birth
             </p>
@@ -167,14 +180,14 @@ const Dentist = () => {
               Total Paid
             </p>
             <p>{dentistDetail?.paid}</p>
-          </div>
+          </div> */}
 
 
 
         </div>
 
       </div>
-      <div className=" flex flex-col py-8 items-center">
+      {/* <div className=" flex flex-col py-8 items-center">
         <div className="flex items-center justify-center flex-row pb-2  ">
           <p className="flex flex-grow font-bold items-center">Treatment Plan</p>
 
@@ -186,7 +199,7 @@ const Dentist = () => {
             ))
           }
         </div>
-      </div>
+      </div> */}
 
 
       <div className='flex flex-row gap-32'>

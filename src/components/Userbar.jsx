@@ -20,7 +20,7 @@ const Userbar = () => {
     navigate("/signin");
   };
   const handleSignUp = () => {
-    navigate("/signup");
+    navigate("/AddPatientForm");
   };
   const handleLogout = () => {
    // dispatch(setLogout());

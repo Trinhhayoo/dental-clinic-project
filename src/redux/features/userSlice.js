@@ -5,7 +5,8 @@ const initialState = {
     role: null,
     isLogin: false,
     token: null,
-    isPatient: false
+    isPatient: false,
+    user_id: null,
 };
 
 const userSlice = createSlice({
@@ -18,7 +19,7 @@ const userSlice = createSlice({
 
         },
         setUser: (state, action) => {
-            state.username = action.payload.username;
+            state.username = action.payload;
 
         },
         setPatient: (state, action) => {
@@ -27,14 +28,19 @@ const userSlice = createSlice({
         },
         setRole: (state, action) => {
 
-            state.role = action.payload?.role;
+            state.role = action.payload;
+           
+        },
+        setUserId:(state,action) => {
+            state.user_id = action.payload;
         }
+
 
 
     },
 });
 
-export const { setToken, setUser, setPatient,setRole } = userSlice.actions;
+export const { setToken, setUser, setPatient,setRole, setUserId } = userSlice.actions;
 
 export default userSlice.reducer;
 

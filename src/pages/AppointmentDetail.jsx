@@ -1,7 +1,7 @@
 // Import React and necessary libraries
 import React, { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { getRequestID,deleteRequestID, deleteAppointmentId, getAppointmentDetail } from '../redux/services/Api';
+import { getRequestID,deleteRequestID, deleteAppointmentId, getAppointmentDetail,viewAppointmentID } from '../redux/services/Api';
 import { Button } from '@material-tailwind/react';
 import { useNavigate } from "react-router-dom";
 import { HandleDelele } from '../components';
@@ -14,80 +14,65 @@ const AppointmentDetail = () => {
     (state) => state.user
   );
   const [appointmentDetail, setAppointmentDetail] = useState();
-  const [reload, setReload] = useState('reload');
+  
   const { appointmentId } = useParams();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isDelete, setDelete] = useState(false);
 
-  useEffect(() => {
-
-
-    setReload("reload-" + new Date().getTime());
-
-  }, []);
+  
   useEffect(() => {
     
     const FetchData = async () => {
 
 
-      await getAppointmentDetail(appointmentId, token).then(response => {
-        setAppointmentDetail(response.data);
-debugger
+      //await getAppointmentDetail(appointmentId, token).then(response => {
+        await viewAppointmentID(appointmentId).then(response => {
+        setAppointmentDetail(response.data);  
+        
         console.log(response);
-
-
       });
 
     }
     FetchData();
-  }, [reload]);
-  useEffect(() => {
-    const FetchData = async () => {
+  }, []);
+  // useEffect(() => {
+  //   const FetchData = async () => {
 
       
-    //   await deleteRequestID(requestId).then(response => {
-    //    if(response != null){
-    //     navigate("/deleteSuccess");
-    //    }
+  //   //   await deleteRequestID(requestId).then(response => {
+  //   //    if(response != null){
+  //   //     navigate("/deleteSuccess");
+  //   //    }
          
         
-    //   });
+  //   //   });
 
-    }
-    if(isDelete == true){
-        FetchData();
-    }
+  //   }
+  //   if(isDelete == true){
+  //       FetchData();
+  //   }
    
-  }, [isDelete]);
+  // }, [isDelete]);
 
-  const formatDate = (datetimeString) => {
-    const date = new Date(datetimeString);
-    return date.toLocaleDateString(); // Adjust the format as needed
-  };
-  const dateFormat = (date) => {
-    const originalDate = new Date(date);
 
-    // Chuyển đổi thành chuỗi ngày tháng
-    return originalDate.toISOString().split('T')[0];
-  }
-  useEffect(() => {
-    const FetchData = async () => {
+  // useEffect(() => {
+  //   const FetchData = async () => {
 
       
-      await deleteAppointmentId(appointmentId, token).then(response => {
-       if(response != null){
-        navigate("/deleteSuccess");
-       }
+  //     await deleteAppointmentId(appointmentId, token).then(response => {
+  //      if(response != null){
+  //       navigate("/deleteSuccess");
+  //      }
          
         
-      });
+  //     });
 
-    }
-    if(isDelete == true){
-        FetchData();
-    }
+  //   }
+  //   if(isDelete == true){
+  //       FetchData();
+  //   }
    
-  }, [isDelete]);
+  // }, [isDelete]);
  
 
   const handleDeleteClick = () => {
@@ -119,7 +104,7 @@ debugger
             Appointment Information
           </p>
 
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">{appointmentDetail?appointmentDetail[0] : ''}</h2>
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">{appointmentDetail?.[0].appointment_id}</h2>
         </div>
 
 
@@ -133,54 +118,33 @@ debugger
         <div className='grid grid-cols-[2fr,2fr] py-4'>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">Patient </p>
-            <p>{appointmentDetail?appointmentDetail[9] : ''}</p>
+            <p>{appointmentDetail?.[0].patient_id}</p>
           </div>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">
               Dentist
             </p>
-            <p>{appointmentDetail?appointmentDetail[10] : ''}</p>
+            <p>{appointmentDetail?.[0].dentistid}</p>
           </div>
           </div>
           <div className='grid grid-cols-[2fr,2fr] py-4'>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">Date: </p>
-            <p>{formatDate(appointmentDetail?appointmentDetail[3] : '')}</p>
+            <p>{appointmentDetail?.[0].date}</p>
           </div>
           <div className='flex flex-col'>
             <p className="font-bold mb-2">
               Time:
             </p>
-            <p>{appointmentDetail?appointmentDetail[4] : ''}</p>
+            <p>{appointmentDetail?.[0].time}</p>
           </div>
-          </div>
-          <div  className='grid grid-cols-[2fr,1fr,1fr]'>
-          <div className='flex flex-col'>
-            <p className="font-bold mb-2">
-              Room
-            </p>
-            
-            <p>{appointmentDetail?appointmentDetail[6] : ''}</p>
-          </div>
-          <div className='flex flex-col'>
-            <p className="font-bold mb-2">
-              OrderNumber:
-            </p>
-            <p>{appointmentDetail?appointmentDetail[7] : ''}</p>
-          </div>
-        
-          </div>
-          <div  className='grid grid-cols-[2fr,1fr,1fr]'>
-          <div className='flex flex-col'>
-            <p className="font-bold mb-2">
-              Status
-            </p>
-            <p>{appointmentDetail?appointmentDetail[8] : ''}</p>
           </div>
           
-          <Link to = {`/AddTreatmentPlan/${appointmentDetail?.[1]}/${appointmentDetail?.[5]}/${appointmentDetail? dateFormat(appointmentDetail?.[3]): 0}/${appointmentDetail?.[4]}`} >
-          <Button className="border-none bg-blue-500 py-4 w-24 justify-center flex flex-row items-center"  >Create TreatmentPlan</Button>
-          </Link>
+          <div  className='flex'>
+        
+          <Link to = {`/AddTreatmentPlan/${appointmentDetail?.[0].patient_id}/${appointmentDetail?.[0].patient_id}/${appointmentDetail?.[0].patient_id}/${appointmentDetail?.[0].patient_id}`} >
+          <Button className="border-none bg-blue-500 py-4 w-50 justify-center flex flex-row items-center"  >Create Health Record</Button>
+         </Link>
           </div>
          
          
