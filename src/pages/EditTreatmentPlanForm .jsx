@@ -1,82 +1,371 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import treatmentPlanData from '../assets/treatmentplan.json';
-import { Button } from '@material-tailwind/react';
+// import React, { useState, useEffect } from 'react';
+// import { Button } from '@material-tailwind/react';
+// import { Link } from 'react-router-dom';
+// import roomsData from "../assets/room.json";
+// import dentistsData from "../assets/employee.json";
+// import { useNavigate, useParams } from 'react-router-dom';
 
-const EditTreatmentPlanForm = () => {
-  const { treatmentplanId } = useParams();
-  const [treatmentPlan, setTreatmentPlan] = useState(null);
-  const navigate = useNavigate();
+// import { createTreatmentPlan, getParentTreatment, getreatment, findPatient, getDentistFreeAppointment, TreatmentPlanById } from '../redux/services/Api';
+// import { PatientNotFound } from '../components';
+// import { useSelector } from 'react-redux';
+// const EditTreatmentPlanForm = () => {
+//   const navigate = useNavigate();
+//   const { token } = useSelector(
+//     (state) => state.user
+//   );
+//   const { treatmentplanId } = useParams();
 
-  useEffect(() => {
-    const selectedTreatmentPlan = treatmentPlanData.find(
-      (plan) => plan.TREATMENT_PLAN_ID === parseInt(treatmentplanId)
-    );
-    setTreatmentPlan(selectedTreatmentPlan);
-  }, [treatmentplanId]);
 
-  const handleInputChange = (fieldName, value) => {
-    setTreatmentPlan({
-      ...treatmentPlan,
-      [fieldName]: value,
-    });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Updated treatment plan:', treatmentPlan);
-    // Add logic to update data or dispatch actions if using Redux
-  };
+//   const [appointmentDetail, setAppointmentDetail] = useState(null);
+//   const [isDropdownOpenParentTreatment, setDropdownOpenParentTreatment] = useState(false);
+//   const [isDropdownOpenTreatment, setDropdownOpenTreatment] = useState(false);
+//   const [isDropdownOpenTeeth, setDropdownOpenTeeth] = useState(false);
+//   const [isDropdownOpenSurface, setDropdownOpenSurface] = useState(false);
+//   const [parentTreatmentPlan, setParentTreatmentPlan] = useState(null);
+//   const [parentList, setParentList] = useState([]);
 
-  const renderInputField = (fieldName, label) => (
-    <div key={fieldName} className="mb-3">
-      <label className="block text-sm font-bold text-gray-700">{label}</label>
-      <input
-        type="text"
-        value={treatmentPlan[fieldName] || ''}
-        onChange={(e) => handleInputChange(fieldName, e.target.value)}
-        className="mt-1 p-2 w-full border rounded-md"
-      />
-    </div>
-  );
+//   const [treatmentList, setTreatmentList] = useState([]);
+//   const [treatment, setTreatment] = useState(null);
 
-  if (!treatmentPlan) {
-    return <p>Loading...</p>;
-  }
+//   const [teeth, setTeeth] = useState(null);
 
-  return (
-    <div className="flex flex-col items-center">
-      <h2 className="mt-4 font-bold text-xl">Edit Treatment Plan {treatmentPlan.TREATMENT_PLAN_ID}</h2>
-      <form onSubmit={handleSubmit} className="mt-4 w-full max-w-md">
-        {renderInputField('TP_PATIENT_ID', 'Patient ID')}
-        {renderInputField('TP_DENTIST_ID', 'Dentist ID')}
-        {renderInputField('TP_PRESCRIPTION', 'Prescription')}
-        {renderInputField('TP_ASSISTANT_ID', 'Assistant ID')}
-        {renderInputField('TP_NOTE', 'Note')}
-        {renderInputField('TP_STATUS', 'Status')}
-        {renderInputField('TP_TREATMENT_ID', 'Treatment ID')}
-        {renderInputField('PARENT_TREATMENT_ID', 'Parent Treatment ID')}
-        {renderInputField('TP_DATE', 'Date')}
-        {/* Add other fields as needed */}
-        
-        <div className="mt-4 flex gap-4 justify-between">
-          <Button
-            onClick={() => navigate(-1)}
-            className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[100%]"
-          >
-            <p className="flex">Back</p>
-          </Button>
+//   const [surface, setSurface] = useState(null);
+//   const [prescription, setPrescription] = useState();
+//   const [note, setNote] = useState();
 
-          <Button
-            type="submit"
-            className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[25%]"
-          >
-            <p className="flex">Save</p>
-          </Button>
-        </div>
-      </form>
-    </div>
-  );
-};
+//   const teethList = ['RĂNG CỬA', 'RĂNG CỬA BÊN', 'RĂNG NANH', 'RĂNG TIỀN HÀM', 'RĂNG HÀM'];
 
-export default EditTreatmentPlanForm;
+//   // Dữ liệu mảng cho bề mặt răng
+//   const surfaceList = ['Mặt trong', 'Mặt ngoài', 'Mặt xa', 'Mặt gần', 'Mặt đỉnh', 'Mặt chân răng'];
+
+//   useEffect(() => {
+
+
+//     setReload("reload-" + new Date().getTime());
+
+//   }, []);
+//   useEffect(() => {
+
+//     const FetchData = async () => {
+
+
+//       await TreatmentPlanById(treatmentplanId, token).then(response => {
+//         setAppointmentDetail(response.data);
+//         debugger
+//         console.log(response);
+
+
+//       });
+
+//     }
+//     FetchData();
+//   }, [reload]);
+
+//   const toggleDropdownParent = () => {
+//     setDropdownOpenParentTreatment(!isDropdownOpenTreatment);
+//   };
+
+//   const handleOptionParent = (parentTreatment) => {
+//     setParentTreatmentPlan(parentTreatment);
+//     debugger
+//     setDropdownOpenParentTreatment(false); // Đóng dropdown sau khi chọn
+//     // Thêm logic của bạn để xử lý sự kiện khi chọn một tùy chọn
+//   };
+
+//   const toggleDropdownTreatment = () => {
+//     setDropdownOpenTreatment(!isDropdownOpenTreatment);
+//   };
+
+//   const handleOptionTreatment = (treatment) => {
+//     setTreatment(treatment);
+//     debugger
+//     setDropdownOpenTreatment(false); // Đóng dropdown sau khi chọn
+//     // Thêm logic của bạn để xử lý sự kiện khi chọn một tùy chọn
+//   };
+
+//   const toggleDropdownTeeth = () => {
+//     setDropdownOpenTeeth(!isDropdownOpenTeeth);
+//   };
+
+//   const handleOptionTeeth = (treatment) => {
+//     setTeeth(treatment);
+//     setDropdownOpenTeeth(false); // Đóng dropdown sau khi chọn
+//     // Thêm logic của bạn để xử lý sự kiện khi chọn một tùy chọn
+//   };
+
+//   const toggleDropdownSurface = () => {
+//     setDropdownOpenSurface(!isDropdownOpenSurface);
+//   };
+
+//   const handleOptionSurface = (treatment) => {
+//     setSurface(treatment);
+//     setDropdownOpenSurface(false); // Đóng dropdown sau khi chọn
+//     // Thêm logic của bạn để xử lý sự kiện khi chọn một tùy chọn
+//   };
+
+
+//   useEffect(() => {
+//     const FetchData = async () => {
+
+//       try {
+//         const { data: response } = await getParentTreatment(token);
+//         setParentList(response);
+
+//         debugger
+//       } catch (error) {
+//         console.error(error.message);
+//       }
+
+//     }
+
+//     FetchData();
+//   }, []);
+
+//   useEffect(() => {
+
+//     const FetchData = async () => {
+
+//       try {
+//         const { data: response } = await getreatment(parentTreatmentPlan, token);
+//         setTreatmentList(response);
+//         debugger
+
+//       } catch (error) {
+//         console.error(error.message);
+//       }
+
+//     }
+//     if (parentTreatmentPlan != null) {
+//       FetchData();
+//     }
+
+//   }, [parentTreatmentPlan, isDropdownOpenTreatment]);
+
+
+
+
+
+//   const AddFunct = async () => {
+
+//     const treatmentPlanInfo = {
+//       "patient_id": patientId,
+//       "dentist_id": dentistId,
+//       "prescription": prescription,
+//       "assistant_id": null,
+//       "note": note,
+//       "parent_treatment_id": parentTreatmentPlan,
+//       "teeth_array": teeth,
+//       "surfaceteeth_array": surface,
+//       "treatment_id": treatment
+//     }
+
+//     await createTreatmentPlan(treatmentPlanInfo, token).then(response => {
+//       debugger
+//       if (response.data != null) {
+
+//         navigate("/deleteSuccess");
+//       }
+//       debugger
+
+//     });
+
+
+//   };
+
+
+
+//   const handleSubmit = (e) => {
+//     debugger
+//     e.preventDefault();
+
+//     AddFunct();
+
+
+//   };
+
+
+
+
+
+
+
+
+
+
+//   return (
+//     <div className="max-w-md flex flex-col mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
+//       <h2 className="text-2xl font-semibold mb-4">Edit Treatment Plan</h2>
+
+
+//       <form className="flex flex-col gap-4">
+//         <div>
+//           <label htmlFor="note" className="block text-sm font-medium text-gray-700">
+//             Patient ID
+//           </label>
+//           <p>{appointmentDetail?.patient_id}</p>
+
+//         </div>
+//         <div>
+//           <label htmlFor="note" className="block text-sm font-medium text-gray-700">
+//             Dentist ID
+//           </label>
+//           <p>{appointmentDetail?.dentist_id}</p>
+
+//         </div>
+//         <div>
+//           <label htmlFor="note" className="block text-sm font-medium text-gray-700">
+//             Date
+//           </label>
+//           <p>{appointmentDetail?.date}</p>
+
+//         </div>
+
+
+//         <div className="relative">
+
+
+
+//           {isDropdownOpenParentTreatment && (
+//             <div className=" h-[calc(100vh-80vh)]  overflow-y-scroll hide-scrollbar  absolute top-full mt-2 bg-white border border-gray-300 rounded-md mr-4 py-2 w-40">
+//               {parentList?.map((parent, index) => (
+//                 <p
+//                   key={index}
+//                   className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center"
+//                   onClick={() => handleOptionParent(index + 1)}
+//                 >
+//                   {parent_treatment_id}
+
+
+//                 </p>
+//               ))}
+//             </div>
+//           )}
+//           <p className='cursor-pointer text-blue-500' onClick={toggleDropdownParent}>
+//             {appointmentDetail?.parent_treatment_id + "Thay đổi danh mục điều trị"}
+//             {!appointmentDetail && parentTreatmentPlan + "Thay đổi danh mục điều trị"}
+//           </p>
+//         </div>
+//         <div className="relative">
+
+//           {isDropdownOpenTreatment && (
+//             <div className=" h-[calc(100vh-80vh)]  overflow-y-scroll hide-scrollbar  absolute top-full mt-2 bg-white border border-gray-300 rounded-md mr-4 py-2 w-40">
+//               {treatmentList?.map((treatment, index) => (
+
+//                 <p
+//                   key={index}
+//                   className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center"
+//                   onClick={() => handleOptionTreatment(treatment?.treatment_id)}
+//                 >
+//                   {treatment?.treatment_id}
+
+//                 </p>
+//               ))}
+//             </div>
+//           )}
+//           <p className='cursor-pointer text-blue-500' onClick={toggleDropdownTreatment}>
+//           {appointmentDetail?.treatment_id + "Thay đổi mục điều trị"}
+//             {!treatment && treatment + "Thay đổi mục điều trị"}
+//           </p>
+//         </div>
+//         <div className="relative">
+
+//           {isDropdownOpenTeeth && (
+//             <div className=" h-[calc(100vh-80vh)]  overflow-y-scroll hide-scrollbar  absolute top-full mt-2 bg-white border border-gray-300 rounded-md mr-4 py-2 w-40">
+//               {teethList?.map((treatment, index) => (
+//                 <p
+//                   key={index}
+//                   className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center"
+//                   onClick={() => handleOptionTeeth(index + 1)}
+//                 >
+//                   {treatment}
+
+//                 </p>
+//               ))}
+//             </div>
+//           )}
+//           <p className='cursor-pointer text-blue-500' onClick={toggleDropdownTeeth}>
+//             {
+//               !teeth && "Chọn rang"
+//             }
+//             {
+//               teeth
+//             }
+//           </p>
+//         </div>
+//         <div className="relative">
+
+//           {isDropdownOpenSurface && (
+//             <div className=" h-[calc(100vh-80vh)]  overflow-y-scroll hide-scrollbar  absolute top-full mt-2 bg-white border border-gray-300 rounded-md mr-4 py-2 w-40">
+//               {surfaceList?.map((treatment, index) => (
+//                 <p
+//                   key={index}
+//                   className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center"
+//                   onClick={() => handleOptionSurface(index + 1)}
+//                 >
+//                   {treatment}
+
+//                 </p>
+//               ))}
+//             </div>
+//           )}
+//           <p className='cursor-pointer text-blue-500' onClick={toggleDropdownSurface}>
+//             {
+//               !surface && "Chọn be mat rang"
+//             }
+//             {
+//               surface
+//             }
+//           </p>
+//         </div>
+//         <div>
+//           <label htmlFor="date" className="block text-sm font-medium text-gray-700">
+//             Prescription
+//           </label>
+//           <input
+//             type="text"
+//             id="prescription"
+//             name="prescription"
+//             value={prescription}
+//             onChange={(e) => setPrescription(e.target.value)}
+//             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+//           />
+//         </div>
+//         <div>
+//           <label htmlFor="date" className="block text-sm font-medium text-gray-700">
+//             Note
+//           </label>
+//           <input
+//             type="text"
+//             id="note"
+//             name="note"
+//             value={note}
+//             onChange={(e) => setNote(e.target.value)}
+//             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+//           />
+//         </div>
+
+//         <div className="mt-4 flex gap-4 justify-between">
+//           <Link to="/Request">
+//             <Button
+//               className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[100%]"
+//             >
+//               <p className="flex">Back</p>
+//             </Button>
+//           </Link>
+
+//           <Button
+//             type="submit"
+//             className="border-none bg-purple-500 py-4 px-10 flex items-center gap-2 w-[55%]"
+//             onClick={handleSubmit}
+//           >
+//             <p className="flex">Save</p>
+//           </Button>
+//         </div>
+//       </form>
+
+//     </div>
+//   );
+// };
+
+// export default EditTreatmentPlanForm;

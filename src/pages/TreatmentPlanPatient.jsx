@@ -35,10 +35,14 @@ const TodayAppointment = ({ item }) => {
 
 
 
+
+
+
+
 };
 
 // Define the EmployeeProfile component
-const AddPaymentForm = () => {
+const TreatmentPlanDetailPatient = () => {
 
   const [reload, setReload] = useState('reload');
   const { treatmentplanId } = useParams();
@@ -47,7 +51,6 @@ const AddPaymentForm = () => {
 
   const navigate = useNavigate();
   const [teethList, setTeethList] = useState([]);
-  
   const { token } = useSelector(
     (state) => state.user
   );
@@ -232,7 +235,7 @@ const AddPaymentForm = () => {
 
         <div className='flex flex-row gap-32'>
           <Link className="pt-1" to={`/EditAppointmentForm/${appointmentDetail ? appointmentDetail[0] : ''}`}>
-            <Button className="border-none bg-blue-500 py-4 w-50 justify-center flex flex-row items-center"  >Xác nhận Thanh toán</Button>
+            <Button className="border-none bg-blue-500 py-4 w-24 justify-center flex flex-row items-center"  >Edit</Button>
           </Link>
 
 
@@ -248,4 +251,4 @@ const AddPaymentForm = () => {
 
 
 // Export the component
-export default AddPaymentForm;
+export default TreatmentPlanDetailPatient;

@@ -44,6 +44,10 @@ import AppointmentDetail from "./AppointmentDetail";
 import Retreatments from "./Retreatments";
 import RetreatmentDetail from "./Retreatment";
 import EditPaymentForm from "./EditPaymentForm";
+import TreatmentPlanList from "./TreatmentPlanList";
+
+import PatientDentist from "./PatientDentist";
+import TreatmentPlanDetailPatient from "./TreatmentPlanPatient";
 
 export {
 
@@ -99,5 +103,10 @@ export {
     PrescriptionListModal,
     EditTreatmentPlanForm,
     PaymentDetail,
+    TreatmentPlanList,
+
+    PatientDentist,
+    TreatmentPlanDetailPatient
+    
    
 };

@@ -27,26 +27,48 @@ const AddTreatmentPlan = () => {
 
   const [treatmentList, setTreatmentList] = useState([]);
   const [treatment, setTreatment] = useState(null);
-  
-  const [teeth, setTeeth] = useState(null);
-  
+
+  const [teeth, setTeeth] = useState([]);
+  const [teethList, setTeethList] = useState(['thuốc 1', 'thuốc 2', 'thuốc 3']);
   const [surface, setSurface] = useState(null);
   const [prescription, setPrescription] = useState();
-  const [note, setNote] =  useState();
+  const [note, setNote] = useState();
+  const [isDropdownOpenMedicines, setIsDropdownOpenMedicines] = useState(false);
 
-  const teethList = ['RĂNG CỬA', 'RĂNG CỬA BÊN', 'RĂNG NANH', 'RĂNG TIỀN HÀM', 'RĂNG HÀM'];
+  const handleOptionTeeth = (index) => {
 
-  // Dữ liệu mảng cho bề mặt răng
-  const surfaceList = ['Mặt trong', 'Mặt ngoài', 'Mặt xa', 'Mặt gần', 'Mặt đỉnh', 'Mặt chân răng'];
+    const selectedTeethCopy = [...teeth];
+    const selectedTeethIndex = selectedTeethCopy.indexOf(teethList[index]);
+    if (selectedTeethIndex === -1) {
+      // Nếu thuốc chưa được chọn, thêm vào danh sách
+      selectedTeethCopy.push(teethList[index]);
+    } else {
+      // Nếu thuốc đã được chọn, bỏ chọn khỏi danh sách
+      selectedTeethCopy.splice(selectedTeethIndex, 1);
+    }
+
+    setTeeth(selectedTeethCopy);
+  };
+
+
+
+  const toggleDropdownMedicines = () => {
+    setIsDropdownOpenMedicines(!isDropdownOpenMedicines);
+  };
+
+
+
+
+
   // Generate an array of room names from 1 to 110
-  console.log(treatmentList);
+  console.log(teeth);
   const toggleDropdownParent = () => {
     setDropdownOpenParentTreatment(!isDropdownOpenTreatment);
   };
 
   const handleOptionParent = (parentTreatment) => {
     setParentTreatmentPlan(parentTreatment);
-    debugger
+
     setDropdownOpenParentTreatment(false); // Đóng dropdown sau khi chọn
     // Thêm logic của bạn để xử lý sự kiện khi chọn một tùy chọn
   };
@@ -64,23 +86,14 @@ const AddTreatmentPlan = () => {
 
   const toggleDropdownTeeth = () => {
     setDropdownOpenTeeth(!isDropdownOpenTeeth);
+   if (isDropdownOpenMedicines == true){
+    setIsDropdownOpenMedicines(!isDropdownOpenMedicines);
+   }
   };
 
-  const handleOptionTeeth = (treatment) => {
-    setTeeth(treatment);
-    setDropdownOpenTeeth(false); // Đóng dropdown sau khi chọn
-    // Thêm logic của bạn để xử lý sự kiện khi chọn một tùy chọn
-  };
 
-  const toggleDropdownSurface = () => {
-    setDropdownOpenSurface(!isDropdownOpenSurface);
-  };
 
-  const handleOptionSurface = (treatment) => {
-    setSurface(treatment);
-    setDropdownOpenSurface(false); // Đóng dropdown sau khi chọn
-    // Thêm logic của bạn để xử lý sự kiện khi chọn một tùy chọn
-  };
+  
 
 
   useEffect(() => {
@@ -101,13 +114,13 @@ const AddTreatmentPlan = () => {
   }, []);
 
   useEffect(() => {
-   
+
     const FetchData = async () => {
 
       try {
         const { data: response } = await getreatment(parentTreatmentPlan, token);
         setTreatmentList(response);
-       
+        debugger
 
       } catch (error) {
         console.error(error.message);
@@ -141,7 +154,7 @@ const AddTreatmentPlan = () => {
     await createTreatmentPlan(treatmentPlanInfo, token).then(response => {
       debugger
       if (response.data != null) {
-        
+
         navigate("/deleteSuccess");
       }
       debugger
@@ -216,7 +229,7 @@ const AddTreatmentPlan = () => {
                 <p
                   key={index}
                   className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center"
-                  onClick={() => handleOptionParent(parent?.parent_treatment_id)}
+                  onClick={() => handleOptionParent(index + 1)}
                 >
                   {parent?.parent_treatment_id}
 
@@ -238,7 +251,7 @@ const AddTreatmentPlan = () => {
           {isDropdownOpenTreatment && (
             <div className=" h-[calc(100vh-80vh)]  overflow-y-scroll hide-scrollbar  absolute top-full mt-2 bg-white border border-gray-300 rounded-md mr-4 py-2 w-40">
               {treatmentList?.map((treatment, index) => (
-                
+
                 <p
                   key={index}
                   className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center"
@@ -267,74 +280,74 @@ const AddTreatmentPlan = () => {
                 <p
                   key={index}
                   className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center"
-                  onClick={() => handleOptionTeeth(index + 1)}
+                  onClick={() => handleOptionTeeth(index)}
                 >
-                  {treatment}
+                  {`${treatment} ${teeth.includes(treatment) ? '✕' : '+'}`}
 
                 </p>
               ))}
+              <div className="flex justify-end px-4 mt-2">
+                <Button className="mr-2 bg-blue-500 text-white px-3 py-1 rounded-md" onClick={toggleDropdownTeeth}>
+                  OK
+                </Button>
+               
+
+              </div>
+
             </div>
           )}
-          <p className='cursor-pointer text-blue-500' onClick={toggleDropdownTeeth}>
-            {
-              !teeth && "Chọn rang"
-            }
-            {
-              teeth
-            }
-          </p>
+          {
+            teeth.length === 0 &&
+            <p className='cursor-pointer text-blue-500 ' onClick={toggleDropdownTeeth}>
+              {
+                "Chọn thuốc"
+              }
+              {
+                teeth
+              }
+            </p>
+          }
+
         </div>
         <div className="relative">
 
-          {isDropdownOpenSurface && (
-            <div className=" h-[calc(100vh-80vh)]  overflow-y-scroll hide-scrollbar  absolute top-full mt-2 bg-white border border-gray-300 rounded-md mr-4 py-2 w-40">
-              {surfaceList?.map((treatment, index) => (
+          {
+            teeth.length !== 0 &&
+
+            <p className='cursor-pointer text-blue-500 ' onClick={toggleDropdownMedicines}>
+
+              {
+                "Danh sách thuốc"
+              }
+            </p>
+          }
+          {isDropdownOpenMedicines && (
+            <div className="h-[calc(100vh-80vh)] overflow-y-scroll hide-scrollbar absolute top-full mt-2 bg-white border border-gray-300 rounded-md mr-4 py-2 w-40">
+              {teeth?.map((medicine, index) => (
                 <p
                   key={index}
                   className="cursor-pointer px-4 py-2 hover:bg-gray-100 flex items-center"
-                  onClick={() => handleOptionSurface(index + 1)}
+                // onClick={() => handleOptionMedicines(index)}
                 >
-                  {treatment}
-
+                  {`${medicine}`}
                 </p>
               ))}
+              <div className="flex justify-end px-4 mt-2">
+                <Button className="mr-2 bg-blue-500 text-white px-3 py-1 rounded-md" onClick={toggleDropdownMedicines}>
+                  Thoát
+                </Button>
+                <Button className="mr-2 bg-blue-500 text-white px-3 py-1 rounded-md" onClick={toggleDropdownTeeth}>
+                  Chỉnh sửa
+                </Button>
+
+              </div>
             </div>
           )}
-          <p className='cursor-pointer text-blue-500' onClick={toggleDropdownSurface}>
-            {
-              !surface && "Chọn be mat rang"
-            }
-            {
-              surface
-            }
-          </p>
+
         </div>
-        <div>
-          <label htmlFor="date" className="block text-sm font-medium text-gray-700">
-            Prescription
-          </label>
-          <input
-            type="text"
-            id="prescription"
-            name="prescription"
-            value={prescription}
-            onChange={(e) => setPrescription(e.target.value)}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
-        <div>
-          <label htmlFor="date" className="block text-sm font-medium text-gray-700">
-            Note
-          </label>
-          <input
-            type="text"
-            id="note"
-            name="note"
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
+
+
+
 
         <div className="mt-4 flex gap-4 justify-between">
           <Link to="/Request">

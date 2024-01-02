@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { IoMdPerson } from "react-icons/io";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { login } from "../../redux/services/Api";
-import {setToken} from "../../redux/features/userSlice";
+import {setToken, setUser, setRole} from "../../redux/features/userSlice";
 import "./SignIn.css"
 
 const SignIn = () => {
@@ -12,25 +12,18 @@ const SignIn = () => {
     const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
-        email: "",
+        userName: "",
         password: "",
     });
 
     const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit =  async () => {
-        const {email,password} = formData;
+        const {userName,password} = formData;
         const requestInfo = {
-            "userName": email,
+            "userName": userName,
             "password": password
           }
-        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        const passwordPattern = /^[a-zA-Z0-9]{3,16}$/;
-
-        if (!email.trim()) {
-            setErrorMessage("Email is required");
-            return;
-        }
         
     
          if (!password.trim()) {
@@ -38,22 +31,21 @@ const SignIn = () => {
             return;
         }
     
-        //  if (!passwordPattern.test(password)) {
-        //     setErrorMessage("Password must be 3-16 characters");
-        //     return;
-        // }
-        // else {
-        //     setErrorMessage("Invalid email or password");
-        // }
-        debugger
 
         await login(requestInfo).then(response => {
-            dispatch(setToken(response.data));
+           
             if (response.data != null){
-                navigate("/Employee");
+                dispatch(setToken(response.data));
+                dispatch(setUser(userName));
             }
            
-        })
+        });
+        // thay thế tìm kiếm role của user sau
+        const fakeRole = {
+            "role": "Patient"
+        };
+        dispatch(setRole(fakeRole));
+
 
         
     };
@@ -76,7 +68,7 @@ const SignIn = () => {
             <div className="inputs  ">
                 <div className="input gap-2 px-2">
                     <IoMdPerson className="text-gray-500" size={30} />
-                    <input type="email" placeholder="Email" name="email" value={formData.email} onChange={handleInputChange}/>
+                    <input type="email" placeholder="Email" name="email" value={formData.userName} onChange={handleInputChange}/>
                 </div>
 
                 <div className="input gap-2 px-2">

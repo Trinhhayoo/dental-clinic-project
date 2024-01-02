@@ -10,14 +10,15 @@ import { CiStethoscope } from "react-icons/ci";
 
 export const links = [
   { name: 'Overview', to: '/home', icon: HiOutlineHome },
-  { name: 'Patient', to: '/Patient', icon: IoMdPerson },
-  {name: 'Employee', to: '/Employee', icon:FaHospitalUser },
-  { name: 'Appointment', to: '/Appointment', icon: CiCalendar },
-  { name: 'Request', to: '/Request', icon: VscGitPullRequestGoToChanges },
-  { name: 'TreatmentPlan', to: '/TreatmentPlan', icon: CiStethoscope },
-  { name: 'Payment', to: '/Payment', icon: MdOutlinePayments },
+  { name: 'Patient List', to: '/Patient', icon: IoMdPerson },
+  { name: 'Your Profile', to: '/Patient/:PatientId', icon: IoMdPerson },
+  {name: 'Employee List', to: '/Employee', icon:FaHospitalUser },
+  { name: 'Appointment List', to: '/Appointment', icon: CiCalendar },
+  { name: 'Request List', to: '/Request', icon: VscGitPullRequestGoToChanges },
+  { name: 'TreatmentPlan List', to: '/TreatmentPlan', icon: CiStethoscope },
+  { name: 'Payment List', to: '/Payment', icon: MdOutlinePayments },
   { name: 'Schedule', to: '/Schedule', icon: IoCalendarOutline },
-  { name: 'Retreatment', to: '/Retreatment', icon: IoCalendarOutline }
+  { name: 'Retreatment List', to: '/Retreatment', icon: IoCalendarOutline }
 ];
 export const reports = [
   { name: 'Appointments', value: '24,4k', to: '/', icon: CiCalendar, color: 'red' },

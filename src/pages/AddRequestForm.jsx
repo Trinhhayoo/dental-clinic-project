@@ -23,9 +23,9 @@ const AddRequestForm = () => {
 
     await findPatient(phonePP, token).then(response => {
       setPatientId(response.data);
-      debugger
+      
       if (response.data === 0) {
-        // Hiển thị modal nếu không tìm thấy bệnh nhân
+       
         handleClick();
       } else {
         setPatientId(response.data);
@@ -40,16 +40,14 @@ const AddRequestForm = () => {
     setIsDeleteModalOpen(true);
   };
 
-  const handleConfirmDelete = () => {
-    // Close the delete confirmation modal
-    setIsDeleteModalOpen(false);
-    setDelete(true);
+  const handleRegister = () => {
+    navigate('/AddPatientForm');
   };
 
   const handleCancelRegister = () => {
     // Close the delete confirmation modal
     setIsDeleteModalOpen(false);
-    debugger
+ 
   };
 
   const something = (event) => {
@@ -73,19 +71,20 @@ const AddRequestForm = () => {
 
 
   const addFunct = async () => {
-    debugger
+    
     const requestInfo = {
-      "patient_id": patientId,
+      "patient_id": parseInt(patientId,10),
       "dateRequest": dateRequest,
       "timeRequest": timeRequest,
       "noteRequest": noteRequest,
-      "phoneNumber": phonePP
+      "phoneNumber": parseInt(phonePP,10) 
     }
     console.log(requestInfo);
 
     await addRequest(requestInfo, token).then(response => {
+      debugger
       if (response.data != null) {
-        navigate(`/Request/${response.data.request_id}`)
+        navigate(`/Request/${parseInt(response.data,10)}`)
       }
 
 
@@ -129,7 +128,7 @@ const AddRequestForm = () => {
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
 
         {isDeleteModalOpen && (
-          <PatientNotFound handleConfirmDelete={handleConfirmDelete} handleCancelRegister={handleCancelRegister} />
+          <PatientNotFound handleRegister={handleRegister} handleCancelRegister={handleCancelRegister} />
         )}
 
         {/* Second column */}

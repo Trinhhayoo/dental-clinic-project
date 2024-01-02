@@ -486,6 +486,132 @@ const createTreatmentPlan = async (treatmentPlan, token) => {
     return error;
   }
 }
+const getTreatmentPlanList = async (parentTreatment, token) => {
+
+  try {
+    const response = await axios.get(
+        `http://localhost:8082/treatment/listTreatmentPlan`,{
+            headers: {
+              "Authorization": `${token}`,
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }},
+            
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const filterTreatmentPlanListStatus = async (status, token) => {
+
+  try {
+    const response = await axios.get(
+        `http://localhost:8082/treatment/filterStatus?status=${status}`,{
+            headers: {
+              "Authorization": `${token}`,
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }},
+            
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const TreatmentPlanById = async (ID, token) => {
+
+  try {
+    const response = await axios.get(
+        `http://localhost:8082/treatment/byId?treatment_plan_id=${ID}`,{
+            headers: {
+              "Authorization": `${token}`,
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }},
+            
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const getTeethById = async (ID, token) => {
+
+  try {
+    const response = await axios.get(
+        `http://localhost:8082/teethTP/teethListById?tp_id=${ID}`,{
+            headers: {
+              "Authorization": `${token}`,
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }},
+            
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const AllPatient= async ( token) => {
+
+  try {
+    const response = await axios.get(
+        `http://localhost:8082/patient/all`,{
+            headers: {
+              "Authorization": `${token}`,
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }},
+            
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const PatientDetail= async (id, token) => {
+
+  try {
+    const response = await axios.get(
+        `http://localhost:8082/patient/byId?patient_id=${id}`,{
+            headers: {
+              "Authorization": `${token}`,
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }},
+            
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+const PatientTP= async (id, token) => {
+
+  try {
+    const response = await axios.get(
+        `http://localhost:8082/treatment/byPatient?patient_id=${id}`,{
+            headers: {
+              "Authorization": `${token}`,
+              // Overwrite Axios's automatically set Content-Type
+              'Content-Type': 'application/json'
+            }},
+            
+    );
+   
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
 
 export {
    getEmpList,
@@ -517,6 +643,13 @@ export {
    login,
    getParentTreatment,
    getreatment,
-   createTreatmentPlan
+   createTreatmentPlan,
+   getTreatmentPlanList,
+   filterTreatmentPlanListStatus,
+   TreatmentPlanById,
+   getTeethById,
+   AllPatient,
+   PatientDetail,
+   PatientTP
   };
   

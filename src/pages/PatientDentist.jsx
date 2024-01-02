@@ -1,7 +1,6 @@
 
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import { FaMale } from "react-icons/fa";
-import { FaFemale } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
@@ -83,10 +82,11 @@ const EmpComponent = ({ emp, handleDeleteClick }) => {
 
 
 };
-const Patient = () => {
+const PatientDentist = () => {
     const {token} = useSelector(
         (state) => state.user
     );
+    const {DentistId} = useParams();
 
 
     const [currentPage, setCurrentPage] = React.useState(1);
@@ -169,17 +169,7 @@ const Patient = () => {
 
 
 
-    // useEffect(() => {
-
-
-    //     toggleDropdownGender();
-    // }, [filterGender]);
-
-    // useEffect(() => {
-
-
-    //     toggleDropdownRole();
-    // }, [filterRole]);
+   
 
     const handleDeleteClick = (e) => {
         // Open the delete confirmation modal
@@ -206,10 +196,7 @@ const Patient = () => {
 
     const itemsPerPage = 6;
 
-    // Assuming you have a state variable to track the current page
-
-
-    // Calculate the starting index based on the current page and itemsPerPage
+    
     const startIndex = (currentPage - 1) * itemsPerPage;
     const visibleEmp = employees?.slice(startIndex, startIndex + itemsPerPage);
 
@@ -382,6 +369,6 @@ const Patient = () => {
 
 
 };
-export default Patient;
+export default PatientDentist;
 
 
